@@ -1,11 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!doctype html>
-<html lang="zxx">
+<html>
+
 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>aranoz</title>
+  <title>aranaz</title>
   <link rel="icon" href="img/favicon.png">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -13,6 +16,8 @@
   <link rel="stylesheet" href="css/animate.css">
   <!-- owl carousel CSS -->
   <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <!-- nice select CSS -->
+  <link rel="stylesheet" href="css/nice-select.css">
   <!-- font awesome CSS -->
   <link rel="stylesheet" href="css/all.css">
   <!-- flaticon CSS -->
@@ -22,6 +27,7 @@
   <link rel="stylesheet" href="css/magnific-popup.css">
   <!-- swiper CSS -->
   <link rel="stylesheet" href="css/slick.css">
+  <link rel="stylesheet" href="css/price_rangs.css">
   <!-- style CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -33,7 +39,7 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                    <a class="navbar-brand" href="index.jsp"> <img src="img/logo.png" alt="logo"> </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -43,46 +49,46 @@
                     <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a>
+                                <a class="nav-link" href="index.jsp">Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+                                <a class="nav-link dropdown-toggle" href="blog.jsp" id="navbarDropdown_1"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Shop
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                    <a class="dropdown-item" href="category.html"> shop category</a>
-                                    <a class="dropdown-item" href="single-product.html">product details</a>
+                                    <a class="dropdown-item" href="category.jsp"> shop category</a>
+                                    <a class="dropdown-item" href="single-product.jsp">product details</a>
                                     
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
+                                <a class="nav-link dropdown-toggle" href="blog.jsp" id="navbarDropdown_3"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     pages
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                    <a class="dropdown-item" href="login.html"> login</a>
-                                    <a class="dropdown-item" href="tracking.html">tracking</a>
-                                    <a class="dropdown-item" href="checkout.html">product checkout</a>
-                                    <a class="dropdown-item" href="cart.html">shopping cart</a>
-                                    <a class="dropdown-item" href="confirmation.html">confirmation</a>
-                                    <a class="dropdown-item" href="elements.html">elements</a>
+                                    <a class="dropdown-item" href="login.jsp"> login</a>
+                                    <a class="dropdown-item" href="tracking.jsp">tracking</a>
+                                    <a class="dropdown-item" href="checkout.jsp">product checkout</a>
+                                    <a class="dropdown-item" href="cart.jsp">shopping cart</a>
+                                    <a class="dropdown-item" href="confirmation.jsp">confirmation</a>
+                                    <a class="dropdown-item" href="elements.jsp">elements</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"
+                                <a class="nav-link dropdown-toggle" href="blog.jsp" id="navbarDropdown_2"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     blog
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                    <a class="dropdown-item" href="blog.html"> blog</a>
-                                    <a class="dropdown-item" href="single-blog.html">Single blog</a>
+                                    <a class="dropdown-item" href="blog.jsp"> blog</a>
+                                    <a class="dropdown-item" href="single-blog.jsp">Single blog</a>
                                 </div>
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                                <a class="nav-link" href="contact.jsp">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -118,7 +124,7 @@
 </header>
   <!-- Header part end-->
 
-
+  <!--================Home Banner Area =================-->
   <!-- breadcrumb start-->
   <section class="breadcrumb breadcrumb_bg">
     <div class="container">
@@ -126,8 +132,8 @@
         <div class="col-lg-8">
           <div class="breadcrumb_iner">
             <div class="breadcrumb_iner_item">
-              <h2>Tracking Order</h2>
-              <p>Home <span>-</span> Tracking Order</p>
+              <h2>Order Confirmation</h2>
+              <p>Home <span>-</span> Order Confirmation</p>
             </div>
           </div>
         </div>
@@ -136,42 +142,123 @@
   </section>
   <!-- breadcrumb start-->
 
-  <!--================Tracking Box Area =================-->
-  <section class="tracking_box_area padding_top">
+  <!--================ confirmation part start =================-->
+  <section class="confirmation_part padding_top">
     <div class="container">
-      <div class="row align-items-center">
-        <!-- <div class="col-lg-6">
-              <div class="reacking_box_text text-center h-100">
-                <h2>New to our Shop?</h2>
-                <p>There are advances being made in science and technology
-                  everyday, and a good example of this is the</p>
-                  <a href="#" class="btn_2">Create an Account</a>
-              </div>
-            </div> -->
+      <div class="row">
         <div class="col-lg-12">
-          <div class="tracking_box_inner">
-            <p>To track your order please enter your Order ID in the box below and press the "Track" button. This was
-              given
-              to you on your receipt and in the confirmation email you should have received.</p>
-            <form class="row tracking_form" action="#" method="post" novalidate="novalidate">
-              <div class="col-md-12 form-group">
-                <input type="text" class="form-control" id="order" name="order" placeholder="Order ID">
-              </div>
-              <div class="col-md-12 form-group">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Billing Email Address">
-              </div>
-              <div class="col-md-12 form-group">
-                <button type="submit" value="submit" class="btn_3">Track Order</button>
-              </div>
-            </form>
+          <div class="confirmation_tittle">
+            <span>Thank you. Your order has been received.</span>
           </div>
         </div>
-
+        <div class="col-lg-6 col-lx-4">
+          <div class="single_confirmation_details">
+            <h4>order info</h4>
+            <ul>
+              <li>
+                <p>order number</p><span>: 60235</span>
+              </li>
+              <li>
+                <p>data</p><span>: Oct 03, 2017</span>
+              </li>
+              <li>
+                <p>total</p><span>: USD 2210</span>
+              </li>
+              <li>
+                <p>mayment methord</p><span>: Check payments</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 col-lx-4">
+          <div class="single_confirmation_details">
+            <h4>Billing Address</h4>
+            <ul>
+              <li>
+                <p>Street</p><span>: 56/8</span>
+              </li>
+              <li>
+                <p>city</p><span>: Los Angeles</span>
+              </li>
+              <li>
+                <p>country</p><span>: United States</span>
+              </li>
+              <li>
+                <p>postcode</p><span>: 36952</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 col-lx-4">
+          <div class="single_confirmation_details">
+            <h4>shipping Address</h4>
+            <ul>
+              <li>
+                <p>Street</p><span>: 56/8</span>
+              </li>
+              <li>
+                <p>city</p><span>: Los Angeles</span>
+              </li>
+              <li>
+                <p>country</p><span>: United States</span>
+              </li>
+              <li>
+                <p>postcode</p><span>: 36952</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="order_details_iner">
+            <h3>Order Details</h3>
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="2">Product</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th colspan="2"><span>Pixelstore fresh Blackberry</span></th>
+                  <th>x02</th>
+                  <th> <span>$720.00</span></th>
+                </tr>
+                <tr>
+                  <th colspan="2"><span>Pixelstore fresh Blackberry</span></th>
+                  <th>x02</th>
+                  <th> <span>$720.00</span></th>
+                </tr>
+                <tr>
+                  <th colspan="2"><span>Pixelstore fresh Blackberry</span></th>
+                  <th>x02</th>
+                  <th> <span>$720.00</span></th>
+                </tr>
+                <tr>
+                  <th colspan="3">Subtotal</th>
+                  <th> <span>$2160.00</span></th>
+                </tr>
+                <tr>
+                  <th colspan="3">shipping</th>
+                  <th><span>flat rate: $50.00</span></th>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th scope="col" colspan="3">Quantity</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-  <!--================End Tracking Box Area =================-->
+  <!--================ confirmation part end =================-->
 
   <!--::footer_part start::-->
   <footer class="footer_part">
@@ -299,5 +386,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <!-- custom js -->
   <script src="js/custom.js"></script>
 </body>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
 
 </html>
