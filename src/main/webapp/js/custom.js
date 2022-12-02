@@ -46,7 +46,7 @@
       autoplayHoverPause: true,
       autoplayTimeout: 5000,
       nav: true,
-      navText: ["next", "previous"],
+      navText: ["下一頁", "上一頁"],
       responsive: {
         0: {
           margin: 15,
@@ -83,7 +83,7 @@
       autoplayHoverPause: true,
       autoplayTimeout: 5000,
       nav: true,
-      navText: ["next", "previous"],
+      navText: ["下一頁", "上一頁"],
       smartSpeed: 1000,
       responsive: {
         0: {
@@ -147,7 +147,7 @@
     autoplayHoverPause: true,
     autoplayTimeout: 5000,
     nav: true,
-    navText: ["next", "previous"],
+    navText: ["下一頁", "上一頁"],
     smartSpeed: 1000,
     responsive: {
       0: {

@@ -33,7 +33,7 @@
                                                 Sofa</h1>
                                             <p>Incididunt ut labore et dolore magna aliqua quis ipsum
                                                 suspendisse ultrices gravida. Risus commodo viverra</p>
-                                            <a href="#" class="btn_2">buy now</a>
+                                            <a href="#" class="btn_2">立即購買</a>
                                         </div>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                                                 Sofa</h1>
                                             <p>Incididunt ut labore et dolore magna aliqua quis ipsum
                                                 suspendisse ultrices gravida. Risus commodo viverra</p>
-                                            <a href="#" class="btn_2">buy now</a>
+                                            <a href="#" class="btn_2">立即購買</a>
                                         </div>
                                     </div>
                                 </div>
