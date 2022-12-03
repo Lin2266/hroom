@@ -66,9 +66,10 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
 <!--                                         <a class="dropdown-item" href="login.jsp"> 登入|註冊</a> -->
 										<a class="dropdown-item" href="cart.jsp">購物車</a>
-                                        <a class="dropdown-item" href="tracking.jsp">訂單</a>
-                                        <a class="dropdown-item" href="checkout.jsp">產品結帳</a>
-                                        <a class="dropdown-item" href="confirmation.jsp">訂單明細</a>
+                                        <a class="dropdown-item" href="order.jsp">產品結帳</a>
+                                        <a class="dropdown-item" href="order_items.jsp">訂單明細</a>
+                                        <a class="dropdown-item" href="tracking.jsp">追蹤訂單</a>
+                                        <a class="dropdown-item" href="">修改會員資料</a>
                                         <a class="dropdown-item" href="elements.jsp">前端教學範例</a>
                                     </div>
                                 </li>
