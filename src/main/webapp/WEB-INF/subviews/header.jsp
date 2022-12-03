@@ -69,7 +69,7 @@
                                         <a class="dropdown-item" href="tracking.jsp">訂單</a>
                                         <a class="dropdown-item" href="checkout.jsp">產品結帳</a>
                                         <a class="dropdown-item" href="confirmation.jsp">訂單明細</a>
-                                        <a class="dropdown-item" href="elements.jsp">前端教學參考</a>
+                                        <a class="dropdown-item" href="elements.jsp">前端教學範例</a>
                                     </div>
                                 </li>
 <!--                                 <li class="nav-item dropdown"> -->
@@ -91,7 +91,7 @@
                         <div class="hearer_icon d-flex">
                             
 <!--                             <a href=""><i class="ti-heart"></i></a> -->
-                            <a class="" href="login.jsp"> 註冊 | 登入</a>
+                            <a class="nav-link" href="login.jsp"> 註冊 | 登入</a>
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <div class="dropdown cart">
                                 <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
