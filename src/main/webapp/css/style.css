@@ -2721,6 +2721,7 @@ ul {
   position: absolute;
   bottom: 0;
   right: 15px;
+  height:254px;
 }
 
 @media (max-width: 576px) {
