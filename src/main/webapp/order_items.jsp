@@ -10,8 +10,8 @@
         <div class="col-lg-8">
           <div class="breadcrumb_iner">
             <div class="breadcrumb_iner_item">
-              <h2>確認訂單</h2>
-              <p>首頁 <span>-</span> 確認訂單</p>
+              <h2>訂單明細</h2>
+              <p>首頁 <span>-</span> 訂單明細</p>
             </div>
           </div>
         </div>
