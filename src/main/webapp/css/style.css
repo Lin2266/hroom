@@ -141,13 +141,13 @@ a {
   text-decoration: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  color: #000;
 }
 
 /* line 88, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
 a:hover {
   outline: none;
   text-decoration: none;
-  color: #000;
 }
 
 /* line 94, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
