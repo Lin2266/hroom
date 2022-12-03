@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!--::footer_part start::-->
+
     <footer class="footer_part">
         <div class="container">
             <div class="row justify-content-around">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="copyright_part">
             <div class="container">
@@ -120,6 +120,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/mail-script.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="js/price_rangs.js"></script>
     <!-- custom js -->
     <script src="js/custom.js"></script>
 </body>
