@@ -1,128 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!doctype html>
-<html>
 
+<jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>aranoz</title>
-    <link rel="icon" href="img/favicon.png">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- animate CSS -->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <!-- nice select CSS -->
-    <link rel="stylesheet" href="css/nice-select.css">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="css/all.css">
-    <!-- flaticon CSS -->
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <!-- swiper CSS -->
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/price_rangs.css">
-    <!-- style CSS -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <!--::header part start::-->
-    <header class="main_menu home_menu">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.jsp"> <img src="img/logo.png" alt="logo"> </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="index.jsp">Home</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.jsp" id="navbarDropdown_1"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Shop
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="category.jsp"> shop category</a>
-                                        <a class="dropdown-item" href="single-product.jsp">product details</a>
-
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.jsp" id="navbarDropdown_3"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        pages
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="login.jsp"> login</a>
-                                        <a class="dropdown-item" href="tracking.jsp">tracking</a>
-                                        <a class="dropdown-item" href="checkout.jsp">product checkout</a>
-                                        <a class="dropdown-item" href="cart.jsp">shopping cart</a>
-                                        <a class="dropdown-item" href="confirmation.jsp">confirmation</a>
-                                        <a class="dropdown-item" href="elements.jsp">elements</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.jsp" id="navbarDropdown_2"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        blog
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="blog.jsp"> blog</a>
-                                        <a class="dropdown-item" href="single-blog.jsp">Single blog</a>
-                                    </div>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.jsp">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="hearer_icon d-flex">
-                            <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <a href=""><i class="ti-heart"></i></a>
-                            <div class="dropdown cart">
-                                <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-cart-plus"></i>
-                                </a>
-                                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <div class="single_product">
-    
-                                    </div>
-                                </div> -->
-
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <div class="search_input" id="search_input_box">
-            <div class="container ">
-                <form class="d-flex justify-content-between search-inner">
-                    <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                    <button type="submit" class="btn"></button>
-                    <span class="ti-close" id="close_search" title="Close Search"></span>
-                </form>
-            </div>
-        </div>
-    </header>
-    <!-- Header part end-->
 
     <!--================Home Banner Area =================-->
     <!-- breadcrumb start-->
@@ -150,24 +30,24 @@
                     <div class="left_sidebar_area">
                         <aside class="left_widgets p_filter_widgets">
                             <div class="l_w_title">
-                                <h3>Browse Categories</h3>
+                                <h3>產品目錄</h3>
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
                                     <li>
-                                        <a href="#">Frozen Fish</a>
+                                        <a href="#">精選方案</a>
+                                        <span>(3)</span>
+                                    </li>
+                                    <li>
+                                        <a href="#">沙發/桌子/椅子</a>
                                         <span>(250)</span>
                                     </li>
                                     <li>
-                                        <a href="#">Dried Fish</a>
+                                        <a href="#">床組/寢具</a>
                                         <span>(250)</span>
                                     </li>
                                     <li>
-                                        <a href="#">Fresh Fish</a>
-                                        <span>(250)</span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Meat Alternatives</a>
+                                        <a href="#">文創裝飾品</a>
                                         <span>(250)</span>
                                     </li>
                                     <li>
@@ -188,66 +68,50 @@
 
                         <aside class="left_widgets p_filter_widgets">
                             <div class="l_w_title">
-                                <h3>Product filters</h3>
+                                <h3>熱門品牌</h3>
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
                                     <li>
-                                        <a href="#">Apple</a>
+                                        <a href="#">涵潤 HamRu</a>
                                     </li>
                                     <li>
-                                        <a href="#">Asus</a>
+                                        <a href="#">Ikea</a>
                                     </li>
                                     <li class="active">
-                                        <a href="#">Gionee</a>
+                                        <a href="#">宜得利</a>
                                     </li>
                                     <li>
-                                        <a href="#">Micromax</a>
+                                        <a href="#">MR.Living 居家先生</a>
                                     </li>
                                     <li>
-                                        <a href="#">Samsung</a>
+                                        <a href="#">生活倉庫</a>
                                     </li>
                                 </ul>
-                                <ul class="list">
-                                    <li>
-                                        <a href="#">Apple</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Asus</a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="#">Gionee</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Micromax</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Samsung</a>
-                                    </li>
-                                </ul>
+                                
                             </div>
                         </aside>
 
                         <aside class="left_widgets p_filter_widgets">
                             <div class="l_w_title">
-                                <h3>Color Filter</h3>
+                                <h3>顏色分類</h3>
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
                                     <li>
-                                        <a href="#">Black</a>
+                                        <a href="#">白色</a>
                                     </li>
                                     <li>
-                                        <a href="#">Black Leather</a>
+                                        <a href="#">黑色</a>
                                     </li>
                                     <li class="active">
-                                        <a href="#">Black with red</a>
+                                        <a href="#">灰色</a>
                                     </li>
                                     <li>
-                                        <a href="#">Gold</a>
+                                        <a href="#">棕色</a>
                                     </li>
                                     <li>
-                                        <a href="#">Spacegrey</a>
+                                        <a href="#">其他</a>
                                     </li>
                                 </ul>
                             </div>
@@ -255,7 +119,7 @@
 
                         <aside class="left_widgets p_filter_widgets price_rangs_aside">
                             <div class="l_w_title">
-                                <h3>Price Filter</h3>
+                                <h3>價格預算</h3>
                             </div>
                             <div class="widgets_inner">
                                 <div class="range_item">
@@ -263,11 +127,11 @@
                                     <input type="text" class="js-range-slider" value="" />
                                     <div class="d-flex">
                                         <div class="price_text">
-                                            <p>Price :</p>
+                                            <p>價格 :</p>
                                         </div>
                                         <div class="price_value d-flex justify-content-center">
                                             <input type="text" class="js-input-from" id="amount" readonly />
-                                            <span>to</span>
+                                            <span>~</span>
                                             <input type="text" class="js-input-to" id="amount" readonly />
                                         </div>
                                     </div>
@@ -616,6 +480,3 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/price_rangs.js"></script>
     <!-- custom js -->
     <script src="js/custom.js"></script>
-</body>
-
-</html>

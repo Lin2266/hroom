@@ -7,6 +7,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="banner_slider owl-carousel">
+                    <!-- part1 start -->
                         <div class="single_banner_slider">
                             <div class="row">
                                 <div class="col-lg-5 col-md-8">
@@ -25,6 +26,7 @@
                                 </div>
                             </div>
                         </div><div class="single_banner_slider">
+                        <!-- part2 start -->
                             <div class="row">
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
@@ -41,7 +43,9 @@
                                     <img src="img/banner_img.png" alt="">
                                 </div>
                             </div>
-                        </div><div class="single_banner_slider">
+                        </div>
+                        <!-- part3 start -->
+                        <div class="single_banner_slider">
                             <div class="row">
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
