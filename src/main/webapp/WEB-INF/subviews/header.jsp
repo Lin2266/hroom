@@ -57,8 +57,6 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
                                         <a class="dropdown-item" href="category.jsp"> 商品分類</a>
-                                        <a class="dropdown-item" href="single-product.jsp">產品說明</a>
-                                        
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
