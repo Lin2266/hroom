@@ -10,8 +10,8 @@
         <div class="col-lg-8">
           <div class="breadcrumb_iner">
             <div class="breadcrumb_iner_item">
-              <h2>產品結帳</h2>
-              <p>Home <span>-</span> Shop Single</p>
+<!--               <h2>產品結帳</h2> -->
+<!--               <p>Home <span>-</span> Shop Single</p> -->
             </div>
           </div>
         </div>
@@ -19,11 +19,15 @@
     </div>
   </section>
   <!-- breadcrumb start-->
-
+	<nav class="breadcrumb">
+	  <a class="breadcrumb-item" href="#">首頁</a>
+	  <span class="breadcrumb-item active">產品結帳</span>
+	</nav>
+	
   <!--================Checkout Area =================-->
   <section class="checkout_area padding_top">
     <div class="container">
-      <div class="returning_customer">
+      <!-- <div class="returning_customer">
         <div class="check_title">
           <h2>
             Returning Customer?
@@ -65,7 +69,7 @@
         </div>
         <input type="text" placeholder="Enter coupon code" />
         <a class="tp_btn" href="#">Apply Coupon</a>
-      </div>
+      </div> -->
       <div class="billing_details">
         <div class="row">
           <div class="col-lg-8">

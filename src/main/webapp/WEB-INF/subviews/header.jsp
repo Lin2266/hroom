@@ -8,13 +8,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>HRoom</title>
-    <link rel="icon" href="img/favicon.png">
+    <link rel="icon" href="img/title_icon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- animate CSS -->
     <link rel="stylesheet" href="css/animate.css">
     <!-- owl carousel CSS -->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- nice select CSS -->
+  	<link rel="stylesheet" href="css/nice-select.css">
     <!-- font awesome CSS -->
     <link rel="stylesheet" href="css/all.css">
     <!-- flaticon CSS -->
@@ -24,6 +26,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
     <!-- swiper CSS -->
     <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/price_rangs.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -92,7 +95,7 @@
                         <div class="hearer_icon d-flex">
                             
 <!--                             <a href=""><i class="ti-heart"></i></a> -->
-                            <a class="nav-link" href="login.jsp"> 註冊 | 登入</a>
+                            <a class="" href="login.jsp"> 註冊 | 登入</a>
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <div class="dropdown cart">
                                 <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
