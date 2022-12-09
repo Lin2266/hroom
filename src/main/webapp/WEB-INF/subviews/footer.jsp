@@ -6,52 +6,47 @@
             <div class="row justify-content-around">
                 <div class="col-sm-6 col-lg-2">
                     <div class="single_footer_part">
-                        <h4>Top Products</h4>
+                        <h4>關於我們</h4>
                         <ul class="list-unstyled">
-                            <li><a href="">Managed Website</a></li>
-                            <li><a href="">Manage Reputation</a></li>
-                            <li><a href="">Power Tools</a></li>
-                            <li><a href="">Marketing Service</a></li>
+                            <li><a href="">認識涵潤</a></li>
+                            <li><a href="">交通資訊</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-2">
                     <div class="single_footer_part">
-                        <h4>Quick Links</h4>
+                        <h4>客服中心</h4>
                         <ul class="list-unstyled">
-                            <li><a href="">Jobs</a></li>
-                            <li><a href="">Brand Assets</a></li>
-                            <li><a href="">Investor Relations</a></li>
-                            <li><a href="">Terms of Service</a></li>
+                            <li><a href="">留言板</a></li>
+                            <li><a href="">電話</a></li>
+                            <li><a href="">email</a></li>
+                            <li><a href="">常見Q&A</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-2">
                     <div class="single_footer_part">
-                        <h4>Features</h4>
+                        <h4>相關服務</h4>
                         <ul class="list-unstyled">
-                            <li><a href="">Jobs</a></li>
-                            <li><a href="">Brand Assets</a></li>
-                            <li><a href="">Investor Relations</a></li>
-                            <li><a href="">Terms of Service</a></li>
+                            <li><a href="">裝潢目錄</a></li>
+                            <li><a href="">會員中心</a></li>
+                            <li><a href="">訂單查詢</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-2">
                     <div class="single_footer_part">
-                        <h4>Resources</h4>
+                        <h4>使用條款</h4>
                         <ul class="list-unstyled">
-                            <li><a href="">Guides</a></li>
-                            <li><a href="">Research</a></li>
-                            <li><a href="">Experts</a></li>
-                            <li><a href="">Agencies</a></li>
+                            <li><a href="">隱私政策</a></li>
+                            <li><a href="">Cookie政策</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="single_footer_part">
-                        <h4>Newsletter</h4>
-                        <p>Heaven fruitful doesn't over lesser in days. Appear creeping
+                        <h4>訂閱電子報</h4>
+                        <p>收到更多關於最新優惠的資訊!
                         </p>
                         <div id="mc_embed_signup">
                             <form target="_blank"
