@@ -105,34 +105,34 @@ input:focus {
 
 /* line 64, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
 .padding_top {
-  padding-top: 50px;
+  padding-top: 36px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 64, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
   .padding_top {
-    padding-top: 100px;
+    padding-top: 36px;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   /* line 64, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
   .padding_top {
-    padding-top: 70px;
+    padding-top: 36px;
   }
 }
 
 @media (max-width: 576px) {
   /* line 64, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
   .padding_top {
-    padding-top: 70px;
+    padding-top: 36px;
   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 64, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
   .padding_top {
-    padding-top: 70px;
+    padding-top: 36px;
   }
 }
 
@@ -2431,6 +2431,7 @@ ul {
   /*background-color: #ecfdff;*/
   background-image: url("../img/background1.png");
   overflow: hidden;
+  height: 580px;
 }
 
 /* line 7, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_banner.scss */
@@ -2543,11 +2544,14 @@ ul {
 
 /* line 72, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_banner.scss */
 .banner_part .owl-nav {
-  position: absolute;
-  right: -5%;
-  bottom: 0;
-  padding: 35px 80px;
-  background-color: #fff;
+ 	position: absolute;
+  right: 40%;
+  bottom: 154px;
+  padding: 17px 17px;
+  background-color: #ffffff59;
+}
+.owl-carousel {
+    margin-top: -118px;
 }
 
 @media (max-width: 991px) {
@@ -7497,6 +7501,11 @@ h6 {
 /* line 57, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_breadcrumb.scss */
 .breadcrumb {
   margin-bottom: 0px !important;
+  margin-top: 84px;
+}
+
+.pay.col-md-12 {
+    padding-left: 0px;
 }
 
 /**********************footer part css*******************/
