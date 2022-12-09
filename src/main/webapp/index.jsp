@@ -13,10 +13,10 @@
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
                                         <div class="banner_text_iner">
-                                            <h1>Wood & Cloth
-                                                Sofa</h1>
-                                            <p>Incididunt ut labore et dolore magna aliqua quis ipsum
-                                                suspendisse ultrices gravida. Risus commodo viverra</p>
+                                            <h1>12月最新商品</h1>
+                                            <h3>三人座沙發
+                                            <p>亞麻布／藍色／座椅長度114cm／座椅高度41cm</p>
+                                            </h3>                                            
                                             <a href="#" class="btn_2">立即購買</a>
                                         </div>
                                     </div>
@@ -31,10 +31,10 @@
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
                                         <div class="banner_text_iner">
-                                            <h1>Cloth & Wood
-                                                Sofa</h1>
-                                            <p>Incididunt ut labore et dolore magna aliqua quis ipsum
-                                                suspendisse ultrices gravida. Risus commodo viverra</p>
+                                            <h1>12月最新商品</h1>
+                                            <h3>三人座沙發
+                                            <p>亞麻布／藍色／座椅長度114cm／座椅高度41cm</p>
+                                            </h3>                                            
                                             <a href="#" class="btn_2">立即購買</a>
                                         </div>
                                     </div>
@@ -50,10 +50,10 @@
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
                                         <div class="banner_text_iner">
-                                            <h1>Wood & Cloth
-                                                Sofa</h1>
-                                            <p>Incididunt ut labore et dolore magna aliqua quis ipsum
-                                                suspendisse ultrices gravida. Risus commodo viverra</p>
+                                            <h1>12月最新商品</h1>
+                                            <h3>三人座沙發
+                                            <p>亞麻布／藍色／座椅長度114cm／座椅高度41cm</p>
+                                            </h3>                                            
                                             <a href="#" class="btn_2">立即購買</a>
                                         </div>
                                     </div>
@@ -94,11 +94,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section_tittle text-center">
-                        <h2>Featured Category</h2>
+                        <h2>精選設計專案</h2>
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center justify-content-between">
+            <div class="row align-items-center justify-content-center">
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>主推專案-小家庭</p>
@@ -115,14 +115,14 @@
                         <img src="img/feature/product1.png" alt="" height="70%" >
                     </div>
                 </div>
-                <div class="col-lg-5 col-sm-6">
-                    <div class="single_feature_post_text">
-                        <p>精選傢俱</p>
-                        <h3>Latest foam Sofa</h3>
-                        <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="img/feature/feature_3.png" alt="" >
-                    </div>
-                </div>
+<!--                 <div class="col-lg-5 col-sm-6"> -->
+<!--                     <div class="single_feature_post_text"> -->
+<!--                         <p>精選傢俱</p> -->
+<!--                         <h3>Latest foam Sofa</h3> -->
+<!--                         <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a> -->
+<!--                         <img src="img/feature/feature_3.png" alt="" > -->
+<!--                     </div> -->
+<!--                 </div> -->
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>奢華享受</p>
@@ -142,7 +142,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="section_tittle text-center">
-                        <h2>awesome <span>shop</span></h2>
+                        <h2>精選商品 <span>商城</span></h2>
                     </div>
                 </div>
             </div>
@@ -155,9 +155,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_1.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -165,9 +165,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_2.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -175,9 +175,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_3.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -185,9 +185,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_4.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -195,9 +195,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_5.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -205,9 +205,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_6.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -215,9 +215,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_7.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -225,9 +225,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_8.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -239,9 +239,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_1.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -249,9 +249,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_2.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -259,9 +259,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_3.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -269,9 +269,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_4.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -279,9 +279,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_5.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -289,9 +289,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_6.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -299,9 +299,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_7.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -309,9 +309,9 @@
                                     <div class="single_product_item">
                                         <img src="img/product/product_8.png" alt="">
                                         <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
+                                            <h4>餐椅</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -335,8 +335,8 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="offer_text">
-                        <h2>Weekly Sale on
-                            60% Off All Products</h2>
+                        <h2 align="center">本週促銷商品</h2>
+                        <p align="center">6折優惠</p>
                         <div class="date_countdown">
                             <div id="timer">
                                 <div id="days" class="date"></div>
@@ -349,7 +349,7 @@
                             <input type="text" class="form-control" placeholder="enter email address"
                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">book now</a>
+                                <a href="#" class="input-group-text btn_2" id="basic-addon2">馬上搶購</a>
                             </div>
                         </div>
                     </div>
@@ -365,7 +365,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="section_tittle text-center">
-                        <h2>Best Sellers <span>shop</span></h2>
+                        <h2>熱門商品 <span>商城</span></h2>
                     </div>
                 </div>
             </div>
@@ -375,35 +375,35 @@
                         <div class="single_product_item">
                             <img src="img/product/product_1.png" alt="">
                             <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
+                                <h4>餐椅</h4>
                                 <h3>$150.00</h3>
                             </div>
                         </div>
                         <div class="single_product_item">
                             <img src="img/product/product_2.png" alt="">
                             <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
+                                <h4>餐椅</h4>
                                 <h3>$150.00</h3>
                             </div>
                         </div>
                         <div class="single_product_item">
                             <img src="img/product/product_3.png" alt="">
                             <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
+                                <h4>餐椅</h4>
                                 <h3>$150.00</h3>
                             </div>
                         </div>
                         <div class="single_product_item">
                             <img src="img/product/product_4.png" alt="">
                             <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
+                                <h4>餐椅</h4>
                                 <h3>$150.00</h3>
                             </div>
                         </div>
                         <div class="single_product_item">
                             <img src="img/product/product_5.png" alt="">
                             <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
+                                <h4>餐椅</h4>
                                 <h3>$150.00</h3>
                             </div>
                         </div>
@@ -420,14 +420,14 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="subscribe_area_text text-center">
-                        <h5>Join Our Newsletter</h5>
-                        <h2>Subscribe to get Updated
-                            with new offers</h2>
+                        <h5>訂閱涵潤</h5>
+                        <h2>掌握最新商品資訊</h2>
+                        <h3>促銷商品不錯過！</h3>
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="enter email address"
                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">subscribe now</a>
+                                <a href="#" class="input-group-text btn_2" id="basic-addon2">訂閱</a>
                             </div>
                         </div>
                     </div>
