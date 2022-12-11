@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
-
-  <!-- breadcrumb start-->
-	<nav class="breadcrumb">
-	  <a class="breadcrumb-item" href="#">首頁</a>
-	  <span class="breadcrumb-item active">產品結帳</span>
-	</nav>
-	
+<jsp:include page="/WEB-INF/subviews/breadcrumb.jsp"></jsp:include>	
   <!--================Checkout Area =================-->
   <section class="checkout_area padding_top">
     <div class="container">
@@ -107,9 +101,6 @@
                   placeholder="備註"></textarea>
               </div>
               <button class="btn_3" type="submit">送出</button>
-<!--               <div class="col-md-12 form-group p_star">
-                <button class="genric-btn primary circle" type="submit">送出</button>
-              </div> -->
             </form>
           </div>
           <div class="col-lg-4">
@@ -118,7 +109,7 @@
               <ul class="list">
                 <li>
                   <a href="#">產品
-                    <span>單價</span>
+                    <span>價格</span>
                   </a>
                 </li>
                 <li>
@@ -146,46 +137,17 @@
                     <span>$2160.00</span>
                   </a>
                 </li>
-                <!-- <li>
-                  <a href="#">Shipping
-                    <span>Flat rate: $50.00</span>
+                <li>
+                  <a href="#">運費
+                    <span>$50.00</span>
                   </a>
-                </li> -->
+                </li>
                 <li>
                   <a href="#">總額
                     <span>$2210.00</span>
                   </a>
                 </li>
               </ul>
-              <!-- <div class="payment_item">
-                <div class="radion_btn">
-                  <input type="radio" id="f-option5" name="selector" />
-                  <label for="f-option5">貨到付款</label>
-                  <div class="check"></div>
-                </div>
-                <p>
-                  Please send a check to Store Name, Store Street, Store Town,
-                  Store State / County, Store Postcode.
-                </p>
-              </div>
-              <div class="payment_item active">
-                <div class="radion_btn">
-                  <input type="radio" id="f-option6" name="selector" />
-                  <label for="f-option6">超商取貨 </label>
-                  <img src="img/product/single-product/card.jpg" alt="" />
-                  <div class="check"></div>
-                </div>
-                <p>
-                  Please send a check to Store Name, Store Street, Store Town,
-                  Store State / County, Store Postcode.
-                </p>
-              </div>
-              <div class="creat_account">
-                <input type="checkbox" id="f-option4" name="selector" />
-                <label for="f-option4">I’ve read and accept the </label>
-                <a href="#">terms & conditions*</a>
-              </div>
-              <button class="btn_3" type="submit">送出</button> -->
             </div>
           </div>
         </div>

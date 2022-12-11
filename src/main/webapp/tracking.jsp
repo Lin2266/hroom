@@ -1,51 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
-
-
-  <!-- breadcrumb start-->
-  <section class="breadcrumb breadcrumb_bg">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="breadcrumb_iner">
-            <div class="breadcrumb_iner_item">
-              <h2>追蹤訂單</h2>
-              <p>Home <span>-</span> Tracking Order</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- breadcrumb start-->
+<jsp:include page="/WEB-INF/subviews/breadcrumb.jsp"></jsp:include>	
 
   <!--================Tracking Box Area =================-->
   <section class="tracking_box_area padding_top">
     <div class="container">
       <div class="row align-items-center">
-        <!-- <div class="col-lg-6">
-              <div class="reacking_box_text text-center h-100">
-                <h2>New to our Shop?</h2>
-                <p>There are advances being made in science and technology
-                  everyday, and a good example of this is the</p>
-                  <a href="#" class="btn_2">Create an Account</a>
-              </div>
-            </div> -->
         <div class="col-lg-12">
           <div class="tracking_box_inner">
-            <p>To track your order please enter your Order ID in the box below and press the "Track" button. This was
-              given
-              to you on your receipt and in the confirmation email you should have received.</p>
+            <p>要追蹤您的訂單進度請在下面輸入您的訂單ID跟信箱。</p>
             <form class="row tracking_form" action="#" method="post" novalidate="novalidate">
               <div class="col-md-12 form-group">
-                <input type="text" class="form-control" id="order" name="order" placeholder="Order ID">
+                <input type="text" class="form-control" id="order" name="order" placeholder="訂單ID">
               </div>
               <div class="col-md-12 form-group">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Billing Email Address">
+                <input type="email" class="form-control" id="email" name="email" placeholder="信箱">
               </div>
               <div class="col-md-12 form-group">
-                <button type="submit" value="submit" class="btn_3">Track Order</button>
+                <button type="submit" value="submit" class="btn_3">確定</button>
               </div>
             </form>
           </div>
