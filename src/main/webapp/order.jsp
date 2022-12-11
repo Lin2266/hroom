@@ -146,18 +146,18 @@
                     <span>$2160.00</span>
                   </a>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="#">Shipping
                     <span>Flat rate: $50.00</span>
                   </a>
-                </li>
+                </li> -->
                 <li>
                   <a href="#">總額
                     <span>$2210.00</span>
                   </a>
                 </li>
               </ul>
-              <div class="payment_item">
+              <!-- <div class="payment_item">
                 <div class="radion_btn">
                   <input type="radio" id="f-option5" name="selector" />
                   <label for="f-option5">貨到付款</label>
@@ -180,12 +180,12 @@
                   Store State / County, Store Postcode.
                 </p>
               </div>
-<!--               <div class="creat_account">
+              <div class="creat_account">
                 <input type="checkbox" id="f-option4" name="selector" />
                 <label for="f-option4">I’ve read and accept the </label>
                 <a href="#">terms & conditions*</a>
-              </div> -->
-              <button class="btn_3" type="submit">送出</button>
+              </div>
+              <button class="btn_3" type="submit">送出</button> -->
             </div>
           </div>
         </div>

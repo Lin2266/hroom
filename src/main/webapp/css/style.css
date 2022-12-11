@@ -522,6 +522,7 @@ ul {
   border: 1px solid #ff3368;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  margin: auto;
 }
 
 /* line 52, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_button.scss */
@@ -7430,10 +7431,17 @@ h6 {
 }
 
 /* line 5, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_breadcrumb.scss */
+/* line 57, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_breadcrumb.scss */
 .breadcrumb {
   position: relative;
   z-index: 1;
   text-align: left;
+  margin-bottom: 0px !important;
+  margin-top: 84px;
+}
+
+.breadcrumb a:hover {
+    color: #6fbcff;
 }
 
 /* line 10, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_breadcrumb.scss */
@@ -7496,12 +7504,6 @@ h6 {
 .breadcrumb .breadcrumb_iner .breadcrumb_iner_item span {
   margin: 0px 5px;
   font-size: 12px;
-}
-
-/* line 57, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_breadcrumb.scss */
-.breadcrumb {
-  margin-bottom: 0px !important;
-  margin-top: 84px;
 }
 
 .pay.col-md-12 {
