@@ -12,6 +12,8 @@
 	  uri = "訂單明細";
   }else if("tracking.jsp".equals(uri)){
 	  uri = "追蹤訂單";
+  }else if("contact.jsp".equals(uri)){
+      uri = "聯繫我們";
   }
   %>  
   

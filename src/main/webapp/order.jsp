@@ -8,99 +8,113 @@
       <div class="billing_details">
         <div class="row">
           <div class="col-lg-8">
-            <h3>購買人資料</h3>
+            <div class="row">
+              <h3>購買人資料</h3>
+            </div>
+
             <form class="row contact_form" action="#" method="post">
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="name" name="name" required/>
-                <span class="placeholder" data-placeholder="姓名"></span>
+              <div class="row payer">
+                <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" id="name" name="name" required/>
+                  <span class="placeholder" data-placeholder="姓名"></span>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" id="phone" name="phone" required/>
+                  <span class="placeholder" data-placeholder="電話"></span>
+                </div>
+                <div class="col-md-12 form-group p_star">
+                  <input type="text" class="form-control" id="email" name="email" required/>
+                  <span class="placeholder" data-placeholder="信箱"></span>
+                </div>
+                <div class="col-md-4 form-group p_star">
+                  <select class="country_select">
+                    <option value="1">縣市</option>
+                    <option value="2"></option>
+                  </select>
+                </div>
+                <div class="col-md-4 form-group p_star">
+                  <select class="country_select">
+                    <option value="1">鄉鎮市區</option>
+                    <option value="2"></option>
+                  </select>
+                </div>
+                <div class="col-md-4 form-group p_star">
+                  <input type="text" class="form-control circle" id="zip" name="zip" value="" disabled required/>
+                  <span class="placeholder" data-placeholder="郵遞區號"></span>
+                </div>
+                <div class="col-md-12 form-group p_star">
+                  <input type="text" class="form-control" id="add" name="add" required/>
+                  <span class="placeholder" data-placeholder="地址"></span>
+                </div>
+                <div class="col-md-12 form-group p_star">
+                   <label for="f-option3">付費方式</label>
+                   <div class="pay col-md-12 form-group p_star">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                      <label class="form-check-label" for="exampleRadios1">
+                          信用卡
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                      <label class="form-check-label" for="exampleRadios2">
+                          帳戶轉帳
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="phone" name="phone" required/>
-                <span class="placeholder" data-placeholder="電話"></span>
+              <div class="row">
+                <div class="col-md-12 form-group p_star">
+                  <input type="checkbox" id="f-option3" name="selector" />
+                   <label for="f-option3">收貨人與購買人不同請勾選，並填妥以下資料</label>
+                </div>
               </div>
-              <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="email" name="email" required/>
-                <span class="placeholder" data-placeholder="信箱"></span>
+              <div class="open-close-address">
+                <div class="row addressee">
+                  <div class="col-md-6 form-group p_star">
+                    <input type="text" class="form-control" id="name" name="name" required/>
+                    <span class="placeholder" data-placeholder="姓名"></span>
+                  </div>
+                  <div class="col-md-6 form-group p_star">
+                    <input type="text" class="form-control" id="phone" name="phone" required/>
+                    <span class="placeholder" data-placeholder="電話"></span>
+                  </div>
+                  <div class="col-md-12 form-group p_star">
+                    <input type="text" class="form-control" id="email" name="email" required/>
+                    <span class="placeholder" data-placeholder="信箱"></span>
+                  </div>
+                  <div class="col-md-4 form-group p_star">
+                    <select class="country_select">
+                      <option value="1">縣市</option>
+                      <option value="2"></option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 form-group p_star">
+                    <select class="country_select">
+                      <option value="1">鄉鎮市區</option>
+                      <option value="2"></option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 form-group p_star">
+                    <input type="text" class="form-control circle" id="zip" name="zip" value="" disabled required/>
+                    <span class="placeholder" data-placeholder="郵遞區號"></span>
+                  </div>
+                  <div class="col-md-12 form-group p_star">
+                    <input type="text" class="form-control" id="add" name="add" required/>
+                    <span class="placeholder" data-placeholder="地址"></span>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-4 form-group p_star">
-                <select class="country_select">
-                  <option value="1">縣市</option>
-                  <option value="2"></option>
-                </select>
-              </div>
-              <div class="col-md-4 form-group p_star">
-                <select class="country_select">
-                  <option value="1">鄉鎮市區</option>
-                  <option value="2"></option>
-                </select>
-              </div>
-              <div class="col-md-4 form-group p_star">
-                <input type="text" class="form-control circle" id="zip" name="zip" value="" disabled required/>
-                <span class="placeholder" data-placeholder="郵遞區號"></span>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="add" name="add" required/>
-                <span class="placeholder" data-placeholder="地址"></span>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                 <label for="f-option3">付費方式</label>
-                 <div class="pay col-md-12 form-group p_star">
-		              <div class="form-check form-check-inline">
-								  	<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-								  	<label class="form-check-label" for="exampleRadios1">
-								    		信用卡
-								  	</label>
-									</div>
-									<div class="form-check form-check-inline">
-									  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-									  <label class="form-check-label" for="exampleRadios2">
-									    	帳戶轉帳
-									  </label>
-									</div>
-								</div>
+
+              <div class="row message">
+                <div class="col-md-12 form-group">
+                  <textarea class="form-control" name="message" id="message" rows="1"
+                    placeholder="備註"></textarea>
+                </div>
+                <button class="btn_3" type="submit">送出</button>
               </div>
               
-              <div class="col-md-12 form-group p_star">
-                <input type="checkbox" id="f-option3" name="selector" />
-                 <label for="f-option3">收貨人與購買人不同請勾選，並填妥以下資料</label>
-              </div>
-               <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="name" name="name" required/>
-                <span class="placeholder" data-placeholder="姓名"></span>
-              </div>
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="phone" name="phone" required/>
-                <span class="placeholder" data-placeholder="電話"></span>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="email" name="email" required/>
-                <span class="placeholder" data-placeholder="信箱"></span>
-              </div>
-              <div class="col-md-4 form-group p_star">
-                <select class="country_select">
-                  <option value="1">縣市</option>
-                  <option value="2"></option>
-                </select>
-              </div>
-              <div class="col-md-4 form-group p_star">
-                <select class="country_select">
-                  <option value="1">鄉鎮市區</option>
-                  <option value="2"></option>
-                </select>
-              </div>
-              <div class="col-md-4 form-group p_star">
-                <input type="text" class="form-control circle" id="zip" name="zip" value="" disabled required/>
-                <span class="placeholder" data-placeholder="郵遞區號"></span>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="add" name="add" required/>
-                <span class="placeholder" data-placeholder="地址"></span>
-              </div>
-              <div class="col-md-12 form-group">
-                <textarea class="form-control" name="message" id="message" rows="1"
-                  placeholder="備註"></textarea>
-              </div>
-              <button class="btn_3" type="submit">送出</button>
             </form>
           </div>
           <div class="col-lg-4">

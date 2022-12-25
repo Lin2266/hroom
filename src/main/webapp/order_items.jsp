@@ -30,10 +30,13 @@
             <h4>購買人地址</h4>
             <ul>
               <li>
-                <p>新北市</p><span>: 56/8</span>
+                <p>縣市</p><span>: 新北市</span>
               </li>
               <li>
-                <p>汐止區</p><span>: Los Angeles</span>
+                <p>鄉鎮市區</p><span>: 汐止區</span>
+              </li>
+              <li>
+                <p>巷弄</p><span>: 新台五路一段1號</span>
               </li>
               <li>
                 <p>郵遞區號</p><span>: 36952</span>
@@ -46,10 +49,13 @@
             <h4>收件人地址</h4>
             <ul>
               <li>
-                <p>新北市</p><span>: 56/8</span>
+                <p>縣市</p><span>: 新北市</span>
               </li>
               <li>
-                <p>汐止區</p><span>: Los Angeles</span>
+                <p>鄉鎮市區</p><span>: 汐止區</span>
+              </li>
+              <li>
+                <p>巷弄</p><span>: 新台五路一段1號</span>
               </li>
               <li>
                 <p>郵遞區號</p><span>: 36952</span>

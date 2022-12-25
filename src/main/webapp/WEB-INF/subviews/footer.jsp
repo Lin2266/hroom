@@ -119,6 +119,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/price_rangs.js"></script>
     <!-- custom js -->
     <script src="js/custom.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

@@ -7466,6 +7466,24 @@ h6 {
   text-transform: capitalize;
 }
 
+.addressee,.payer {
+    padding-left: 0;  
+}
+
+.open-close-address{
+    display: none;
+}
+
+.contact-sendbtn a{
+  display: block;
+  margin: 0 auto;
+  width: 114px;
+}
+
+.message{
+  width: -webkit-fill-available;
+}
+
 @media (max-width: 576px) {
   /* line 19, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_breadcrumb.scss */
   .breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
