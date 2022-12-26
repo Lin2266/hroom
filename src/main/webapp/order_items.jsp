@@ -72,8 +72,8 @@
               <thead>
                 <tr>
                   <th scope="col" colspan="2">產品</th>
+                  <th scope="col">數量</th>
                   <th scope="col">價格</th>
-                  <th scope="col">單價</th>
                 </tr>
               </thead>
               <tbody>
