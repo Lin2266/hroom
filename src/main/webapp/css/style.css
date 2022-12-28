@@ -7474,6 +7474,22 @@ h6 {
     display: none;
 }
 
+div#twzipcode {
+  display: flex;
+}
+
+div#twzipcode2 {
+  display: flex;
+}
+
+select.city {
+  margin-right: auto;
+}
+
+select.county {
+  margin-right: auto;
+}
+
 .contact-sendbtn a{
   display: block;
   margin: 0 auto;
