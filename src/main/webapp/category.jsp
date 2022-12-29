@@ -3,24 +3,12 @@
 
 <!-- Header start -->
 <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/subviews/breadcrumb.jsp"></jsp:include>	
 <!-- Header end -->
 
     <!--================Home Banner Area =================-->
     <!-- breadcrumb start-->
-    <section class="breadcrumb breadcrumb_bg">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="breadcrumb_iner">
-                        <div class="breadcrumb_iner_item">
-                            <h2>Shop Category</h2>
-                            <p>Home <span>-</span> Shop Category</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!-- breadcrumb start-->
 
     <!--================Category Product Area =================-->

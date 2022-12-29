@@ -14,10 +14,14 @@
 	  uri = "追蹤訂單";
   }else if("contact.jsp".equals(uri)){
       uri = "聯繫我們";
+  }else if("category.jsp".equals(uri)){
+      uri = "商品分類";
+  }else if("cart.jsp".equals(uri)){
+      uri = "購物車";
   }
   %>  
   
 <nav class="breadcrumb">
-	<a class="breadcrumb-item" href="#">首頁</a> 
+	<a class="breadcrumb-item" href="./index.jsp">首頁</a> 
 	<span	class="breadcrumb-item active"><%= uri %></span>
 </nav>
