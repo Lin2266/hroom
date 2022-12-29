@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html>
 
@@ -157,9 +158,9 @@
                         <div class="login_part_form_iner">
                             <h3>Welcome Back ! <br>
                                 Please Sign in now</h3>
-                            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                            <form class="row contact_form" action="/login" method="post" novalidate="novalidate">
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="name" name="name" value=""
+                                    <input type="text" class="form-control" id="name" name="username" value=""
                                         placeholder="Username">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
@@ -171,6 +172,7 @@
                                         <input type="checkbox" id="f-option" name="selector">
                                         <label for="f-option">Remember me</label>
                                     </div>
+<%--                                       <p style="color: red;"><%=errorMessage%></p> --%>
                                     <button type="submit" value="submit" class="btn_3">
                                         log in
                                     </button>
