@@ -148,5 +148,5 @@
   <!--================End Checkout Area =================-->
   <!--::footer_part start::-->
   <jsp:include page="/WEB-INF/subviews/footer.jsp"/>
-  <script src="js/main.js"></script>
+  <script src="js/order.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.js"></script>
