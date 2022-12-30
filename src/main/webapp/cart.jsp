@@ -26,6 +26,8 @@
               </tr>
             </thead>
             <tbody>
+
+
               <tr>
                 <td>
                   <div class="d-flex">
@@ -48,47 +50,50 @@
                   <h5>$720.00</h5>
                 </td>
                 <td>
-                  <button type="button" class="deleteBtn" title="刪除">X</button>
+                  <button type="button" class="deleteBtn" data-toggle="tooltip" title="刪除">X</button>
                 </td>
               </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  <h5>小計</h5>
-                </td>
-                <td>
-                  <h5>$2160.00</h5>
-                </td>
-              </tr>
-              <tr class="shipping_area">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  <h5>運費</h5>
-                </td>
-                <td>
-                  <ul class="list">
-                    <li>
-                      <a href="#">免運費</a>
-                    </li>
-                  </ul>
-                </td>
-              </tr>
-              <tr class="bottom_button">
-                <td>
-                  <a class="btn_1" href="#">繼續購物</a>
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <a class="btn_1" href="#">進行結帳</a>
-                </td>
-              </tr>
+
             </tbody>
+            <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <h5>小計</h5>
+              </td>
+              <td>
+                <h5>$2160.00</h5>
+              </td>
+            </tr>
+            <tr class="shipping_area">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <h5>運費</h5>
+              </td>
+              <td>
+                <ul class="list">
+                  <li>
+                    <a href="#">免運費</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="bottom_button">
+              <td>
+                <a class="btn_1" href="#">繼續購物</a>
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <a class="btn_1" href="#">進行結帳</a>
+              </td>
+            </tr>
+            </tfoot>
           </table>
         </div>
         </div>
