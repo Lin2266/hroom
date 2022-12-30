@@ -17,24 +17,25 @@
           <table class="table">
             <thead>
               <tr>
+                <th></th>
                 <th scope="col">產品</th>
                 <th scope="col">單價</th>
                 <th scope="col">數量</th>
                 <th scope="col">總計</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="img/product/single-product/cart-1.jpg" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <p>Minimalistic shop for multipurpose use</p>
-                    </div>
+                  <div class="d-flex">
+                    <img src="img/product/single-product/cart-1.jpg" alt="" />
                   </div>
                 </td>
+                <td>
+                  <div class="media-body">
+                    <p>Minimalistic shop for multipurpose use</p>
+                  </div>
                 <td>
                   <h5>$360.00</h5>
                 </td>
@@ -43,57 +44,15 @@
                     <input type="number" id="typeNumber" class="form-control" value="1" min="1" max="10"/>
                   </div>
                 </td>
-                <td>
+                <td class="total">
                   <h5>$720.00</h5>
+                </td>
+                <td>
+                  <button type="button" class="deleteBtn" title="刪除">X</button>
                 </td>
               </tr>
               <tr>
-                <td>
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="img/product/single-product/cart-1.jpg" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <p>Minimalistic shop for multipurpose use</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <h5>$360.00</h5>
-                </td>
-                <td>
-                  <div class="form-outline">
-                    <input type="number" id="typeNumber" class="form-control" value="1" min="1" max="10"/>
-                  </div>
-                </td>
-                <td>
-                  <h5>$720.00</h5>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="img/product/single-product/cart-1.jpg" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <p>Minimalistic shop for multipurpose use</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <h5>$360.00</h5>
-                </td>
-                <td>
-                  <div class="form-outline">
-                    <input type="number" id="typeNumber" class="form-control" value="1" min="1" max="10"/>
-                  </div>
-                </td>
-                <td>
-                  <h5>$720.00</h5>
-                </td>
-              </tr>
-              <tr>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td>
@@ -104,6 +63,7 @@
                 </td>
               </tr>
               <tr class="shipping_area">
+                <td></td>
                 <td></td>
                 <td></td>
                 <td>
@@ -119,14 +79,11 @@
               </tr>
               <tr class="bottom_button">
                 <td>
-                  <a class="btn_1" href="#">修改購物車</a>
-                </td>
-                <td>
-
-                </td>
-                <td>
                   <a class="btn_1" href="#">繼續購物</a>
                 </td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>
                     <a class="btn_1" href="#">進行結帳</a>
                 </td>
