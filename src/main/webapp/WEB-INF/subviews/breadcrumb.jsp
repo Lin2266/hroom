@@ -3,8 +3,9 @@
 <!-- breadcrumb start-->
 	
 	<%   
-  String uri = request.getRequestURI();   
-  uri = uri.substring(uri.lastIndexOf("/")+1);   
+  String uri = request.getRequestURI(); 
+  uri = uri.substring(uri.lastIndexOf("/")+1);
+  String second = "";
   
   if("order.jsp".equals(uri)){
 	  uri = "商品結帳";
@@ -18,10 +19,16 @@
       uri = "商品分類";
   }else if("cart.jsp".equals(uri)){
       uri = "購物車";
-  }
+  }else if("single-product.jsp".equals(uri)){
+      uri = "商品資訊";
+      second = "y";
+  }    
   %>  
   
 <nav class="breadcrumb">
-	<a class="breadcrumb-item" href="./index.jsp">首頁</a> 
+	<a class="breadcrumb-item" href="./index.jsp">首頁</a>
+	<%if (second == "y") {%>
+	<a class="breadcrumb-item" href="./category.jsp">商品分類</a>
+	<%} %>  
 	<span	class="breadcrumb-item active"><%= uri %></span>
 </nav>
