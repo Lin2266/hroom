@@ -1,5 +1,7 @@
 package com.example.demo.domain;
 
+import java.util.Date;
+
 public class ProductBean {
 	private int id;
 	private String kind;
@@ -8,7 +10,13 @@ public class ProductBean {
 	private String color;
 	private String description;
 	private double cost;
+	private String width;
+	private String height;
+	private String depth;
+	private String weight;
+	private int delivery;
 	private int stock;
+	private Date datetime;
 
 	public int getId() {
 		return id;
@@ -66,11 +74,59 @@ public class ProductBean {
 		this.cost = cost;
 	}
 
+	public String getWidth() {
+		return width;
+	}
+
+	public void setWidth(String width) {
+		this.width = width;
+	}
+
+	public String getHeight() {
+		return height;
+	}
+
+	public void setHeight(String height) {
+		this.height = height;
+	}
+
+	public String getDepth() {
+		return depth;
+	}
+
+	public void setDepth(String depth) {
+		this.depth = depth;
+	}
+
+	public String getWeight() {
+		return weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+
+	public int getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(int delivery) {
+		this.delivery = delivery;
+	}
+
 	public int getStock() {
 		return stock;
 	}
 
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+
+	public Date getDatetime() {
+		return datetime;
+	}
+
+	public void setDatetime(Date datetime) {
+		this.datetime = datetime;
 	}
 }
