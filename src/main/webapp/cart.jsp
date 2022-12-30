@@ -39,10 +39,8 @@
                   <h5>$360.00</h5>
                 </td>
                 <td>
-                  <div class="product_count">
-                    <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                    <input class="input-number" type="text" value="1" min="0" max="10">
-                    <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
+                  <div class="form-outline">
+                    <input type="number" id="typeNumber" class="form-control" value="1" min="1" max="10"/>
                   </div>
                 </td>
                 <td>
@@ -64,10 +62,8 @@
                   <h5>$360.00</h5>
                 </td>
                 <td>
-                  <div class="product_count">
-                    <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                    <input class="input-number" type="text" value="1" min="0" max="10">
-                    <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
+                  <div class="form-outline">
+                    <input type="number" id="typeNumber" class="form-control" value="1" min="1" max="10"/>
                   </div>
                 </td>
                 <td>
@@ -89,10 +85,8 @@
                   <h5>$360.00</h5>
                 </td>
                 <td>
-                  <div class="product_count">
-                    <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                    <input class="input-number" type="text" value="1" min="0" max="10">
-                    <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
+                  <div class="form-outline">
+                    <input type="number" id="typeNumber" class="form-control" value="1" min="1" max="10"/>
                   </div>
                 </td>
                 <td>
