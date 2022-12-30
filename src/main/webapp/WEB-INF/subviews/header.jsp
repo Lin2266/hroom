@@ -96,15 +96,10 @@
                             <a class="" href="login.jsp"> 註冊 | 登入</a>
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <div class="dropdown cart">
-                                <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="dropdown-toggle" href="${pageContext.request.contextPath}/cart.jsp" id="navbarDropdown3">
                                     <i class="fas fa-cart-plus"></i>
                                 </a>
-                                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <div class="single_product">
-    
-                                    </div>
-                                </div> -->
+
                                 
                             </div>
                         </div>
