@@ -3961,7 +3961,10 @@ ul {
   box-shadow: -14.142px 14.142px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
-/* line 706, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
+.cart_area table{
+  text-align: center;
+}
+  /* line 706, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .cart_area .product_count {
   display: inline-block;
   position: relative;
@@ -4438,7 +4441,7 @@ ul {
 
 /* line 1149, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .cart_inner .table tbody tr.bottom_button td:last-child {
-  width: 60px;
+  width: 180px;
 }
 
 /* line 1153, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
