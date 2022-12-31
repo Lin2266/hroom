@@ -13,6 +13,7 @@ $(function(){
 
     })
 
+    // 顯示購物車清單
     showCart()
 
     $("#typeNumber").on("input",function (){
@@ -53,7 +54,6 @@ function  addCart(id,cost,name,imgUrl,shipping){
 
 function showCart(){
     let carts = JSON.parse(localStorage.getItem("cart"))
-
 
     if(carts){
         $(".main_menu .cart i").attr("data-cart-quantity",carts.length)
@@ -97,6 +97,7 @@ function showCart(){
 
 }
 
+// email 驗證
 function emailVerify(){
     //please input the test email to see is valid
     var strEmail = "foxfirejack@gmail.com";

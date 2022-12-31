@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
@@ -64,7 +65,7 @@
               <td></td>
               <td></td>
               <td>
-                <a class="btn_1 emailBtn" href="#">進行結帳</a>
+                  <a class="btn_1 emailBtn" href='${pageContext.request.contextPath}${sessionScope.user.account ne null ? "/order.jsp":"/login.jsp"}'>進行結帳</a>
               </td>
             </tr>
             </tfoot>
