@@ -59,13 +59,15 @@
             </tr>
             <tr class="bottom_button">
               <td>
+                <a class="btn_1" id="updateCart" href="#">修改購物車</a>
+              </td>
+              <td>
                 <a class="btn_1" href="${pageContext.request.contextPath}/category.jsp">繼續購物</a>
               </td>
               <td></td>
               <td></td>
-              <td></td>
               <td>
-                  <a class="btn_1 emailBtn" href='${pageContext.request.contextPath}${sessionScope.user.account ne null ? "/order.jsp":"/login.jsp"}'>進行結帳</a>
+                  <a class="btn_1" href='${pageContext.request.contextPath}${sessionScope.user.account ne null ? "/order.jsp":"/login.jsp"}'>進行結帳</a>
               </td>
             </tr>
             </tfoot>
