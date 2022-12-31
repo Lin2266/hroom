@@ -28,32 +28,6 @@
             <tbody>
 
 
-              <tr>
-                <td>
-                  <div class="d-flex">
-                    <img src="img/product/single-product/cart-1.jpg" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <div class="media-body">
-                    <p>Minimalistic shop for multipurpose use</p>
-                  </div>
-                <td>
-                  <h5>$360.00</h5>
-                </td>
-                <td>
-                  <div class="form-outline">
-                    <input type="number" id="typeNumber" class="form-control" value="1" min="1" max="10"/>
-                  </div>
-                </td>
-                <td class="total">
-                  <h5>$720.00</h5>
-                </td>
-                <td>
-                  <button type="button" class="deleteBtn" data-toggle="tooltip" title="刪除">X</button>
-                </td>
-              </tr>
-
             </tbody>
             <tfoot>
             <tr>
@@ -64,7 +38,7 @@
                 <h5>小計</h5>
               </td>
               <td>
-                <h5>$2160.00</h5>
+                <h5 class="subTotal"></h5>
               </td>
             </tr>
             <tr class="shipping_area">
@@ -84,13 +58,13 @@
             </tr>
             <tr class="bottom_button">
               <td>
-                <a class="btn_1" href="#">繼續購物</a>
+                <a class="btn_1" href="${pageContext.request.contextPath}/category.jsp">繼續購物</a>
               </td>
               <td></td>
               <td></td>
               <td></td>
               <td>
-                <a class="btn_1" href="#">進行結帳</a>
+                <a class="btn_1 emailBtn" href="#">進行結帳</a>
               </td>
             </tr>
             </tfoot>

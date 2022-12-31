@@ -2258,7 +2258,7 @@ ul {
   height: 14px;
   right: -8px;
   top: -8px;
-  content: "5";
+  content: attr(data-cart-quantity);
   text-align: center;
   line-height: 15px;
   font-size: 10px;
@@ -3977,18 +3977,22 @@ ul {
   overflow: hidden;
 }
 
-.cart_area .deleteBtn h5{
+.cart_area .deleteCartBtn h5{
   display: inline-block;
   margin-right: 20px;
 }
 
-.cart_area .deleteBtn{
+.cart_area .deleteCartBtn{
  border: none;
 }
 
-.cart_area .deleteBtn:hover{
+.cart_area .deleteCartBtn:hover{
   background-color: #007bff;
   color: white;
+}
+
+.cart_inner table tbody img{
+  height: 100px;
 }
 
 /* line 712, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */

@@ -1,5 +1,8 @@
 $(function(){
+    //  購物車刪除鈕提示
     $('[data-toggle="tooltip"]').tooltip();
+
+    // 增加購物車
     $(".add_cart").on("click",function (){
         let id = 1;
         let cost = $(this).prev().text()
@@ -10,43 +13,104 @@ $(function(){
 
     })
 
-    function  addCart(){
-        const  cart = {
-            id:id,
-            cost:cost,
-            name:name,
-            imgUrl:imgUrl
-        }
+    showCart()
 
-        localStorage.setItem("cart", JSON.stringify(cart));
-        const carts = JSON.parse(localStorage.getItem("cart"))
-        
-        let cartTr = `
+    $("#typeNumber").on("input",function (){
+        console.log("123")
+    })
+
+
+    $('.emailBtn').on("click",function (){
+
+    })
+
+})
+
+function  addCart(id,cost,name,imgUrl,shipping){
+    cost = cost.substring(1)
+    cost = parseFloat(cost).toFixed(2);
+    let  cart = {
+        id:id,
+        name:name,
+        cost:cost,
+        quantity:1,
+        imgUrl:imgUrl,
+        shipping:shipping
+    }
+
+    let carts = JSON.parse(localStorage.getItem("cart"))
+    console.log(carts)
+    if(carts){ // 若存在
+        carts.unshift(cart); // [{}, {}]
+    }else{ // 若不存在
+        carts = [cart];
+    }
+
+    localStorage.setItem("cart", JSON.stringify(carts));
+
+}
+
+
+function showCart(){
+    let carts = JSON.parse(localStorage.getItem("cart"))
+    console.log(typeof  carts.length.toString())
+    // $(".main_menu .cart i").data("cartQuantity",carts.length.toString())
+    $(".main_menu .cart i").prop("data-cart-quantity",carts.length)
+    // console.log($(".main_menu .cart i").data("cartQuantity",carts.length.toString()))
+    console.log($(".main_menu .cart i").prop("data-cart-quantity"))
+    $(".main_menu .cart i").data("cartQuantity")
+    if(carts){
+        let cartList = "";
+        let total =0;
+        $.each(carts,function (index,item){
+            total +=  item.cost * item.quantity;
+
+            cartList += `
         <tr>
                 <td>
                   <div class="d-flex">
-                    <img src="img/product/single-product/cart-1.jpg" alt="" />
+                    <img src="${item.imgUrl}" alt="" />
                   </div>
                 </td>
                 <td>
                   <div class="media-body">
-                    <p>Minimalistic shop for multipurpose use</p>
+                    <p>${item.name}</p>
                   </div>
                 <td>
-                  <h5>$360.00</h5>
+                  <h5>${item.cost}</h5>
                 </td>
                 <td>
                   <div class="form-outline">
-                    <input type="number" id="typeNumber" class="form-control" value="1" min="1" max="10"/>
+                    <input type="number" id="typeNumber" class="form-control" value="${item.quantity}" min="1" max="10"/>
                   </div>
                 </td>
                 <td class="total">
-                  <h5>$720.00</h5>
+                  <h5>${(item.cost * item.quantity).toFixed(2)}</h5>
                 </td>
                 <td>
-                  <button type="button" class="deleteBtn" data-toggle="tooltip" title="刪除">X</button>
+                  <button type="button" class="deleteCartBtn" data-toggle="tooltip" title="刪除">X</button>
                 </td>
               </tr>
         `
+        })
+
+        $(".cart_inner table tbody").append(cartList)
+        $(".cart_inner table tfoot .subTotal").html(total.toFixed(2))
     }
-})
+
+}
+
+function emailVerify(){
+    //please input the test email to see is valid
+    var strEmail = "foxfirejack@gmail.com";
+    console.log(typeof  strEmail)
+    //Regular expression Testing
+    emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+
+    //validate ok or not
+    if(strEmail.search(emailRule)!= -1){
+        alert("true");
+    }else {
+        alert("false");
+    }
+}
