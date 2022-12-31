@@ -53,13 +53,10 @@ function  addCart(id,cost,name,imgUrl,shipping){
 
 function showCart(){
     let carts = JSON.parse(localStorage.getItem("cart"))
-    console.log(typeof  carts.length.toString())
-    // $(".main_menu .cart i").data("cartQuantity",carts.length.toString())
-    $(".main_menu .cart i").prop("data-cart-quantity",carts.length)
-    // console.log($(".main_menu .cart i").data("cartQuantity",carts.length.toString()))
-    console.log($(".main_menu .cart i").prop("data-cart-quantity"))
-    $(".main_menu .cart i").data("cartQuantity")
+
+
     if(carts){
+        $(".main_menu .cart i").attr("data-cart-quantity",carts.length)
         let cartList = "";
         let total =0;
         $.each(carts,function (index,item){

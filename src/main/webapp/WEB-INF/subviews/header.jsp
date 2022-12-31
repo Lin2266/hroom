@@ -97,7 +97,7 @@
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <div class="dropdown cart">
                                 <a class="dropdown-toggle" href="${pageContext.request.contextPath}/cart.jsp" id="navbarDropdown3">
-                                    <i class="fas fa-cart-plus" data-cart-quantity=""></i>
+                                    <i class="fas fa-cart-plus" data-cart-quantity="0"></i>
                                 </a>
 
                                 
