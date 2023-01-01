@@ -2,9 +2,6 @@ $(function(){
     // 顯示購物車清單
     showCart()
 
-    //  購物車刪除鈕提示
-    $('.deleteCartBtn').tooltip();
-
     // 增加購物車
     // 測試用id
     let id = 1
@@ -18,13 +15,41 @@ $(function(){
         id++;
     })
 
+    //  購物車刪除鈕提示
+    $('.deleteCartBtn').tooltip();
 
+    // 刪除購物車
+    $(".deleteCartBtn").on("click",function (){
+        let id = $(this).parent().prev().prev().find("input").data("id")
+        let carts = JSON.parse( localStorage.getItem("cart"))
+        carts =  carts.filter((item) => item.id !== id);
+        localStorage.setItem("cart", JSON.stringify(carts));
+        location.reload()
+    })
 
     // 增加購物車產品數量
     $(".quantity").on("input",function (){
-        console.log($(this).val())
-        console.log($(this).data("id"))
+        let sum =0.0;
+        let count = 0.0;
+        let subtotal =0.0;
+        let quantity = $(this).val()
+        let total = $(this).parents().parents().next().children("h5")
+        let cost = $(this).parents().parents().prev().children().html()
+        let subTotal = $(this).parents("tbody").next("tfoot").children("tr:nth-child(1)").children("td:last-child").children("h5")
+        cost = parseFloat(cost).toFixed(2)
+        quantity = parseFloat(quantity).toFixed(2)
+        subtotal = parseFloat(subTotal.html())
+
+        // 單價*數量 = 總額
+        sum = cost * quantity
+        total.html(parseFloat(sum).toFixed(2).toString())
+        // 總額 - 單價 = 新增的價額
+        // count = sum - cost
+        // subtotal += count
+        // subTotal.html(parseFloat(subtotal).toFixed(2))
+
         id = $(this).data("id")
+        showCart()
     })
 
     $("#updateCart").on("click",function (){
@@ -37,6 +62,8 @@ $(function(){
     })
 
 })
+
+
 
 function  addCart(id,cost,name,imgUrl,shipping){
     cost = cost.substring(1)
@@ -63,6 +90,7 @@ function  addCart(id,cost,name,imgUrl,shipping){
 
 
 function showCart(){
+    $(".cart_inner table tbody").html("")
     let carts = JSON.parse(localStorage.getItem("cart"))
 
     if(carts){
