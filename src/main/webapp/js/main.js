@@ -4,15 +4,15 @@ $(function(){
 
     // 增加購物車
     // 測試用id
-    let id = 1
+    let AutoId = 1
     $(".add_cart").on("click",function (){
 
         let cost = $(this).prev().text()
         let name = $(this).prev().prev().text()
         let imgUrl = $(this).parents(".single_product_item").children("img").prop("src")
 
-        addCart(id,cost,name,imgUrl)
-        id++;
+        addCart(AutoId,cost,name,imgUrl)
+        AutoId++;
     })
 
     //  購物車刪除鈕提示
@@ -28,33 +28,45 @@ $(function(){
     })
 
     // 增加購物車產品數量
+    let id = 0;
+    let quantity = 0;
     $(".quantity").on("input",function (){
-        let sum =0.0;
-        let count = 0.0;
-        let subtotal =0.0;
-        let quantity = $(this).val()
-        let total = $(this).parents().parents().next().children("h5")
-        let cost = $(this).parents().parents().prev().children().html()
-        let subTotal = $(this).parents("tbody").next("tfoot").children("tr:nth-child(1)").children("td:last-child").children("h5")
-        cost = parseFloat(cost).toFixed(2)
-        quantity = parseFloat(quantity).toFixed(2)
-        subtotal = parseFloat(subTotal.html())
+        quantity = $(this).val()
+        id = $(this).data("id")
+        console.log(id)
+        // let sum =0.0;
+        // let count = 0.0;
+        // let subtotal =0.0;
+
+        // let total = $(this).parents().parents().next().children("h5")
+        // let cost = $(this).parents().parents().prev().children().html()
+        // let subTotal = $(this).parents("tbody").next("tfoot").children("tr:nth-child(1)").children("td:last-child").children("h5")
+        // cost = parseFloat(cost).toFixed(2)
+        // quantity = parseFloat(quantity).toFixed(2)
+        // subtotal = parseFloat(subTotal.html())
 
         // 單價*數量 = 總額
-        sum = cost * quantity
-        total.html(parseFloat(sum).toFixed(2).toString())
+        // sum = cost * quantity
+        // total.html(parseFloat(sum).toFixed(2).toString())
         // 總額 - 單價 = 新增的價額
         // count = sum - cost
         // subtotal += count
         // subTotal.html(parseFloat(subtotal).toFixed(2))
 
-        id = $(this).data("id")
-        showCart()
+
     })
 
     $("#updateCart").on("click",function (){
         console.log(" 更新購物車:產品編號 "+ id)
-        let id = localStorage.getItem("cart")
+        let carts = JSON.parse( localStorage.getItem("cart"))
+        carts.forEach(function (cart,i){
+            if(carts[i].id == id){
+                carts[i].quantity = parseInt(quantity)
+                console.log("數量更改為:" + carts[i].quantity)
+            }
+        })
+        localStorage.setItem("cart", JSON.stringify(carts));
+        location.reload()
     })
 
     $('.emailBtn').on("click",function (){
