@@ -39,16 +39,16 @@ public class InitServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		Connection conn = JdbcUtils.getConnection();
 		
-		if (conn != null) {
+		if (conn != null) {		
 			System.out.println("DB connection ok");
 		}else {
 			System.out.println("DB connection fail");
 		}
-		
 		String sqlcmd = "select * from products;";
-		System.out.println(sqlcmd);
+		//System.out.println(sqlcmd);
 		try {
 			request.setAttribute("rtnList", queryAllData(conn, sqlcmd));
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
@@ -92,7 +92,7 @@ public class InitServlet extends HttpServlet {
 					String ColumnName = rsmd.getColumnLabel(i);
 					String ColumnValue = Objects.toString(rs.getString(ColumnName), "");
 					detail.put(ColumnName, ColumnValue);
-					System.out.println("key: "+ ColumnName +"/ item: "+ ColumnValue);
+					//System.out.println("key: "+ ColumnName +"/ item: "+ ColumnValue);
 				}
 				resultList.add(detail);
 			}
