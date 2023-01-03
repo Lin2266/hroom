@@ -36,18 +36,28 @@
 							<div class="col-lg-5 col-md-8">
 								<div class="banner_text">
 									<div class="banner_text_iner">
-										<h1>12月最新商品</h1>
-										<h3>
-											三人座沙發
-											<p>亞麻布／藍色／座椅長度114cm／座椅高度41cm</p>
-										</h3>
-										<a href="#" class="btn_2">立即購買</a>
+										<table border="1">
+											<c:forEach items="${rtnList}" var="ListItem">
+												<tr>
+													<td>${ListItem.id}</td>
+													<td>${ListItem.kind}</td>
+													<td>${ListItem.brand}</td>
+													<td>${ListItem.name}</td>
+													<td>${ListItem.color}</td>
+													<td>${ListItem.width}</td>
+													<td>${ListItem.height}</td>
+													<td>${ListItem.depth}</td>
+													<td>${ListItem.weight}</td>
+													<td>${ListItem.delivery}</td>
+													<td>${ListItem.stock}</td>
+													<td>${ListItem.date}</td>
+												</tr>
+											</c:forEach>
+										</table>
 									</div>
 								</div>
 							</div>
-							<div class="banner_img d-none d-lg-block">
-								<img src="img/banner_img.png" alt="">
-							</div>
+							<div class="banner_img d-none d-lg-block"></div>
 						</div>
 					</div>
 					<!-- part3 start -->
@@ -145,36 +155,18 @@
 	</div>
 </section>
 <!-- upcoming_event part start-->
-<table border="1">
-	<c:forEach items="${rtnList}" var="ListItem">
-		<tr>
-			<td>${ListItem.id}</td>
-			<td>${ListItem.kind}</td>
-			<td>${ListItem.brand}</td>
-			<td>${ListItem.name}</td>
-			<td>${ListItem.color}</td>
-			<td>${ListItem.width}</td>
-			<td>${ListItem.height}</td>
-			<td>${ListItem.depth}</td>
-			<td>${ListItem.weight}</td>
-			<td>${ListItem.delivery}</td>
-			<td>${ListItem.stock}</td>
-			<td>${ListItem.date}</td>
-		</tr>
-	</c:forEach>
-</table>
 <!-- product_list start-->
 <section class="product_list section_padding">
 	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-12">
-				<div class="section_tittle text-center">
-					<h2>
-						精選商品 <span>商城</span>
-					</h2>
-				</div>
-			</div>
-		</div>
+<!-- 				<div class="row justify-content-center"> -->
+<!-- 					<div class="col-lg-12"> -->
+<!-- 						<div class="section_tittle text-center"> -->
+<!-- 							<h2> -->
+<!-- 								精選商品 <span>商城</span> -->
+<!-- 							</h2> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="product_list_slider owl-carousel">

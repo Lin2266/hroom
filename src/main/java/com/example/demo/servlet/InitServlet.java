@@ -54,6 +54,7 @@ public class InitServlet extends HttpServlet {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 	}
 
