@@ -82,7 +82,14 @@ public class LoginServlet extends HttpServlet {
         Member member = new Member();
         member.setId(rs.getInt("member_id"));
         member.setName(rs.getString("name"));
+        member.setPhone(rs.getString("phone"));
         member.setEmail(rs.getString("email"));
+        member.setCity(rs.getString("city"));
+        member.setCountry(rs.getString("country"));
+        member.setZipcode(rs.getString("zipcode"));
+        member.setAddress(rs.getString("address"));
+        
+        
         // Set any other member data you want to retrieve
         account.setMember(member);
         return account;
