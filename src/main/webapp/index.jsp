@@ -423,6 +423,7 @@
 								<h3>$ <span>${ListItem.cost}</span></h3>
 <!-- 								<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
 								<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
+								<input type="hidden" class="productId" value="${ListItem.id}">
 							</div>
 						</div>
 					</c:forEach>
