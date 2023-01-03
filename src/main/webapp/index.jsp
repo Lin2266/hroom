@@ -180,7 +180,7 @@
 											alt="">
 										<div class="single_product_text">
 											<h4>${ListItem.name}</h4>
-											<h3>$ ${ListItem.cost}</h3>
+											<h3>$ <span>${ListItem.cost}</span></h3>
 											<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
 							            	<input type="hidden" class="productId" value="${ListItem.id}">
 										</div>
