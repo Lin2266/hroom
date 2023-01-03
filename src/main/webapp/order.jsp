@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/subviews/breadcrumb.jsp"></jsp:include>
 
-<jsp:include page="/WEB-INF/subviews/breadcrumb.jsp"></jsp:include>	
   <!--================Checkout Area =================-->
   <section class="checkout_area padding_top">
     <div class="container">
@@ -16,24 +16,22 @@
             <form class="row contact_form" action="#" method="post">
               <div class="row payer">
                 <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="name" name="name" required/>
-                  <span class="placeholder" data-placeholder="姓名"></span>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="姓名"  value="${sessionScope.user.member.name}" readonly/>
                 </div>
                 <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="phone" name="phone" required/>
-                  <span class="placeholder" data-placeholder="電話"></span>
+                  <input type="text" class="form-control" id="phone" name="phone" placeholder="電話" value="${sessionScope.user.member.phone}" readonly/>
                 </div>
                 <div class="col-md-12 form-group p_star">
-                  <input type="text" class="form-control" id="email" name="email" required/>
-                  <span class="placeholder" data-placeholder="信箱"></span>
+                  <input type="text" class="form-control" id="email" name="email" placeholder="信箱" value="${sessionScope.user.member.email}" readonly/>
                 </div>
                 <div class="col-md-12 form-group">
-                  <div id="twzipcode"></div>
+                  <div id="twzipcode">
+                    <input id="city" value="${sessionScope.user.member.city}" hidden>
+                    <input id="county" value="${sessionScope.user.member.country}" hidden>
+                  </div>
                 </div>
-
                 <div class="col-md-12 form-group p_star">
-                  <input type="text" class="form-control" id="address" name="address" required/>
-                  <span class="placeholder" data-placeholder="地址"></span>
+                  <input type="text" class="form-control" id="address" name="address" placeholder="地址" value="${sessionScope.user.member.address}" readonly/>
                 </div>
                 <div class="col-md-12 form-group p_star">
                    <label for="f-option3">付費方式</label>
@@ -62,24 +60,19 @@
               <div class="open-close-address">
                 <div class="row addressee">
                   <div class="col-md-6 form-group p_star">
-                    <input type="text" class="form-control" id="name" name="name" required/>
-                    <span class="placeholder" data-placeholder="姓名"></span>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="姓名" required/>
                   </div>
                   <div class="col-md-6 form-group p_star">
-                    <input type="text" class="form-control" id="phone" name="phone" required/>
-                    <span class="placeholder" data-placeholder="電話"></span>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="電話" required/>
                   </div>
                   <div class="col-md-12 form-group p_star">
-                    <input type="text" class="form-control" id="email" name="email" required/>
-                    <span class="placeholder" data-placeholder="信箱"></span>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="信箱" required/>
                   </div>
                   <div class="col-md-12 form-group">
                   	<div id="twzipcode2"></div>
                   </div>
-                
                   <div class="col-md-12 form-group p_star">
-                    <input type="text" class="form-control" id="address" name="address" required/>
-                    <span class="placeholder" data-placeholder="地址"></span>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="地址" required/>
                   </div>
                 </div>
               </div>
@@ -96,49 +89,7 @@
           </div>
           <div class="col-lg-4">
             <div class="order_box">
-              <h2>您的訂單</h2>
-              <ul class="list">
-                <li>
-                  <a>產品
-                    <span>價格</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Fresh Blackberry
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Fresh Tomatoes
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Fresh Brocoli
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
-                  </a>
-                </li>
-              </ul>
-              <ul class="list list_2">
-                <li>
-                  <a>小計
-                    <span>$2160.00</span>
-                  </a>
-                </li>
-                <li>
-                  <a>運費
-                    <span>$50.00</span>
-                  </a>
-                </li>
-                <li>
-                  <a>總額
-                    <span>$2210.00</span>
-                  </a>
-                </li>
-              </ul>
+
             </div>
           </div>
         </div>

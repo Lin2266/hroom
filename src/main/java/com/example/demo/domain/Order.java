@@ -17,7 +17,7 @@ public class Order {
 	private int parmentMethod;
 	private int paystate;
 	private int memberId;
-	private int freight;
+	private int shipping;
 	
 	
 	public int getId() {
@@ -104,11 +104,11 @@ public class Order {
 	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
-	public int getFreight() {
-		return freight;
+	public int getShipping() {
+		return shipping;
 	}
-	public void setFreight(int freight) {
-		this.freight = freight;
+	public void setShipping(int shipping) {
+		this.shipping = shipping;
 	}
 	
 	

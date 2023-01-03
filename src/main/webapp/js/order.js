@@ -1,17 +1,77 @@
 $(function(){
+
 		// 購買人地址選單
+	let county = $("#county")
+	let city = $("#city")
+
 	$("#twzipcode").twzipcode({
 		"css": ["city col-md-3 form-control", "county col-md-3 form-control", "zipCode col-md-3 form-control"],
 		"countyName": "city", // 指定城市 select name
-		"districtName": "county" // 指定地區 select name
+		"districtName": "county", // 指定地區 select name
+		"readonly": true,
+		'countySel': city.val(),
+		'districtSel': county.val(),
 	});
+
+	$("#twzipcode select").prop("disabled",true)
 
 	// 收貨人地址選單
 	$("#twzipcode2").twzipcode({
 		"css": ["city col-md-3 form-control", "county col-md-3 form-control", "zipCode col-md-3 form-control"],
 		"countyName": "receiverCity", // 指定城市 select name
-		"districtName": "receiverCounty" // 指定地區 select name
+		"districtName": "receiverCounty", // 指定地區 select name
+		"readonly": true,
 	});
+
+	function order(){
+		let carts = JSON.parse(localStorage.getItem("cart"))
+		let total =0;
+		let orderList = `
+			 <h2>您的訂單</h2>
+              <ul class="list">
+                <li>
+                  <a>產品
+                    <span>價格</span>
+                  </a>
+                </li>
+                `
+		carts.forEach(function (cart){
+			total += cart.cost * cart.quantity;
+
+			orderList +=`
+                <li>
+                  <a>${cart.name}
+                    <span class="middle">x ${cart.quantity}</span>
+                    <span class="last">$${cart.cost}</span>
+                  </a>
+                </li>
+                `
+		})
+
+				orderList +=`
+              </ul>
+              <ul class="list list_2">
+                <li>
+                  <a>小計
+                    <span>$${total}</span>
+                  </a>
+                </li>
+                <li>
+                  <a>運費
+                    <span>$50.00</span>
+                  </a>
+                </li>
+                <li>
+                  <a>總額
+                    <span>$${total}</span>
+                  </a>
+                </li>
+              </ul>
+		`
+		$(".order_box").html(orderList)
+	}
+
+	order()
 
 	// 購買人跟收貨人不同勾選
 	$("#checkReceiver").on("click",function(){
@@ -29,53 +89,8 @@ $(function(){
 
 	// 送出訂單
 	$("#OrderSub").on("click",function (){
-		let name = $("#name");
-		let phone = $("#phone");
-		let email = $("#email");
-		let city = $("#twzipcode .city :selected");
-		let county = $("#twzipcode .county :selected") ;
-		let zipCode = $("#twzipcode .zipCode") ;
-		let address = $("#address");
 
-		if(name.val() == ""){
-			alert("購買人姓名不得為空")
-			name.focus();
-			return;
-		}
-
-		if(phone.val() == ""){
-			alert("購買人電話不得為空")
-			phone.focus();
-			return;
-		}
-
-		if(email.val() == ""){
-			alert("購買人信箱不得為空")
-			email.focus();
-			return;
-		}
-
-		if(city.val() == ""){
-			alert("縣市不得為空")
-			return false;
-		}
-
-		if(county.val() == ""){
-			alert("鄉鎮市區不得為空")
-			return false;
-		}
-
-		if(zipCode.val() == ""){
-			alert("郵遞區號不得為空")
-			return false;
-		}
-
-		if(address.val() == ""){
-			alert("購買人地址不得為空")
-			address.focus();
-			return;
-		}
-
+		// 收貨人驗證
 		if($("#checkReceiver").prop("checked")){
 			let receiverName = $("#receiverName");
 			let receiverPhone = $("#receiverPhone");

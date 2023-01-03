@@ -3,16 +3,13 @@ $(function(){
     showCart()
 
     // 增加購物車
-    // 測試用id
-    let AutoId = 1
     $(".add_cart").on("click",function (){
-
-        let cost = $(this).prev().text()
+        let productId = $(this).next().val()
+        let cost = $(this).prev().children().text()
         let name = $(this).prev().prev().text()
         let imgUrl = $(this).parents(".single_product_item").children("img").prop("src")
-
-        addCart(AutoId,cost,name,imgUrl)
-        AutoId++;
+        let accountId = "";
+        addCart(productId,cost,name,imgUrl,accountId)
     })
 
     //  購物車刪除鈕提示
@@ -20,54 +17,40 @@ $(function(){
 
     // 刪除購物車
     $(".deleteCartBtn").on("click",function (){
-        let id = $(this).parent().prev().prev().find("input").data("id")
+        let productId = $(this).parent().prev().prev().find("input").data("productId")
         let carts = JSON.parse( localStorage.getItem("cart"))
-        carts =  carts.filter((item) => item.id !== id);
+        carts =  carts.filter((item) => item.productId != productId);
         localStorage.setItem("cart", JSON.stringify(carts));
         location.reload()
     })
 
     // 增加購物車產品數量
-    let id = 0;
+    let productId = 0;
     let quantity = 0;
     $(".quantity").on("input",function (){
         quantity = $(this).val()
-        id = $(this).data("id")
-        console.log(id)
-        // let sum =0.0;
-        // let count = 0.0;
-        // let subtotal =0.0;
-
-        // let total = $(this).parents().parents().next().children("h5")
-        // let cost = $(this).parents().parents().prev().children().html()
-        // let subTotal = $(this).parents("tbody").next("tfoot").children("tr:nth-child(1)").children("td:last-child").children("h5")
-        // cost = parseFloat(cost).toFixed(2)
-        // quantity = parseFloat(quantity).toFixed(2)
-        // subtotal = parseFloat(subTotal.html())
-
-        // 單價*數量 = 總額
-        // sum = cost * quantity
-        // total.html(parseFloat(sum).toFixed(2).toString())
-        // 總額 - 單價 = 新增的價額
-        // count = sum - cost
-        // subtotal += count
-        // subTotal.html(parseFloat(subtotal).toFixed(2))
-
-
+        productId = $(this).data("productId")
     })
 
+    // 修改購物車
     $("#updateCart").on("click",function (){
-        console.log(" 更新購物車:產品編號 "+ id)
-        let carts = JSON.parse( localStorage.getItem("cart"))
-        carts.forEach(function (cart,i){
-            if(carts[i].id == id){
-                carts[i].quantity = parseInt(quantity)
-                console.log("數量更改為:" + carts[i].quantity)
-            }
-        })
-        localStorage.setItem("cart", JSON.stringify(carts));
-        location.reload()
+
+        updateCart()
+
     })
+
+    // 提示結帳時登入會員
+    $("#checkOut").on("click",function (){
+        let checkOutUrl = $("#checkOut").prop("href")
+        let checkOutIndex = checkOutUrl.lastIndexOf("/")
+        let checkOutPage = checkOutUrl.slice(checkOutIndex+1);
+
+        if(checkOutPage == "login.jsp"){
+            alert("結帳前請先登入會員")
+        }
+
+    })
+
 
     $('.emailBtn').on("click",function (){
 
@@ -77,16 +60,18 @@ $(function(){
 
 
 
-function  addCart(id,cost,name,imgUrl,shipping){
-    cost = cost.substring(1)
+function  addCart(productId,cost,name,imgUrl,accountId){
+    // 去掉$符號
+    // cost = cost.substring(1)
     cost = parseFloat(cost).toFixed(2);
+
     let  cart = {
-        id:id,
+        productId:productId,
         name:name,
         cost:cost,
         quantity:1,
         imgUrl:imgUrl,
-        shipping:shipping
+        accountId:accountId
     }
 
     let carts = JSON.parse(localStorage.getItem("cart"))
@@ -128,7 +113,7 @@ function showCart(){
                 </td>
                 <td>
                   <div class="form-outline">
-                    <input type="number" id="typeNumber" class="form-control quantity" data-id="${item.id}" value="${item.quantity}" min="1" max="10"/>
+                    <input type="number" id="typeNumber" class="form-control quantity" data-productId="${item.productId}" value="${item.quantity}" min="1" max="10"/>
                   </div>
                 </td>
                 <td class="total">
@@ -142,9 +127,27 @@ function showCart(){
         })
 
         $(".cart_inner table tbody").append(cartList)
+        if(total > 1000){
+            $(".shipping").html("免運費")
+        }else{
+            $(".shipping").html("$50.00")
+        }
+
         $(".cart_inner table tfoot .subTotal").html(total.toFixed(2))
     }
 
+}
+
+function  updateCart(productId){
+    let carts = JSON.parse( localStorage.getItem("cart"))
+    carts.forEach(function (cart,i){
+        if(carts[i].productId == productId){
+            carts[i].quantity = parseInt(quantity)
+            console.log("數量更改為:" + carts[i].quantity)
+        }
+    })
+    localStorage.setItem("cart", JSON.stringify(carts));
+    location.reload()
 }
 
 // email 驗證

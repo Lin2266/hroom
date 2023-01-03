@@ -1,9 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!doctype html>
-<html>
-
+<c:set var="accountId" scope="session" value="${sessionScope.user.id}"/>
 <!-- Header start -->
 <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
 <!-- Header end -->
@@ -53,7 +51,7 @@
               <td>
                 <ul class="list">
                   <li>
-                    <a href="#">免運費</a>
+                    <h5 class="shipping"></h5>
                   </li>
                 </ul>
               </td>
@@ -68,7 +66,7 @@
               <td></td>
               <td></td>
               <td>
-                  <a class="btn_1" href='${pageContext.request.contextPath}${sessionScope.user.account ne null ? "/order.jsp":"/login.jsp"}'>進行結帳</a>
+                  <a class="btn_1" id="checkOut" href='${pageContext.request.contextPath}${accountId ne null ? "/order.jsp":"/login.jsp"}'>進行結帳</a>
               </td>
             </tr>
             </tfoot>
