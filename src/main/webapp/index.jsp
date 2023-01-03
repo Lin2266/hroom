@@ -181,7 +181,9 @@
 										<div class="single_product_text">
 											<h4>${ListItem.name}</h4>
 											<h3>$ ${ListItem.cost}</h3>
-											<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
+											<a class="add_cart"><button class="add_cart">+ 加入購物車</button>
+							            	<i class="ti-heart"></i></a>
+							            	<input type="hidden" class="productId" value="${ListItem.id}">
 										</div>
 									</div>
 								</div>
@@ -420,7 +422,10 @@
 							<div class="single_product_text">
 								<h4>${ListItem.name}</h4>
 								<h3>$ ${ListItem.cost}</h3>
-								<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
+<!-- 								<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
+								<a><button class="add_cart">+ 加入購物車</button>
+								<i class="ti-heart"></i></a>
+								<input type="hidden" class="productId" value="${ListItem.id}">
 							</div>
 						</div>
 					</c:forEach>

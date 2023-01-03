@@ -3067,8 +3067,18 @@ ul {
   transition: 0.5s;
 }
 
+.single_product_item .single_product_text a button {
+  background-color: none; /* Green */
+  border: none;
+  color: #ff3368;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 /* line 30, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_best_seller.scss */
-.best_seller .single_product_item .single_product_text a i {
+.single_product_item .single_product_text a i {
   float: right;
   font-size: 18px;
   line-height: 26px;
