@@ -27,7 +27,7 @@
                 <div class="col-md-12 form-group">
                   <div id="twzipcode">
                     <input id="city" value="${sessionScope.user.member.city}" hidden>
-                    <input id="county" value="${sessionScope.user.member.country}" hidden>
+                    <input id="county" value="${sessionScope.user.member.county}" hidden>
                   </div>
                 </div>
                 <div class="col-md-12 form-group p_star">
@@ -82,14 +82,14 @@
                   <textarea class="form-control" name="message" id="message" rows="1"
                     placeholder="備註"></textarea>
                 </div>
-                <button class="btn_3" type="submit">送出</button>
+                <button id="OrderSub" class="btn_3" type="submit">送出</button>
               </div>
               
             </form>
           </div>
           <div class="col-lg-4">
             <div class="order_box">
-
+              <input id="shipping" value="${param.shipping}" hidden>
             </div>
           </div>
         </div>

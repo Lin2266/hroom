@@ -17,7 +17,7 @@
             <thead>
               <tr>
                 <th></th>
-                <th scope="col">產品</th>
+                <th scope="col">商品</th>
                 <th scope="col">單價</th>
                 <th scope="col">數量</th>
                 <th scope="col">總計</th>
@@ -51,7 +51,7 @@
               <td>
                 <ul class="list">
                   <li>
-                    <h5 class="shipping"></h5>
+                    <h5 class="shipping">$ </h5>
                   </li>
                 </ul>
               </td>

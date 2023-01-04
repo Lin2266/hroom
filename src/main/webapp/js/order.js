@@ -23,54 +23,6 @@ $(function(){
 		"readonly": true,
 	});
 
-	function order(){
-		let carts = JSON.parse(localStorage.getItem("cart"))
-		let total =0;
-		let orderList = `
-			 <h2>您的訂單</h2>
-              <ul class="list">
-                <li>
-                  <a>產品
-                    <span>價格</span>
-                  </a>
-                </li>
-                `
-		carts.forEach(function (cart){
-			total += cart.cost * cart.quantity;
-
-			orderList +=`
-                <li>
-                  <a>${cart.name}
-                    <span class="middle">x ${cart.quantity}</span>
-                    <span class="last">$${cart.cost}</span>
-                  </a>
-                </li>
-                `
-		})
-
-				orderList +=`
-              </ul>
-              <ul class="list list_2">
-                <li>
-                  <a>小計
-                    <span>$${total}</span>
-                  </a>
-                </li>
-                <li>
-                  <a>運費
-                    <span>$50.00</span>
-                  </a>
-                </li>
-                <li>
-                  <a>總額
-                    <span>$${total}</span>
-                  </a>
-                </li>
-              </ul>
-		`
-		$(".order_box").html(orderList)
-	}
-
 	order()
 
 	// 購買人跟收貨人不同勾選
@@ -144,3 +96,58 @@ $(function(){
 	})
 	
 })
+
+function order(){
+	let carts = JSON.parse(localStorage.getItem("cart"))
+	let sum = 0;
+	let shipping = 0
+	if($("#shipping").val() != "免運費"){
+		shipping = parseFloat( $("#shipping").val());
+	}
+
+	let total =0.00;
+	let orderList = `
+			 <h2>您的訂單</h2>
+              <ul class="list">
+                <li>
+                  <a>產品
+                    <span>價格</span>
+                  </a>
+                </li>
+                `
+	carts.forEach(function (cart){
+		sum += cart.cost * cart.quantity;
+		orderList +=`
+                <li>
+                  <a>${cart.name}
+                    <span class="middle">x ${cart.quantity}</span>
+                    <span class="last">$ ${cart.cost}</span>
+                  </a>
+                </li>
+                `
+	})
+	total = parseFloat(sum).toFixed(2);
+	let subTotal = sum + shipping
+
+	orderList +=`
+              </ul>
+              <ul class="list list_2">
+                <li>
+                  <a>小計
+                    <span>$ ${total}</span>
+                  </a>
+                </li>
+                <li>
+                  <a>運費
+                    <span>$ ${shipping}</span>
+                  </a>
+                </li>
+                <li>
+                  <a>總額
+                    <span>$ ${subTotal.toFixed(2)}</span>
+                  </a>
+                </li>
+              </ul>
+		`
+	$(".order_box").html(orderList)
+}
