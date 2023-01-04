@@ -49,9 +49,11 @@ public class InitServlet extends HttpServlet {
 		}
 		String sqlcmd = "select * from products;";
 		//System.out.println(sqlcmd);
+
 		try {
 			request.setAttribute("rtnList", queryAllData(conn, sqlcmd));
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			request.getRequestDispatcher("/index.jsp").forward(request, response);

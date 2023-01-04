@@ -36,24 +36,8 @@
 							<div class="col-lg-5 col-md-8">
 								<div class="banner_text">
 									<div class="banner_text_iner">
-										<table border="1">
-											<c:forEach items="${rtnList}" var="ListItem">
-												<tr>
-													<td>${ListItem.id}</td>
-													<td>${ListItem.kind}</td>
-													<td>${ListItem.brand}</td>
-													<td>${ListItem.name}</td>
-													<td>${ListItem.color}</td>
-													<td>${ListItem.width}</td>
-													<td>${ListItem.height}</td>
-													<td>${ListItem.depth}</td>
-													<td>${ListItem.weight}</td>
-													<td>${ListItem.delivery}</td>
-													<td>${ListItem.stock}</td>
-													<td>${ListItem.date}</td>
-												</tr>
-											</c:forEach>
-										</table>
+			
+			
 									</div>
 								</div>
 							</div>
@@ -155,251 +139,7 @@
 	</div>
 </section>
 <!-- upcoming_event part start-->
-<!-- product_list start-->
-<section class="product_list section_padding">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-12">
-				<div class="section_tittle text-center">
-					<h2>
-						精選商品 <span>商城</span>
-					</h2>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="product_list_slider owl-carousel">
-					<div class="single_product_list_slider">
-						<div class="row align-items-center justify-content-between">
-							<!--Show products loop -->
-							<c:forEach items="${rtnList}" var="ListItem">
-								<div class="col-lg-3 col-sm-6">
-									<div class="single_product_item">
-										<img src="img/product/HRoomProduct/product_${ListItem.id}.png"
-											alt="">
-										<div class="single_product_text">
-											<h4>${ListItem.name}</h4>
-											<h3>$ <span>${ListItem.cost}</span></h3>
-											<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
-							            	<input type="hidden" class="productId" value="${ListItem.id}">
-										</div>
-									</div>
-								</div>
-							</c:forEach>
-
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_1.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_2.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_3.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_4.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_5.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_6.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_7.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_8.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 						</div> -->
-							<!-- 					</div> -->
-							<!-- 					<div class="single_product_list_slider"> -->
-							<!-- 						<div class="row align-items-center justify-content-between"> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_1.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_2.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_3.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_4.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_5.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_6.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_7.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="col-lg-3 col-sm-6"> -->
-							<!-- 								<div class="single_product_item"> -->
-							<!-- 									<img src="img/product/product_8.png" alt=""> -->
-							<!-- 									<div class="single_product_text"> -->
-							<!-- 										<h4>餐椅</h4> -->
-							<!-- 										<h3>$150.00</h3> -->
-							<!-- 										<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 <!-- product_list part start-->
-
-<!-- awesome_shop start-->
-<section class="our_offer section_padding">
-	<div class="container">
-		<div class="row align-items-center justify-content-between">
-			<div class="col-lg-6 col-md-6">
-				<div class="offer_img">
-					<img src="img/offer_img.png" alt="">
-				</div>
-			</div>
-			<div class="col-lg-6 col-md-6">
-				<div class="offer_text">
-					<h2 align="center">本週促銷商品</h2>
-					<p align="center">6折優惠</p>
-					<div class="date_countdown">
-						<div id="timer">
-							<div id="days" class="date"></div>
-							<div id="hours" class="date"></div>
-							<div id="minutes" class="date"></div>
-							<div id="seconds" class="date"></div>
-						</div>
-					</div>
-					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="enter email address"
-							aria-label="Recipient's username" aria-describedby="basic-addon2">
-						<div class="input-group-append">
-							<a href="#" class="input-group-text btn_2" id="basic-addon2">馬上搶購</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- awesome_shop part start-->
-
-<!-- product_list part start-->
-
 <section class="product_list best_seller section_padding">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -433,6 +173,79 @@
 	</div>
 </section>
 <!-- product_list part end-->
+<!-- product_list start-->
+<!-- <section class="product_list section_padding"> -->
+<!-- 	<div class="container"> -->
+<!-- 		<div class="row justify-content-center"> -->
+<!-- 			<div class="col-lg-12"> -->
+<!-- 				<div class="section_tittle text-center"> -->
+<!-- 					<h2> -->
+<!-- 						精選商品 <span>商城</span> -->
+<!-- 					</h2> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-lg-12"> -->
+<!-- 				<div class="product_list_slider owl-carousel"> -->
+<!-- 					<div class="single_product_list_slider"> -->
+<!-- 						<div class="row align-items-center justify-content-between"> -->
+<!-- 							Show products loop -->
+<%-- 							<c:forEach items="${rtnList}" var="ListItem"> --%>
+<!-- 								<div class="col-lg-3 col-sm-6"> -->
+<!-- 									<div class="single_product_item"> -->
+<%-- 										<img src="img/product/HRoomProduct/product_${ListItem.id}.png" --%>
+<!-- 											alt=""> -->
+<!-- 										<div class="single_product_text"> -->
+<%-- 											<h4>${ListItem.name}</h4> --%>
+<%-- 											<h3>$ <span>${ListItem.cost}</span></h3> --%>
+<!-- 											<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
+<%-- 							            	<input type="hidden" class="productId" value="${ListItem.id}"> --%>
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<%-- 							</c:forEach> --%>
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </section> -->
+<!-- product_list part start-->
+
+<!-- awesome_shop start-->
+<section class="our_offer section_padding">
+	<div class="container">
+		<div class="row align-items-center justify-content-between">
+			<div class="col-lg-6 col-md-6">
+				<div class="offer_img">
+					<img src="img/offer_img.png" alt="">
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<div class="offer_text">
+					<h2 align="center">本週促銷商品</h2>
+					<p align="center">6折優惠</p>
+					<div class="date_countdown">
+						<div id="timer">
+							<div id="days" class="date"></div>
+							<div id="hours" class="date"></div>
+							<div id="minutes" class="date"></div>
+							<div id="seconds" class="date"></div>
+						</div>
+					</div>
+					<div class="input-group" align="center">
+						<div class="input-group-append">
+							<a href="#" class="input-group-text btn_2" id="basic-addon2" >馬上搶購</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 
 <!-- subscribe_area part start-->
 <section class="subscribe_area section_padding">
