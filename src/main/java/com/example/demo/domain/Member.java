@@ -6,7 +6,7 @@ public class Member {
 	private String phone;
 	private String email;
 	private String city;
-	private String country;
+	private String county;
 	private String zipcode;
 	private String address;
 	public int getId() {
@@ -39,11 +39,11 @@ public class Member {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getCountry() {
-		return country;
+	public String getCounty() {
+		return county;
 	}
-	public void setCountry(String country) {
-		this.country = country;
+	public void setCounty(String county) {
+		this.county = county;
 	}
 	public String getZipcode() {
 		return zipcode;

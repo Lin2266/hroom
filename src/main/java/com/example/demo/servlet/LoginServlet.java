@@ -85,7 +85,7 @@ public class LoginServlet extends HttpServlet {
         member.setPhone(rs.getString("phone"));
         member.setEmail(rs.getString("email"));
         member.setCity(rs.getString("city"));
-        member.setCountry(rs.getString("country"));
+        member.setCounty(rs.getString("county"));
         member.setZipcode(rs.getString("zipcode"));
         member.setAddress(rs.getString("address"));
         

@@ -310,6 +310,33 @@ z-index
 	height: 130px;
 }
 </style>
+<script type="text/javascript">
+	let accheckrepeat,emaillcheckrepeat=false;
+	document.getElementById('account').addEventListener('change', checkAccountReapeat);
+	
+	function checkAccountReapeat() {
+		  var account = document.getElementById('account').value;
+		  var xhr = new XMLHttpRequest();
+		  xhr.onreadystatechange = function() {
+		    if (xhr.readyState == XMLHttpRequest.DONE) {
+		      if (xhr.status == 200) {
+		        // If the account is not taken, display a message saying so
+		        document.getElementById('account-result').innerHTML = 'Account is available';
+		      } else {
+		        // If the account is taken, display a message saying so
+		        document.getElementById('account-result').innerHTML = 'Account is not available';
+		      }
+		    }
+		  }
+		  xhr.open('GET', '/check-account?account=' + account, true);
+		  xhr.send();
+		}
+
+
+
+
+
+</script>
 </head>
 <body>
  <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
@@ -415,5 +442,294 @@ z-index
 		  "districtName": "county" // 指定地區 select name
 		 });
 		})
+		
+		
+		
+		let nameflag, acflag, pwdflag, mailflag ,phoneflag  = false;
+
+	
+	
+		document.getElementById("account").addEventListener("blur", function() {
+
+			let acId = document.getElementById("account");
+			let acVal = acId.value;
+			let acLen = acVal.length;
+			let acsp = document.getElementById("acHelp");
+			let acCh, flag1 = false, flag2 = false;
+
+			if (acVal == "") {
+				acsp.innerHTML = "請輸入帳號";
+				document.getElementById("acHelp").style.color = "red";
+				acflag = false;
+
+			} else if (acLen >= 6) {
+				for (let k = 0; k < acLen; k++) {
+					let acCh = acVal.charAt(k).toUpperCase();
+					if (acCh >= "A" && acCh <= "Z")
+						flag1 = true;
+					else if (acCh >= "0" && acCh <= "9")
+						flag2 = true;
+					if (flag1 && flag2)
+						break;
+
+				}
+				if (flag1 && flag2) {
+					acsp.innerHTML = "  正確";
+					document.getElementById("acHelp").style.color = "green";
+					acflag = true;
+
+				} else if (flag1) {
+					acsp.innerHTML = " 須包含數字";
+					document.getElementById("acHelp").style.color = "red";
+					acflag = false;
+
+				} else if (flag2) {
+					acsp.innerHTML = "  須包含英文字母";
+					document.getElementById("acHelp").style.color = "red";
+					acflag = false;
+
+				} else {
+					acsp.innerHTML = "  須包含英文字母、數字";
+					document.getElementById("acHelp").style.color = "red";
+					acflag = false;
+
+				}
+			} else {
+				acsp.innerHTML = "  至少要6個字";
+				document.getElementById("acHelp").style.color = "red";
+				acflag = false;
+
+			}
+		})
+		document.getElementById("account").addEventListener("blur", finalcheck);
+		document.getElementById("account").addEventListener("blur", checkacrepeat);
+		document.getElementById("account").addEventListener("blur", checkmailrepeat);
+		document.getElementById("account").addEventListener("blur", checkbankrepeat);
+
+
+		
+		
+		
+
+		document.getElementById("password").addEventListener("blur",function() {
+
+							let pwId = document.getElementById("password");
+							let pwVal = pwId.value;
+							let pwLen = pwVal.length;
+							let pwsp = document.getElementById("pwHelp");
+							let pwCh, flag1 = false, flag2 = false, flag3 = false;
+							let pwre = new RegExp(/[!@#$%^&*]/);
+
+							if (pwVal == "") {
+								pwsp.innerHTML = "請輸入密碼";
+								document.getElementById("pwHelp").style.color = "red";
+								pwdflag = false;
+
+							} else if (pwLen >= 6) {
+								for (let k = 0; k < pwLen; k++) {
+									let pwCh = pwVal.charAt(k).toUpperCase();
+									if (pwCh >= "A" && pwCh <= "Z")
+										flag1 = true;
+									else if (pwCh >= "0" && pwCh <= "9")
+										flag2 = true;
+									else if (pwre.test(pwVal))
+										flag3 = true;
+									if (flag1 && flag2 && flag3)
+										break;
+
+								}
+								if (flag1 && flag2 && flag3) {
+									pwsp.innerHTML = "  正確";
+									document.getElementById("pwHelp").style.color = "green";
+									console.log("success!!!!!!")
+									pwdflag = true;
+								} else if (flag1 && flag2) {
+									pwsp.innerHTML = "須包含特殊字元";
+									document.getElementById("pwHelp").style.color = "red"
+									pwdflag = false;
+
+								} else if (flag2 && flag3) {
+									pwsp.innerHTML = "  須包含英文字母";
+									document.getElementById("pwHelp").style.color = "red"
+									pwdflag = false;
+
+								} else if (flag1 && flag3) {
+									pwsp.innerHTML = "  須包含數字";
+									document.getElementById("pwHelp").style.color = "red"
+									pwdflag = false;
+
+								} else if (flag1) {
+									pwsp.innerHTML = "  須包含數字、特殊字元";
+									document.getElementById("pwHelp").style.color = "red";
+									pwdflag = false;
+
+								} else if (flag2) {
+									pwsp.innerHTML = "  須包含英文字母、特殊字元";
+									document.getElementById("pwHelp").style.color = "red";
+									pwdflag = false;
+
+								} else {
+									pwsp.innerHTML = "須包含英文字母、數字";
+									document.getElementById("pwHelp").style.color = "red";
+									pwdflag = false;
+
+								}
+							} else {
+								pwsp.innerHTML = "  至少要6個字";
+								document.getElementById("pwHelp").style.color = "red";
+								pwdflag = false;
+
+							}
+						})
+		document.getElementById("password").addEventListener("blur", finalcheck);
+			document.getElementById("password").addEventListener("blur", checkacrepeat);
+		document.getElementById("password").addEventListener("blur", checkmailrepeat);
+		document.getElementById("password").addEventListener("blur", checkbankrepeat);
+		
+		
+		
+
+		document.getElementById("name").addEventListener("blur",function() {
+							let name = document.getElementById("name");
+							let nameVal = name.value;
+							let nameLen = nameVal.length;
+							let namespn = document.getElementById("nameHelp");
+							let namere = new RegExp(/^[\u4e00-\u9fa5]+$/);
+							if (nameVal == "") {
+								namespn.innerHTML = "  請輸入姓名";
+								document.getElementById("nameHelp").style.color = "red";
+								nameflag = false;
+
+							} else {
+								if (nameLen < 2) {
+									namespn.innerHTML = "  至少兩個字";
+									document.getElementById("nameHelp").style.color = "red"
+									nameflag = false;
+
+								} else {
+									if (namere.test(nameVal)) {
+										namespn.innerHTML = "  正確";
+										document.getElementById("nameHelp").style.color = "green";
+										nameflag = true;
+
+									} else {
+										namespn.innerHTML = "  須為中文字";
+										document.getElementById("nameHelp").style.color = "red"
+										nameflag = false;
+									}
+								}
+							}
+						})
+
+		document.getElementById("name").addEventListener("blur", finalcheck);
+		document.getElementById("name").addEventListener("blur", checkacrepeat);
+		document.getElementById("name").addEventListener("blur", checkmailrepeat);
+		document.getElementById("name").addEventListener("blur", checkbankrepeat);
+		
+		
+		
+
+		document.getElementById("email").addEventListener("blur",function() {
+							let mailId = document.getElementById("email");
+							let mailVal = mailId.value;
+							let mailLen = mailVal.length;
+							let mailsp = document.getElementById("mailHelp");
+							let mailre = new RegExp(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+
+							if (mailVal == "") {
+								mailsp.innerHTML = "請輸入信箱";
+								document.getElementById("mailHelp").style.color = "red";
+								mailflag = false;
+							} else {
+								for (let k = 0; k < mailLen; k++) {
+									let mailCh = mailVal.charAt(k).toUpperCase();
+									if (mailre.test(mailVal)) {
+										mailsp.innerHTML = " 正確";
+										document.getElementById("mailHelp").style.color = "green";
+										mailflag = true;
+									}
+
+									else {
+										mailsp.innerHTML = "請輸入正確的信箱格式";
+										document.getElementById("mailHelp").style.color = "red";
+										mailflag = false;
+									}
+								}
+
+							}
+
+						})
+		document.getElementById("email").addEventListener("blur", finalcheck);
+		document.getElementById("email").addEventListener("blur", checkacrepeat);
+		document.getElementById("email").addEventListener("blur", checkmailrepeat);
+		document.getElementById("email").addEventListener("blur", checkbankrepeat);
+
+		
+		
+		
+		document.getElementById("phone").addEventListener("blur",function() {
+							let phone = document.getElementById("phone");
+							let phoneVal = phone.value;
+							let phoneLen = phoneVal.length;
+							let phonespn = document.getElementById("phoneHelp");
+							let phonere = new RegExp("^09\\d{8}$");
+							if (phoneVal == "") {
+								phonespn.innerHTML = "請輸入手機號碼";
+								document.getElementById("phoneHelp").style.color = "red";
+								phoneflag = false;
+
+							} else {
+								console.log(phoneVal);
+								if (phonere.test(phoneVal)) {
+									phonespn.innerHTML = "正確";
+									document.getElementById("phoneHelp").style.color = "green"
+									phoneflag = true;
+
+								} else {
+									phonespn.innerHTML = "請輸入正確的手機號碼";
+									document.getElementById("phoneHelp").style.color = "red"
+									phoneflag = false;
+								}
+							}
+						})
+
+		document.getElementById("phone").addEventListener("blur", finalcheck);
+		document.getElementById("phone").addEventListener("blur", checkacrepeat);
+		document.getElementById("phone").addEventListener("blur", checkmailrepeat);
+		document.getElementById("phone").addEventListener("blur", checkbankrepeat);
+
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+/////////////////一鍵輸入
+		function inputValue(){
+			document.getElementById("account").value="EEIT151";
+			document.getElementById("password").value="EEIT151!";
+			document.getElementById("name").value="姿澈慧";
+			document.getElementById("email").value="eeit15119@outlook.com";			
+			document.getElementById("phone").value="0972324316";
+		}
+		
+////////////////		
+		
+		
+		
+		
+		function finalcheck() {
+			if (nameflag && acflag && pwdflag && mailflag && phoneflag  && accheckrepeat && emaillcheckrepeat) {
+				console.log(nameflag+','+acflag+','+pwdflag+','+mailflag+','+phoneflag+','+birthflag+','+accheckrepeat+','+emaillcheckrepeat)
+				document.getElementById("idsubmit").removeAttribute("disabled")
+			} else {
+				console.log(nameflag+','+acflag+','+pwdflag+','+mailflag+','+phoneflag+','+birthflag+','+accheckrepeat+','+emaillcheckrepeat+)
+				document.getElementById("idsubmit").setAttribute("disabled","true");
+			}
+		}
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.js"></script>
