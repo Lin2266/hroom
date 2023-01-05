@@ -4,12 +4,12 @@ $(function(){
 
     // 增加購物車
     $(".add_cart").on("click",function (){
-        let productid = $(this).next().val()
+        let productId = $(this).next().val()
         let cost = $(this).prev().children().text()
         let name = $(this).prev().prev().text()
         let imgUrl = $(this).parents(".single_product_item").children("img").prop("src")
         let accountId = "";
-        addCart(productid,cost,name,imgUrl,accountId)
+        addCart(productId,cost,name,imgUrl,accountId)
     })
 
     //  購物車刪除鈕提示
@@ -17,22 +17,22 @@ $(function(){
 
     // 刪除購物車
     $(".deleteCartBtn").on("click",function (){
-        let productid = $(this).parent().prev().prev().find("input").data("productid")
-        deleteCart(productid)
+        let productId = $(this).parent().prev().prev().find("input").data("productid")
+        deleteCart(productId)
 
     })
 
     // 增加購物車產品數量
-    let productid = 0;
+    let productId = 0;
     let quantity = 0;
     $(".quantity").on("input",function (){
         quantity = $(this).val()
-        productid = $(this).data("productid")
+        productId = $(this).data("productid")
     })
 
     // 修改購物車
     $("#updateCart").on("click",function (){
-        updateCart(productid,quantity)
+        updateCart(productId,quantity)
     })
 
     // 提示結帳時登入會員
@@ -60,13 +60,13 @@ $(function(){
 
 
 
-function  addCart(productid,cost,name,imgUrl,accountId){
+function  addCart(productId,cost,name,imgUrl,accountId){
     // 去掉$符號
     // cost = cost.substring(1)
     cost = parseFloat(cost).toFixed(2);
 
     let  cart = {
-        productid:productid,
+        productId:productId,
         name:name,
         cost:cost,
         quantity:1,
@@ -79,7 +79,7 @@ function  addCart(productid,cost,name,imgUrl,accountId){
         let key = false
         $.each(carts,function (index,item){
             // 同商品時累加數量
-            if(item.productid == productid) {
+            if(item.productId == productId) {
                 item.quantity++
                 console.log("新增購物車產品重複時累加:" + item.quantity)
                 key = true
@@ -104,9 +104,14 @@ function showCart(){
     let carts = JSON.parse(localStorage.getItem("cart"))
 
     if(carts){
+        // 計算購物車數量
         $(".main_menu .cart i").attr("data-cart-quantity",carts.length)
         let cartList = "";
         let total =0;
+        // let orderItems = {
+        //     productid: ,
+        //     quantity:
+        // }
         $.each(carts,function (index,item){
             total +=  item.cost * item.quantity;
 
@@ -126,7 +131,7 @@ function showCart(){
                 </td>
                 <td>
                   <div class="form-outline">
-                    <input type="number" id="typeNumber" class="form-control quantity" data-productid="${item.productid}" value="${item.quantity}" min="1" max="10"/>
+                    <input type="number" id="typeNumber" class="form-control quantity" data-productid="${item.productId}" value="${item.quantity}" min="1" max="10"/>
                   </div>
                 </td>
                 <td class="total">
@@ -140,10 +145,10 @@ function showCart(){
         })
 
         $(".cart_inner table tbody").append(cartList)
-        if(total > 1000){
+        if(total > 2000){
             $(".shipping").html("<span>免運費</span>")
         }else{
-            $(".shipping").html("$ <span>50.00</span>")
+            $(".shipping").html("$ <span>150.00</span>")
         }
 
         $(".cart_inner table tfoot .subTotal").html("<span>$ </span>" + total.toFixed(2))
@@ -151,10 +156,10 @@ function showCart(){
 
 }
 
-function  updateCart(productid,quantity,key){
+function  updateCart(productId,quantity,key){
     let carts = JSON.parse( localStorage.getItem("cart"))
     carts.forEach(function (cart,i){
-        if(carts[i].productid == productid){
+        if(carts[i].productId == productId){
             carts[i].quantity = parseInt(quantity)
             console.log("數量更改為:" + carts[i].quantity)
         }
@@ -163,9 +168,9 @@ function  updateCart(productid,quantity,key){
     location.reload()
 }
 
-function deleteCart(productid){
+function deleteCart(productId){
     let carts = JSON.parse( localStorage.getItem("cart"))
-    carts =  carts.filter((item) => item.productid != productid);
+    carts =  carts.filter((item) => item.productId != productId);
     localStorage.setItem("cart", JSON.stringify(carts));
     location.reload()
 }

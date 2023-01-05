@@ -1,10 +1,13 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderItems {
 	private int id;
 	private int quantity;
 	private int orderId;
-	private int productsId;
+	private int productId;
 	
 	
 	public int getId() {
@@ -25,13 +28,21 @@ public class OrderItems {
 	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
-	public int getProductsId() {
-		return productsId;
+	public int getProductId() {
+		return productId;
 	}
-	public void setProductsId(int productsId) {
-		this.productsId = productsId;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
-	
-	
-	
+
+
+	@Override
+	public String toString() {
+		return "OrderItems{" +
+				"id=" + id +
+				", quantity=" + quantity +
+				", orderId=" + orderId +
+				", productId=" + productId +
+				'}';
+	}
 }

@@ -1,7 +1,10 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.sql.Date;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Order {
 	private int id;
 	private Date orderTime;
@@ -110,6 +113,25 @@ public class Order {
 	public void setShipping(int shipping) {
 		this.shipping = shipping;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Order{" +
+				"id=" + id +
+				", orderTime=" + orderTime +
+				", amount=" + amount +
+				", receiver='" + receiver + '\'' +
+				", receiverPhone='" + receiverPhone + '\'' +
+				", receiverEmail='" + receiverEmail + '\'' +
+				", city='" + city + '\'' +
+				", county='" + county + '\'' +
+				", zipcode='" + zipcode + '\'' +
+				", address='" + address + '\'' +
+				", info='" + info + '\'' +
+				", parmentMethod=" + parmentMethod +
+				", paystate=" + paystate +
+				", memberId=" + memberId +
+				", shipping=" + shipping +
+				'}';
+	}
 }

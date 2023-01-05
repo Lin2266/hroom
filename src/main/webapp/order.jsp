@@ -1,8 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/subviews/breadcrumb.jsp"></jsp:include>
-
   <!--================Checkout Area =================-->
   <section class="checkout_area padding_top">
     <div class="container">
@@ -13,7 +13,7 @@
               <h3>購買人資料</h3>
             </div>
 
-            <form class="row contact_form" action="#" method="post">
+<%--            <form class="row contact_form">--%>
               <div class="row payer">
                 <div class="col-md-6 form-group p_star">
                   <input type="text" class="form-control" id="name" name="name" placeholder="姓名"  value="${sessionScope.user.member.name}" readonly/>
@@ -60,32 +60,32 @@
               <div class="open-close-address">
                 <div class="row addressee">
                   <div class="col-md-6 form-group p_star">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="姓名" required/>
+                    <input type="text" class="form-control" id="receiver" name="receiver" placeholder="姓名"/>
                   </div>
                   <div class="col-md-6 form-group p_star">
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="電話" required/>
+                    <input type="text" class="form-control" id="receiverPhone" name="receiverPhone" placeholder="電話"/>
                   </div>
                   <div class="col-md-12 form-group p_star">
-                    <input type="text" class="form-control" id="email" name="email" placeholder="信箱" required/>
+                    <input type="text" class="form-control" id="receiverEmail" name="receiverEmail" placeholder="信箱"/>
                   </div>
                   <div class="col-md-12 form-group">
                   	<div id="twzipcode2"></div>
                   </div>
                   <div class="col-md-12 form-group p_star">
-                    <input type="text" class="form-control" id="address" name="address" placeholder="地址" required/>
+                    <input type="text" class="form-control" id="receiverAddress" name="receiverAddress" placeholder="地址"/>
                   </div>
                 </div>
               </div>
 
               <div class="row message">
                 <div class="col-md-12 form-group">
-                  <textarea class="form-control" name="message" id="message" rows="1"
+                  <textarea class="form-control" name="info" id="info" rows="1"
                     placeholder="備註"></textarea>
                 </div>
-                <button id="OrderSub" class="btn_3" type="submit">送出</button>
+                <button id="OrderSub" class="btn_3">送出</button>
               </div>
               
-            </form>
+<%--            </form>--%>
           </div>
           <div class="col-lg-4">
             <div class="order_box">
