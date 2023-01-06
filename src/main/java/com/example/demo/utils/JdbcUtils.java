@@ -17,7 +17,7 @@ public class JdbcUtils {
  * @return 
  *
  */
-	public static Connection getConnection() {
+	public static Connection getConnection() throws ModuleException {
 		
 		Connection connection = null;
 	    try {
@@ -38,14 +38,14 @@ public class JdbcUtils {
 	      // 通過 DriverManager類的getConnection 獲取資料庫連接對象，並返回
 	      connection = DriverManager.getConnection(jdbcUrl, user, password);
 	    } catch (IOException e) {
-	      new ModuleException("讀取組態文件異常" + e.getMessage());
-	      e.printStackTrace();
+		  e.printStackTrace();
+	      throw new ModuleException("讀取組態文件異常" + e.getMessage());
 	    } catch (ClassNotFoundException e) {
 	      e.printStackTrace();
-	      new ModuleException("無此資料庫驅動類" + e.getMessage());
+		  throw new ModuleException("無此資料庫驅動類" + e.getMessage());
 	    } catch (SQLException e) {
 	      e.printStackTrace();
-	      new ModuleException("連線據庫出現異常" + e.getMessage());
+		  throw new ModuleException("連線據庫出現異常" + e.getMessage());
 	    }
 	    return connection;
 	}
