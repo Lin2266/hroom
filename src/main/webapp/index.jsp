@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8" import="java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
 <!-- banner part start-->
 <section class="banner_part">
@@ -118,19 +118,11 @@
 						alt="" height="70%">
 				</div>
 			</div>
-			<!--                 <div class="col-lg-5 col-sm-6"> -->
-			<!--                     <div class="single_feature_post_text"> -->
-			<!--                         <p>精選傢俱</p> -->
-			<!--                         <h3>Latest foam Sofa</h3> -->
-			<!--                         <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a> -->
-			<!--                         <img src="img/feature/feature_3.png" alt="" > -->
-			<!--                     </div> -->
-			<!--                 </div> -->
 			<div class="col-lg-7 col-sm-6">
 				<div class="single_feature_post_text">
 					<p>奢華享受</p>
 					<h3>華麗城堡</h3>
-					<a href="#" class="feature_btn">EXPLORE NOW <i
+					<a href="single-product.jsp" class="feature_btn">EXPLORE NOW <i
 						class="fas fa-play"></i></a> <img src="img/feature/product3.png"
 						alt="" height="70%">
 				</div>
@@ -151,25 +143,30 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="row align-items-center justify-content-between">
 			<div class="col-lg-12">
 				<div class="best_product_slider owl-carousel">
-					<c:forEach items="${rtnList}" var="ListItem">
+					<c:forEach items="${rtnList}" var="ListItem" varStatus = "status" >
 						<div class="single_product_item">
+						<span style="color:red;">Top ${status.count}</span>
 							<img src="img/product/HRoomProduct/product_${ListItem.id}.png"
 								alt="">
 							<div class="single_product_text">
 								<h4>${ListItem.name}</h4>
 								<h3>$ <span>${ListItem.cost}</span></h3>
-<!-- 								<a href="#" class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
 								<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
-								<input type="hidden" class="productId" value="${ListItem.id}">
+								<form action="SingleProductServlet" method="POST">
+								<input type="submit" value="商品詳細資訊">
+								<input type="hidden" name="productId" class="productId" value="${ListItem.id}">
+								</form>
 							</div>
 						</div>
 					</c:forEach>
 				</div>
 			</div>
 		</div>
+		
 	</div>
 </section>
 <!-- product_list part end-->

@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.demo.exception.ModuleException;
 import com.example.demo.utils.JdbcUtils;
 
 /**
@@ -39,22 +40,16 @@ public class InitServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		Connection conn = JdbcUtils.getConnection();
-		
-		if (conn != null) {		
-			System.out.println("DB connection ok");
-		}else {
-			System.out.println("DB connection fail");
-		}
+
 		String sqlcmd = "select * from products;";
 		//System.out.println(sqlcmd);
 
 		try {
+			Connection conn = JdbcUtils.getConnection();
 			request.setAttribute("rtnList", queryAllData(conn, sqlcmd));
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 
-		} catch (SQLException e) {
+		} catch (ModuleException|SQLException e) {
 			e.printStackTrace();
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}

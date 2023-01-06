@@ -3521,6 +3521,10 @@ ul {
 .p_filter_widgets .list li {
   margin-bottom: 18px;
 }
+.p_filter_widgets .list2 li {
+  margin-bottom: 2px;
+}
+
 
 /* line 262, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .p_filter_widgets .list li a {
