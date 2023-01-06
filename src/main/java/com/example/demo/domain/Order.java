@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.sql.Date;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Order {
@@ -21,6 +22,7 @@ public class Order {
 	private int paystate;
 	private int memberId;
 	private int shipping;
+	private List<OrderItems> orderItem;
 	
 	
 	public int getId() {
@@ -114,6 +116,14 @@ public class Order {
 		this.shipping = shipping;
 	}
 
+	public List<OrderItems> getOrderItem() {
+		return orderItem;
+	}
+
+	public void setOrderItem(List<OrderItems> orderItem) {
+		this.orderItem = orderItem;
+	}
+
 	@Override
 	public String toString() {
 		return "Order{" +
@@ -132,6 +142,7 @@ public class Order {
 				", paystate=" + paystate +
 				", memberId=" + memberId +
 				", shipping=" + shipping +
+				", orderItem=" + orderItem +
 				'}';
 	}
 }

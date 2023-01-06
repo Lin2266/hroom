@@ -79,7 +79,7 @@
 
               <div class="row message">
                 <div class="col-md-12 form-group">
-                  <textarea class="form-control" name="info" id="info" rows="1"
+                  <textarea class="form-control" name="info" id="info" rows="3"
                     placeholder="備註"></textarea>
                 </div>
                 <button id="OrderSub" class="btn_3">送出</button>

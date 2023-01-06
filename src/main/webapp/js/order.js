@@ -181,33 +181,24 @@ function order(){
 
 function checkOut(carts,order){
 	const cart = new Map();
-	// let a = carts.splice()
-	// console.log(Object.keys(carts[0]).length)
+
 	for(let i =0; i<carts.length; i++){
 		for(let j =0;j<Object.keys(carts[i]).length;j++){
-			if(Object.keys(carts[i])[j] != "productId" && Object.keys(carts[i])[j] != "quantity"){
+			// if(Object.keys(carts[i])[j] != "productId" && Object.keys(carts[i])[j] != "quantity"){
 				delete carts[i].accountId
 				delete carts[i].name
 				delete carts[i].cost
 				delete carts[i].imgUrl
-			}
-
+			// }
 		}
 
 	}
 
-	// delete carts[0].name
 	console.log(carts)
-	// console.log(a)
-
 	cart.set("orderItems",carts)
 	cart.set("order",order)
-	// console.log(cart)
 	// console.log(JSON.stringify(Array.from(cart.entries())))
 	// console.log(JSON.stringify(Object.fromEntries(cart)));
-
-
-	// $(".orderForm").prop("method","POST").prop("action","OrderServlet")
 
 	$.ajax({
 		url:"OrderServlet",
@@ -215,10 +206,10 @@ function checkOut(carts,order){
 		dataType: "json",
 		data:JSON.stringify(Object.fromEntries(cart)),
 		success:function (res){
-			alert("成功" + res)
+			alert(res)
 		},
 		error:function (error){
-			alert("失敗" + error)
+			alert(error.responseText)
 		}
 
 	})

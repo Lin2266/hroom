@@ -111,4 +111,18 @@ public class ErrorInputException extends ModuleException {
 	public String getMessage() {
 		return sbf.toString();
 	}
+
+	/**
+	 * 檢核
+	 * @param eie
+	 * @param errMsg
+	 * @return
+	 */
+	public ErrorInputException getEie(ErrorInputException eie, String errMsg) {
+		if (eie == null) {
+			eie = new ErrorInputException();
+		}
+		eie.appendMessage(errMsg);
+		return eie;
+	}
 }

@@ -22,15 +22,5 @@ public class OrderReq {
     public void setOrderItems(List<OrderItems> orderItems) {
         this.orderItems = orderItems;
     }
-    /*
-    public List<Order> getOrder() {
-        return order;
-    }
 
-    public void setOrder(List<Order> order) {
-        this.order = order;
-    }
-
-
-    */
 }
