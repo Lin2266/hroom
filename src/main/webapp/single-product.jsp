@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!doctype html>
 <html>
 
@@ -12,15 +15,17 @@
 <body>
 
   <!--================Single Product Area =================-->
-  <div class="product_image_area section_padding">
+  <div class="product_image_area single_padding_top">
     <div class="container">
       <div class="row s_product_inner justify-content-between">
         <div class="col-lg-7 col-xl-7">
           <div class="product_slider_img">
             <div id="vertical">
-              <div data-thumb="img/product/single-product/product_1.png">
-                <img src="img/product/single-product/product_1.png" />
+            <c:forEach items="${SingleProduct}" var="Item">
+              <div data-thumb="img/product/HRoomProduct/product_${Item.id}.png">
+                <img src="img/product/HRoomProduct/product_${Item.id}.png" height="100%"/>
               </div>
+              </c:forEach>
 <!--               <div data-thumb="img/product/single-product/product_1.png"> -->
 <!--                 <img src="img/product/single-product/product_1.png" /> -->
 <!--               </div> -->
@@ -35,29 +40,28 @@
         </div>
         <div class="col-lg-5 col-xl-4">
           <div class="s_product_text">
-            <h5>previous <span>|</span> next</h5>
-            <h3>Faded SkyBlu Denim Jeans</h3>
-            <h2>$149.99</h2>
+          <c:forEach items="${SingleProduct}" var="Item">
+            <h3>${Item.name}</h3>
+            <h2>$ ${Item.cost}</h2>
             <ul class="list">
-              <li>
-                <a class="active" href="#">
-                  <span>Category</span> : Household</a>
+              <li>                
+                  <span>品牌：${Item.brand}</span>
               </li>
               <li>
-                <a href="#"> <span>Availibility</span> : In Stock</a>
+                <span class="active">庫存：${Item.stock}</span>
               </li>
             </ul>
             <p>
-              First replenish living. Creepeth image image. Creeping can't, won't called.
-              Two fruitful let days signs sea together all land fly subdue
+              ${Item.description}
             </p>
+            </c:forEach>
             <div class="card_area d-flex justify-content-between align-items-center">
               <div class="product_count">
                 <span class="inumber-decrement"> <i class="ti-minus"></i></span>
                 <input class="input-number" type="text" value="1" min="0" max="10">
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div>
-              <a href="#" class="btn_3">add to cart</a>
+              <a href="#" class="btn_3">加入購物車</a>
               <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
             </div>
           </div>
@@ -116,70 +120,72 @@
           <div class="table-responsive">
             <table class="table">
               <tbody>
+              <c:forEach items="${SingleProduct}" var="Item">
                 <tr>
                   <td>
-                    <h5>Width</h5>
+                    <h5>寬度</h5>
                   </td>
                   <td>
-                    <h5>128mm</h5>
+                    <h5>${Item.width}</h5>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h5>Height</h5>
+                    <h5>高度</h5>
                   </td>
                   <td>
-                    <h5>508mm</h5>
+                    <h5>${Item.height}</h5>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h5>Depth</h5>
+                    <h5>長度</h5>
                   </td>
                   <td>
-                    <h5>85mm</h5>
+                    <h5>${Item.depth}</h5>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h5>Weight</h5>
+                    <h5>重量</h5>
                   </td>
                   <td>
-                    <h5>52gm</h5>
+                    <h5>${Item.weight}</h5>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h5>Quality checking</h5>
+                    <h5>目前庫存</h5>
                   </td>
                   <td>
-                    <h5>yes</h5>
+                    <h5>${Item.stock}</h5>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h5>Freshness Duration</h5>
+                    <h5>訂單交期</h5>
                   </td>
                   <td>
-                    <h5>03days</h5>
+                    <h5>${Item.delivery} 天</h5>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h5>When packeting</h5>
+                    <h5>適用宅配</h5>
                   </td>
                   <td>
-                    <h5>Without touch of hand</h5>
+                    <h5>適用</h5>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h5>Each Box contains</h5>
+                    <h5>鑑賞期</h5>
                   </td>
                   <td>
-                    <h5>60pcs</h5>
+                    <h5>7 天</h5>
                   </td>
                 </tr>
+                </c:forEach>
               </tbody>
             </table>
           </div>
@@ -190,153 +196,42 @@
   <!--================End Product Description Area =================-->
 
   <!-- product_list part start-->
-  <section class="product_list best_seller">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-12">
-          <div class="section_tittle text-center">
-            <h2>Best Sellers <span>shop</span></h2>
-          </div>
-        </div>
-      </div>
-      <div class="row align-items-center justify-content-between">
-        <div class="col-lg-12">
-          <div class="best_product_slider owl-carousel">
-            <div class="single_product_item">
-              <img src="img/product/product_1.png" alt="">
-              <div class="single_product_text">
-                <h4>Quartz Belt Watch</h4>
-                <h3>$150.00</h3>
-              </div>
-            </div>
-            <div class="single_product_item">
-              <img src="img/product/product_2.png" alt="">
-              <div class="single_product_text">
-                <h4>Quartz Belt Watch</h4>
-                <h3>$150.00</h3>
-              </div>
-            </div>
-            <div class="single_product_item">
-              <img src="img/product/product_3.png" alt="">
-              <div class="single_product_text">
-                <h4>Quartz Belt Watch</h4>
-                <h3>$150.00</h3>
-              </div>
-            </div>
-            <div class="single_product_item">
-              <img src="img/product/product_4.png" alt="">
-              <div class="single_product_text">
-                <h4>Quartz Belt Watch</h4>
-                <h3>$150.00</h3>
-              </div>
-            </div>
-            <div class="single_product_item">
-              <img src="img/product/product_5.png" alt="">
-              <div class="single_product_text">
-                <h4>Quartz Belt Watch</h4>
-                <h3>$150.00</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!--   <section class="product_list best_seller"> -->
+<!--     <div class="container"> -->
+<!--       <div class="row justify-content-center"> -->
+<!--         <div class="col-lg-12"> -->
+<!--           <div class="section_tittle text-center"> -->
+<!--             <h2>熱銷商品 <span>商城</span></h2> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--       </div> -->
+<!--       <div class="row align-items-center justify-content-between"> -->
+<!--         <div class="col-lg-12"> -->
+<!--           <div class="best_product_slider owl-carousel"> -->
+<%-- 					<c:forEach items="${popularList}" var="popularItem" --%>
+<%--  						varStatus="status"> --%>
+<!-- 						<div class="single_product_item"> -->
+<%--  							<h4 style="color: red">Top ${status.count}</h4> --%>
+<%-- 							<img src="img/product/HRoomProduct/product_${popularItem.id}.png" --%>
+<!--  								alt=""> -->
+<!--  							<div class="single_product_text"> -->
+<%--  								<h4>${popularItem.name}</h4>  --%>
+<%--  								<h3>$ ${popularItem.cost}</h3> --%>
+<!-- 								<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> <input -->
+<%-- 									type="hidden" class="productId" value="${popularItem.id}"> --%>
+<!--  									<a class="check-product" href="defaultSingleProduct.html">商品詳細資訊</a> -->
+<!-- 							</div>  -->
+<!--  						</div>  -->
+<%--  					</c:forEach>  --%>
+<!--            </div> -->
+<!--          </div> -->
+<!--        </div> -->
+<!--     </div>  -->
+<!--    </section>  -->
   <!-- product_list part end-->
 
   <!--::footer_part start::-->
-  <footer class="footer_part">
-    <div class="container">
-      <div class="row justify-content-around">
-        <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Top Products</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Managed Website</a></li>
-              <li><a href="">Manage Reputation</a></li>
-              <li><a href="">Power Tools</a></li>
-              <li><a href="">Marketing Service</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Quick Links</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Jobs</a></li>
-              <li><a href="">Brand Assets</a></li>
-              <li><a href="">Investor Relations</a></li>
-              <li><a href="">Terms of Service</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Features</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Jobs</a></li>
-              <li><a href="">Brand Assets</a></li>
-              <li><a href="">Investor Relations</a></li>
-              <li><a href="">Terms of Service</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Resources</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Guides</a></li>
-              <li><a href="">Research</a></li>
-              <li><a href="">Experts</a></li>
-              <li><a href="">Agencies</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="single_footer_part">
-            <h4>Newsletter</h4>
-            <p>Heaven fruitful doesn't over lesser in days. Appear creeping
-            </p>
-            <div id="mc_embed_signup">
-              <form target="_blank"
-                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                method="get" class="subscribe_form relative mail_part">
-                <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
-                  class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
-                  onblur="this.placeholder = ' Email Address '">
-                <button type="submit" name="submit" id="newsletter-submit"
-                  class="email_icon newsletter-submit button-contactForm">subscribe</button>
-                <div class="mt-10 info"></div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="copyright_part">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="copyright_text">
-              <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="footer_icon social_icon">
-              <ul class="list-unstyled">
-                <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
-                <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <jsp:include page="/WEB-INF/subviews/footer.jsp" />
   <!--::footer_part end::-->
 
   <!-- jquery plugins here-->
