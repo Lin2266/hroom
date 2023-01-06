@@ -73,11 +73,11 @@
                                 Please Sign in now</h3>
                             <form class="row contact_form" action="login" method="post" novalidate="novalidate">
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="name" name="username" value=""
+                                    <input type="text" class="form-control" id="name" name="username" value="jerry"
                                         placeholder="Username">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" id="password" name="password" value=""
+                                    <input type="password" class="form-control" id="password" name="password" value="jerry666"
                                         placeholder="Password">
                                 </div>
                                 <div class="col-md-12 form-group">
