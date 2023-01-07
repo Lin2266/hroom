@@ -45,7 +45,7 @@
             <h2>$ ${Item.cost}</h2>
             <ul class="list">
               <li>                
-                  <span>品牌：${Item.brand}</span>
+                  <span>品牌：${Item.brand}</span><span> | ${Item.color}</span>
               </li>
               <li>
                 <span class="active">庫存：${Item.stock}</span>
@@ -62,7 +62,8 @@
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div>
               <a href="#" class="btn_3">加入購物車</a>
-              <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
+              <input type="hidden" name="productId" class="productId" value="${Item.id}">
+              <a class="like_us"> <i class="ti-heart"></i> </a>
             </div>
           </div>
         </div>
