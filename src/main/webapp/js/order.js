@@ -207,6 +207,8 @@ function checkOut(carts,order){
 		data:JSON.stringify(Object.fromEntries(cart)),
 		success:function (res){
 			alert(res)
+			localStorage.clear()
+			location.href="order_items.jsp"
 		},
 		error:function (error){
 			alert(error.responseText)

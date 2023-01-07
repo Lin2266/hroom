@@ -37,26 +37,16 @@ public class OrderServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("user");
 
-//        System.out.println(account.getMember().getId());
-//        System.out.println(account.getMember().getName());
-//        System.out.println(account.getMember().getPhone());
-//        System.out.println(account.getMember().getEmail());
-//        System.out.println(account.getMember().getCity());
-//        System.out.println(account.getMember().getCounty());
-//        System.out.println(account.getMember().getZipcode());
-//        System.out.println(account.getMember().getAddress());
-
-
         try {
-            if(account == null){
-                throw new ModuleException("請登入會員在進行結帳");
+            if(null == account){
+                throw new DataNotFoundException("請登入會員在進行結帳");
             }
 
             BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
             if(null != br){
                 json = br.readLine();
             }else{
-                eie.getEie(eie,"商品結帳資料不存在");
+                throw new DataNotFoundException("商品結帳json資料不存在");
             }
             System.out.println(json);
 
@@ -96,6 +86,11 @@ public class OrderServlet extends HttpServlet {
                 System.out.println("地址:" + order.getOrder().getAddress());
             }
 
+            // 付費方式為信用卡時，付費狀態為已付費1
+            if(order.getOrder().getParmentMethod() == 0){
+                order.getOrder().setPaystate(1);
+            }
+
             order.getOrder().setOrderItem(order.getOrderItems());
             for(OrderItems orderItems: order.getOrder().getOrderItem()){
                 System.out.println("產品id: " + orderItems.getProductId() + "," + "數量: " + orderItems.getQuantity());
@@ -105,7 +100,7 @@ public class OrderServlet extends HttpServlet {
 
             orderService.checkOut(order.getOrder());
 
-            out.print(new ObjectMapper().writeValueAsString("ok"));
+            out.print(new ObjectMapper().writeValueAsString("新增訂單成功"));
         }catch (JsonProcessingException e){
             out.print("json格式解析錯誤:" + e.getMessage());
         } catch (ModuleException e) {
