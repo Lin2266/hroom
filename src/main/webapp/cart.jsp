@@ -61,7 +61,7 @@
                 <a class="btn_1" id="updateCart" href="#">修改購物車</a>
               </td>
               <td>
-                <a class="btn_1" href="${pageContext.request.contextPath}/category.jsp">繼續購物</a>
+                <a class="btn_1" href="${pageContext.request.contextPath}/defaultCategory.html">繼續購物</a>
               </td>
               <td></td>
               <td></td>

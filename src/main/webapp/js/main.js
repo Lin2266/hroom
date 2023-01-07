@@ -4,12 +4,52 @@ $(function(){
 
     // 增加購物車
     $(".add_cart").on("click",function (){
+
         let productId = $(this).next().val()
+        if(productId == ""){
+            productId = $(".s_product_text .productId").val()
+        }
+        // let productId = $(this).next().find(".productId").val()
+        if(productId == ""){
+            alert("產品id是空的，請確認產品id")
+            return;
+        }
+
         let cost = $(this).prev().children().text()
+        console.log(cost)
+        if(cost == "  "){
+            cost = $(".s_product_text h2 span").text()
+        }
+
+        if(cost == "  "){
+            alert("產品cost是空的，請確認產品cost")
+            return;
+        }
+
         let name = $(this).prev().prev().text()
+        if(name == ""){
+            name = $(".s_product_text h3").text()
+        }
+
+        if(name == ""){
+            alert("產品name是空的，請確認產品name")
+            return;
+        }
+
         let imgUrl = $(this).parents(".single_product_item").children("img").prop("src")
-        let accountId = "";
-        addCart(productId,cost,name,imgUrl,accountId)
+        if(imgUrl == undefined){
+            imgUrl = $(".product_slider_img img").prop("src")
+        }
+
+        if(imgUrl == undefined){
+            alert("產品imgUrl是空的，請確認產品imgUrl")
+            return;
+        }
+
+        let quantity = $(".s_product_text .input-number").val()
+        console.log(quantity)
+        // let accountId = "";
+        addCart(productId,cost,name,imgUrl,quantity)
     })
 
     //  購物車刪除鈕提示
@@ -49,29 +89,29 @@ $(function(){
         }
     })
 
-
-
-
-    $('.emailBtn').on("click",function (){
-
-    })
-
 })
 
 
 
-function  addCart(productId,cost,name,imgUrl,accountId){
+function  addCart(productId,cost,name,imgUrl,quantity){
     // 去掉$符號
     // cost = cost.substring(1)
+    let type = false
+    if(quantity == undefined){
+        quantity = 1
+        type = true
+    }else{
+        quantity = parseInt(quantity)
+    }
+
     cost = parseFloat(cost).toFixed(2);
 
     let  cart = {
         productId:productId,
         name:name,
         cost:cost,
-        quantity:1,
+        quantity:quantity,
         imgUrl:imgUrl,
-        accountId:accountId
     }
 
     let carts = JSON.parse(localStorage.getItem("cart"))
@@ -80,7 +120,12 @@ function  addCart(productId,cost,name,imgUrl,accountId){
         $.each(carts,function (index,item){
             // 同商品時累加數量
             if(item.productId == productId) {
-                item.quantity++
+                if(quantity == 1 && type == true){
+                    item.quantity += quantity
+                }else{
+                    item.quantity = quantity
+                }
+
                 console.log("新增購物車產品重複時累加:" + item.quantity)
                 key = true
             }
@@ -145,7 +190,9 @@ function showCart(){
         })
 
         $(".cart_inner table tbody").append(cartList)
-        if(total > 2000){
+        if(total == 0){
+            $(".shipping").html("<span></span>")
+        }else if(total > 2000){
             $(".shipping").html("<span>免運費</span>")
         }else{
             $(".shipping").html("$ <span>150.00</span>")
@@ -173,20 +220,4 @@ function deleteCart(productId){
     carts =  carts.filter((item) => item.productId != productId);
     localStorage.setItem("cart", JSON.stringify(carts));
     location.reload()
-}
-
-// email 驗證
-function emailVerify(){
-    //please input the test email to see is valid
-    var strEmail = "foxfirejack@gmail.com";
-    console.log(typeof  strEmail)
-    //Regular expression Testing
-    emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-
-    //validate ok or not
-    if(strEmail.search(emailRule)!= -1){
-        alert("true");
-    }else {
-        alert("false");
-    }
 }
