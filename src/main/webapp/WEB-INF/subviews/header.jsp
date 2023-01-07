@@ -65,34 +65,19 @@
                                         會員
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-<!--                                         <a class="dropdown-item" href="login.jsp"> 登入|註冊</a> -->
 										<a class="dropdown-item" href="cart.jsp">購物車</a>
-                                        <a class="dropdown-item" href="order.jsp">產品結帳</a>
-                                        <a class="dropdown-item" href="order_items.jsp">訂單明細</a>
-                                        <a class="dropdown-item" href="tracking.jsp">追蹤訂單</a>
+                                        <a class="dropdown-item" href="tracking.jsp">訂單查詢</a>
+<%--                                        <a class="dropdown-item" href="tracking.jsp">追蹤訂單</a>--%>
                                         <a class="dropdown-item" href="">修改會員資料</a>
-                                        <a class="dropdown-item" href="elements.jsp">前端教學範例</a>
                                     </div>
                                 </li>
-<!--                                 <li class="nav-item dropdown"> -->
-<!--                                     <a class="nav-link dropdown-toggle" href="blog.jsp" id="navbarDropdown_2" -->
-<!--                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-<!--                                         blog -->
-<!--                                     </a> -->
-<!--                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2"> -->
-<!--                                         <a class="dropdown-item" href="blog.jsp"> blog</a> -->
-<!--                                         <a class="dropdown-item" href="single-blog.jsp">Single blog</a> -->
-<!--                                     </div> -->
-<!--                                 </li> -->
-                                
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.jsp">聯繫我們</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="hearer_icon d-flex">
-                            
-<!--                             <a href=""><i class="ti-heart"></i></a> -->
                             <a class="" href="login.jsp"> 註冊 | 登入</a>
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <div class="dropdown cart">
