@@ -5,12 +5,19 @@
 
 <!doctype html>
 <html>
-
-
 <!-- Header start -->
 <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/subviews/breadcrumb.jsp"></jsp:include>	
 <!-- Header end -->
+<style>
+hr.style-four {
+    width:85%;
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);
+}
+
+</style>
 
 <body>
 
@@ -71,18 +78,18 @@
     </div>
   </div>
   <!--================End Single Product Area =================-->
-
+<hr class="style-four">
   <!--================Product Description Area =================-->
   <section class="product_description_area">
     <div class="container">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
           <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-            aria-selected="true">商品描述</a>
+            aria-selected="true" >商品描述</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-            aria-selected="false">商品規格</a>
+            aria-selected="false" >商品規格</a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
@@ -234,6 +241,9 @@
   <!--::footer_part start::-->
   <jsp:include page="/WEB-INF/subviews/footer.jsp" />
   <!--::footer_part end::-->
+  <script>
+	  $("#home-tab").click();
+</script>
 </body>
 
 </html>

@@ -4055,7 +4055,7 @@ ul {
 /* line 761, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_description_area {
   padding-bottom: 120px;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 @media (max-width: 991px) {
