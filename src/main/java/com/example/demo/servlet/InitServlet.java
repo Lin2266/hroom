@@ -41,7 +41,7 @@ public class InitServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 
-		String sqlcmd = "select * from products;";
+		String sqlcmd = "select * from products where popular = 'Y';";
 		//System.out.println(sqlcmd);
 
 		try {

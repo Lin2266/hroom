@@ -1,7 +1,6 @@
 package com.example.demo.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -21,8 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.example.demo.exception.ModuleException;
 import com.example.demo.utils.JdbcUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mysql.jdbc.StringUtils;
 
 /**
  * Servlet implementation class OrderServlet
@@ -64,7 +61,7 @@ public class ProductServlet extends HttpServlet {
 
 	public void AllProductsRender(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sqlcmd = "select * from products;";
+		String sqlcmd = "select * from products where id not in(1,2,3);";
 		try {
 			Connection conn = JdbcUtils.getConnection();
 			request.setAttribute("rtnList", queryAllData(conn, sqlcmd));
@@ -194,7 +191,7 @@ public class ProductServlet extends HttpServlet {
 	
 	public void ColorBrown(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sqlcmd = "select * from products where color = '橘色';";
+		String sqlcmd = "select * from products where color = '棕色';";
 		try {
 			Connection conn = JdbcUtils.getConnection();
 			request.setAttribute("rtnList", queryAllData(conn, sqlcmd));

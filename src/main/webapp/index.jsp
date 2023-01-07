@@ -104,7 +104,7 @@
 				<div class="single_feature_post_text">
 					<p>主推專案-小家庭</p>
 					<h3>溫馨豪華</h3>
-					<a href="#" class="feature_btn">EXPLORE NOW <i
+					<a href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject2" class="feature_btn">EXPLORE NOW <i
 						class="fas fa-play"></i></a> <img src="img/feature/product2.png"
 						alt="" height="80%">
 				</div>
@@ -113,7 +113,7 @@
 				<div class="single_feature_post_text">
 					<p>小資必備</p>
 					<h3>簡約時尚風</h3>
-					<a href="#" class="feature_btn">EXPLORE NOW <i
+					<a href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject1" class="feature_btn">EXPLORE NOW <i
 						class="fas fa-play"></i></a> <img src="img/feature/product1.png"
 						alt="" height="70%">
 				</div>
@@ -122,7 +122,7 @@
 				<div class="single_feature_post_text">
 					<p>奢華享受</p>
 					<h3>華麗城堡</h3>
-					<a href="single-product.jsp" class="feature_btn">EXPLORE NOW <i
+					<a href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject3" class="feature_btn">EXPLORE NOW <i
 						class="fas fa-play"></i></a> <img src="img/feature/product3.png"
 						alt="" height="70%">
 				</div>
@@ -156,7 +156,7 @@
 								<h4>${ListItem.name}</h4>
 								<h3>$ <span>${ListItem.cost}</span></h3>
 								<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
-								<form action="SingleProductServlet" method="POST">
+								<form action="SingleProductServlet?method=SingleProduct" method="POST">
 								<input type="submit" value="商品詳細資訊">
 								<input type="hidden" name="productId" class="productId" value="${ListItem.id}">
 								</form>
