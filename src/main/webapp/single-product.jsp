@@ -87,7 +87,7 @@
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
           <p>
-            Beryl Cook is one of Britain’s most talented and amusing artists
+            &emsp;&emsp;Beryl Cook is one of Britain’s most talented and amusing artists
             .Beryl’s pictures feature women of all shapes and sizes enjoying
             themselves .Born between the two world wars, Beryl Cook eventually
             left Kendrick School in Reading at the age of 15, where she went
@@ -105,7 +105,7 @@
             breasts. It was aptly named ‘Hangover’ by Beryl’s husband and
           </p>
           <p>
-            It is often frustrating to attempt to plan meals that are designed
+            &emsp;&emsp;It is often frustrating to attempt to plan meals that are designed
             for one. Despite this fact, we are seeing more and more recipe
             books and Internet websites that are dedicated to the act of
             cooking for one. Divorce and the death of spouses or grown
