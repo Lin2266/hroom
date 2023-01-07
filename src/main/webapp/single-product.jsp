@@ -42,7 +42,8 @@
           <div class="s_product_text">
           <c:forEach items="${SingleProduct}" var="Item">
             <h3>${Item.name}</h3>
-            <h2>$ ${Item.cost}</h2>
+            <h2>$ <span>${Item.cost}</span></h2>
+            <input type="hidden" name="productId" class="productId" value="${Item.id}">
             <ul class="list">
               <li>                
                   <span>品牌：${Item.brand}</span><span> | ${Item.color}</span>
@@ -62,7 +63,6 @@
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div>
               <a href="#" class="btn_3">加入購物車</a>
-              <input type="hidden" name="productId" class="productId" value="${Item.id}">
               <a class="like_us"> <i class="ti-heart"></i> </a>
             </div>
           </div>
@@ -234,37 +234,6 @@
   <!--::footer_part start::-->
   <jsp:include page="/WEB-INF/subviews/footer.jsp" />
   <!--::footer_part end::-->
-
-  <!-- jquery plugins here-->
-  <!-- jquery -->
-  <script src="js/jquery-1.12.1.min.js"></script>
-  <!-- popper js -->
-  <script src="js/popper.min.js"></script>
-  <!-- bootstrap js -->
-  <script src="js/bootstrap.min.js"></script>
-  <!-- easing js -->
-  <script src="js/jquery.magnific-popup.js"></script>
-  <!-- swiper js -->
-  <script src="js/lightslider.min.js"></script>
-  <!-- swiper js -->
-  <script src="js/masonry.pkgd.js"></script>
-  <!-- particles js -->
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.nice-select.min.js"></script>
-  <!-- slick js -->
-  <script src="js/slick.min.js"></script>
-  <script src="js/swiper.jquery.js"></script>
-  <script src="js/jquery.counterup.min.js"></script>
-  <script src="js/waypoints.min.js"></script>
-  <script src="js/contact.js"></script>
-  <script src="js/jquery.ajaxchimp.min.js"></script>
-  <script src="js/jquery.form.js"></script>
-  <script src="js/jquery.validate.min.js"></script>
-  <script src="js/mail-script.js"></script>
-  <script src="js/stellar.js"></script>
-  <!-- custom js -->
-  <script src="js/theme.js"></script>
-  <script src="js/custom.js"></script>
 </body>
 
 </html>

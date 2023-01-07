@@ -204,7 +204,7 @@ public class ProductServlet extends HttpServlet {
 	
 	public void ColorOther(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sqlcmd = "select * from products where color not in('白色','黑色','橘色','需諮詢後評估') ;";
+		String sqlcmd = "select * from products where color not in('白色','黑色','棕色','需諮詢後評估') ;";
 		try {
 			Connection conn = JdbcUtils.getConnection();
 			request.setAttribute("rtnList", queryAllData(conn, sqlcmd));

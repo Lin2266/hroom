@@ -9,6 +9,17 @@
 <!-- Header end -->
 <!--================Home Banner Area =================-->
 <!-- breadcrumb start-->
+<style>
+.listBtn {
+  background-color: white;
+  border: none;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+  color: #797979;
+  position: relative;
+}
+</style>
 
 <!--================Category Product Area =================-->
 <!-- <section class="cat_product_area section_padding"> -->
@@ -30,19 +41,19 @@
 <!-- 								<li><a href="#" class="queryDesk">沙發/桌子/椅子</a> <span></span></li> -->
 <!-- 								<li><a href="#" class="queryBed">床組/寢具</a> <span></span></li> -->
 								<li><form action="ProductServlet?method=AllProductsRender" method="POST">
-										<input type="submit" value="所有商品">
+										<input class="listBtn" type="submit" value="所有商品">
 									</form></li>
 								<li><form action="ProductServlet?method=ProjectProductsRender" method="POST">
-										<input type="submit" value="精選方案">
+										<input class="listBtn" type="submit" value="精選方案">
 									</form></li>
 								<li><form action="ProductServlet?method=HotProductsRender" method="POST">
-										<input type="submit" value="熱門商品">
+										<input class="listBtn" type="submit" value="熱門商品">
 									</form></li>
 								<li><form action="ProductServlet?method=DeskProductsRender" method="POST">
-										<input type="submit" value="沙發/桌子/椅子">
+										<input class="listBtn" type="submit" value="沙發/桌子/椅子">
 									</form></li>
 								<li><form action="ProductServlet?method=BedProductsRender" method="POST">
-										<input type="submit" value="床組/寢具">
+										<input class="listBtn" type="submit" value="床組/寢具">
 									</form></li>
 							</ul>
 						</div>
@@ -249,33 +260,4 @@
 <!--::footer_part start::-->
 <jsp:include page="/WEB-INF/subviews/footer.jsp" />
 <!--::footer_part end::-->
-<!-- prduct js-->
 
-<!-- jquery plugins here-->
-<script src="js/jquery-1.12.1.min.js"></script>
-<!-- popper js -->
-<script src="js/popper.min.js"></script>
-<!-- bootstrap js -->
-<script src="js/bootstrap.min.js"></script>
-<!-- easing js -->
-<script src="js/jquery.magnific-popup.js"></script>
-<!-- swiper js -->
-<script src="js/swiper.min.js"></script>
-<!-- swiper js -->
-<script src="js/masonry.pkgd.js"></script>
-<!-- particles js -->
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<!-- slick js -->
-<script src="js/slick.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/waypoints.min.js"></script>
-<script src="js/contact.js"></script>
-<script src="js/jquery.ajaxchimp.min.js"></script>
-<script src="js/jquery.form.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="js/mail-script.js"></script>
-<script src="js/stellar.js"></script>
-<script src="js/price_rangs.js"></script>
-<!-- custom js -->
-<script src="js/custom.js"></script>
