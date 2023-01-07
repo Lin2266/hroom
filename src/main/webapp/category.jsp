@@ -172,7 +172,12 @@
 									<%-- <h6>${ListItem.brand}|${ListItem.color}</h6> --%>
 									<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> <input
 										type="hidden" class="productId" value="${ListItem.id}">
-									<a class="check-product" href="defaultSingleProduct.html">商品詳細資訊</a>
+<!-- 									<a class="check-product" href="defaultSingleProduct.html">商品詳細資訊</a> -->
+                                    <input type="hidden" name="productId" class="productId" value="${ListItem.id}">
+								<form action="SingleProductServlet?method=SingleProduct" method="POST">
+								<input type="submit" value="商品詳細資訊">
+								<input type="hidden" name="SentproductId" value="${ListItem.id}">
+								</form>
 								</div>
 							</div>
 						</div>

@@ -156,9 +156,10 @@
 								<h4>${ListItem.name}</h4>
 								<h3>$ <span>${ListItem.cost}</span></h3>
 								<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
+								<input type="hidden" name="productId" class="productId" value="${ListItem.id}">
 								<form action="SingleProductServlet?method=SingleProduct" method="POST">
 								<input type="submit" value="商品詳細資訊">
-								<input type="hidden" name="productId" class="productId" value="${ListItem.id}">
+								<input type="hidden" name="SentproductId" value="${ListItem.id}">
 								</form>
 							</div>
 						</div>
