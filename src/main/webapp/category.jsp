@@ -19,6 +19,17 @@
   color: #797979;
   position: relative;
 }
+.productBtn {
+  background-color: white;
+  border: none;
+/*   color: #ff3368; */
+  color: #797979; 
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 500;
+   display: block;
+   margin-top: 10px; 
+}
 </style>
 
 <!--================Category Product Area =================-->
@@ -66,16 +77,16 @@
 						<div class="widgets_inner">
 							<ul class="list">
 							    <li><form action="ProductServlet?method=BrandHroom" method="POST">
-										<input type="submit" value="涵潤 HamRu">
+										<input class="listBtn" type="submit" value="涵潤 HamRu">
 									</form></li>
 								<li><form action="ProductServlet?method=BrandIkea" method="POST">
-										<input type="submit" value="Ikea">
+										<input class="listBtn" type="submit" value="Ikea">
 									</form></li>
 								<li><form action="ProductServlet?method=BrandEdli" method="POST">
-										<input type="submit" value="宜得利">
+										<input class="listBtn" type="submit" value="宜得利">
 									</form></li>
 								<li><form action="ProductServlet?method=BrandLife" method="POST">
-										<input type="submit" value="生活倉庫">
+										<input class="listBtn" type="submit" value="生活倉庫">
 									</form></li>
 							</ul>
 
@@ -89,16 +100,16 @@
 						<div class="widgets_inner">
 							<ul class="list">
 							    <li><form action="ProductServlet?method=ColorWhite" method="POST">
-										<input type="submit" value="白色">
+										<input class="listBtn" type="submit" value="白色">
 									</form></li>
 								<li><form action="ProductServlet?method=ColorBlack" method="POST">
-										<input type="submit" value="黑色">
+										<input class="listBtn" type="submit" value="黑色">
 									</form></li>
 								<li><form action="ProductServlet?method=ColorBrown" method="POST">
-										<input type="submit" value="棕色">
+										<input class="listBtn" type="submit" value="棕色">
 									</form></li>
 								<li><form action="ProductServlet?method=ColorOther" method="POST">
-										<input type="submit" value="其他">
+										<input class="listBtn" type="submit" value="其他">
 									</form></li>
 							</ul>
 						</div>
@@ -181,12 +192,10 @@
 										$ <span>${ListItem.cost}</span>
 									</h3>
 									<%-- <h6>${ListItem.brand}|${ListItem.color}</h6> --%>
-									<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> <input
-										type="hidden" class="productId" value="${ListItem.id}">
-<!-- 									<a class="check-product" href="defaultSingleProduct.html">商品詳細資訊</a> -->
+									<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> 
                                     <input type="hidden" name="productId" class="productId" value="${ListItem.id}">
 								<form action="SingleProductServlet?method=SingleProduct" method="POST">
-								<input type="submit" value="商品詳細資訊">
+								<input class="productBtn" type="submit" value="商品詳細資訊">
 								<input type="hidden" name="SentproductId" value="${ListItem.id}">
 								</form>
 								</div>

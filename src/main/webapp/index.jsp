@@ -4,6 +4,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
+<style>
+.productBtn {
+  background-color: white;
+  border: none;
+/*   color: #ff3368; */
+  color: #797979; 
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 500;
+   display: block;
+   margin-top: 10px; 
+}
+</style>
 <!-- banner part start-->
 <section class="banner_part">
 	<div class="container">
@@ -158,7 +171,7 @@
 								<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
 								<input type="hidden" name="productId" class="productId" value="${ListItem.id}">
 								<form action="SingleProductServlet?method=SingleProduct" method="POST">
-								<input type="submit" value="商品詳細資訊">
+								<input class="productBtn" type="submit" value="商品詳細資訊">
 								<input type="hidden" name="SentproductId" value="${ListItem.id}">
 								</form>
 							</div>
