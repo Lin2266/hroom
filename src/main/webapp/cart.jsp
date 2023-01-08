@@ -51,7 +51,7 @@
               <td>
                 <ul class="list">
                   <li>
-                    <h5 class="shipping">$ </h5>
+                    <h5 class="shipping"></h5>
                   </li>
                 </ul>
               </td>
@@ -65,7 +65,7 @@
               </td>
               <td></td>
               <td></td>
-              <td>
+              <td >
                   <a class="btn_1" id="checkOut" href='${pageContext.request.contextPath}${accountId ne null ? "/order.jsp":"/login.jsp"}'>進行結帳</a>
               </td>
             </tr>
@@ -79,34 +79,3 @@
 
   <!--::footer_part start::-->
 	<jsp:include page="/WEB-INF/subviews/footer.jsp"/>
-  <!--::footer_part end::-->
-
-  <!-- jquery plugins here-->
-  <!-- jquery -->
-  <script src="js/jquery-1.12.1.min.js"></script>
-  <!-- popper js -->
-  <script src="js/popper.min.js"></script>
-  <!-- bootstrap js -->
-  <script src="js/bootstrap.min.js"></script>
-  <!-- easing js -->
-  <script src="js/jquery.magnific-popup.js"></script>
-  <!-- swiper js -->
-  <script src="js/swiper.min.js"></script>
-  <!-- swiper js -->
-  <script src="js/masonry.pkgd.js"></script>
-  <!-- particles js -->
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.nice-select.min.js"></script>
-  <!-- slick js -->
-  <script src="js/slick.min.js"></script>
-  <script src="js/jquery.counterup.min.js"></script>
-  <script src="js/waypoints.min.js"></script>
-  <script src="js/contact.js"></script>
-  <script src="js/jquery.ajaxchimp.min.js"></script>
-  <script src="js/jquery.form.js"></script>
-  <script src="js/jquery.validate.min.js"></script>
-  <script src="js/mail-script.js"></script>
-  <script src="js/stellar.js"></script>
-  <script src="js/price_rangs.js"></script>
-  <!-- custom js -->
-  <script src="js/custom.js"></script>

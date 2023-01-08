@@ -77,16 +77,19 @@ $(function(){
 
     // 商品結帳時提示登入會員
     $("#checkOut").on("click",function (){
-        let checkOutUrl = $("#checkOut").prop("href")
-        let checkOutIndex = checkOutUrl.lastIndexOf("/")
-        let checkOutPage = checkOutUrl.slice(checkOutIndex+1);
+        if(carts){
+            let checkOutUrl = $("#checkOut").prop("href")
+            let checkOutIndex = checkOutUrl.lastIndexOf("/")
+            let checkOutPage = checkOutUrl.slice(checkOutIndex+1);
 
-        if(checkOutPage == "login.jsp"){
-            alert("結帳前請先登入會員")
-        }else{
-            let  shipping = $(".shipping span").text()
-            $("#checkOut").prop("href",`${checkOutUrl}?shipping=${shipping}`)
+            if(checkOutPage == "login.jsp"){
+                alert("結帳前請先登入會員")
+            }else{
+                let  shipping = $(".shipping span").text()
+                $("#checkOut").prop("href",`${checkOutUrl}?shipping=${shipping}`)
+            }
         }
+
     })
 
 
@@ -110,8 +113,6 @@ function  addCart(productId,cost,name,imgUrl,quantity){
     }else{
         quantity = parseInt(quantity)
     }
-
-    cost = parseFloat(cost).toFixed(2);
 
     let  cart = {
         productId:productId,
@@ -152,21 +153,17 @@ function  addCart(productId,cost,name,imgUrl,quantity){
 function showCart(){
     $(".cart_inner table tbody").html("")
     let carts = JSON.parse(localStorage.getItem("cart"))
-
+    let cartList;
+    let total =0;
     if(carts){
         // 計算購物車數量
         $(".main_menu .cart i").attr("data-cart-quantity",carts.length)
-        let cartList = "";
-        let total =0;
-        // let orderItems = {
-        //     productid: ,
-        //     quantity:
-        // }
+
         $.each(carts,function (index,item){
             total +=  item.cost * item.quantity;
 
             cartList += `
-        <tr>
+            <tr>
                 <td>
                   <div class="d-flex">
                     <img src="${item.imgUrl}" alt="" />
@@ -185,7 +182,7 @@ function showCart(){
                   </div>
                 </td>
                 <td class="total">
-                  <h5>$ ${(item.cost * item.quantity).toFixed(2)}</h5>
+                  <h5>$ ${(item.cost * item.quantity)}</h5>
                 </td>
                 <td>
                   <button type="button" class="deleteCartBtn" title="刪除">X</button>
@@ -195,15 +192,25 @@ function showCart(){
         })
 
         $(".cart_inner table tbody").append(cartList)
-        if(total == 0){
-            $(".shipping").html("<span></span>")
-        }else if(total > 3000){
+        $(".cart_inner table tfoot .subTotal").html("<span>$ </span>" + total)
+        if(total > 3000){
             $(".shipping").html("<span>免運費</span>")
         }else{
-            $(".shipping").html("$ <span>150.00</span>")
+            $(".shipping").html("$ <span>150</span>")
         }
 
-        $(".cart_inner table tfoot .subTotal").html("<span>$ </span>" + total.toFixed(2))
+    }else{
+        cartList = `
+            <tr>
+                <td colspan="6">
+                  購物車是空的
+                </td>
+              </tr>
+        `
+        $(".cart_inner table tbody").append(cartList)
+        $(".cart_inner table tfoot .subTotal").html("<span></span>")
+        $(".shipping").html("<span></span>")
+        $("#checkOut,#updateCart").hide()
     }
 
 }
@@ -222,8 +229,13 @@ function  updateCart(productId,quantity,key){
 
 function deleteCart(productId){
     let carts = JSON.parse( localStorage.getItem("cart"))
-    carts =  carts.filter((item) => item.productId != productId);
-    localStorage.setItem("cart", JSON.stringify(carts));
+    if(carts.length !=1){
+        carts =  carts.filter((item) => item.productId != productId);
+        localStorage.setItem("cart", JSON.stringify(carts));
+    }else{
+        localStorage.clear()
+    }
+
     location.reload()
 }
 

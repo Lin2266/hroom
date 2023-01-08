@@ -66,7 +66,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
 										<a class="dropdown-item" href="cart.jsp">購物車</a>
-                                        <a class="dropdown-item" href="tracking.jsp">訂單查詢</a>
+                                        <a class="dropdown-item" href="check_order.jsp">訂單查詢</a>
 <%--                                        <a class="dropdown-item" href="tracking.jsp">追蹤訂單</a>--%>
                                         <a class="dropdown-item" href="">修改會員資料</a>
                                     </div>

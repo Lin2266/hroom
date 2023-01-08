@@ -6,13 +6,18 @@
   String uri = request.getRequestURI(); 
   uri = uri.substring(uri.lastIndexOf("/")+1);
   String second = "";
+  String secondName = "";
   
   if("order.jsp".equals(uri)){
 	  uri = "商品結帳";
+      second = "y";
+      secondName = "購物車";
   }else if("order_items.jsp".equals(uri)){
 	  uri = "訂單明細";
-  }else if("tracking.jsp".equals(uri)){
-	  uri = "追蹤訂單";
+      second = "y";
+      secondName = "訂單查詢";
+  }else if("check_order.jsp".equals(uri)){
+	  uri = "訂單查詢";
   }else if("contact.jsp".equals(uri)){
       uri = "聯繫我們";
   }else if("category.jsp".equals(uri)){
@@ -22,13 +27,14 @@
   }else if("single-product.jsp".equals(uri)){
       uri = "商品資訊";
       second = "y";
+      secondName = "商品分類";
   }    
   %>  
   
 <nav class="breadcrumb">
 	<a class="breadcrumb-item" href="./index.jsp">首頁</a>
 	<%if (second == "y") {%>
-	<a class="breadcrumb-item" href="./category.jsp">商品分類</a>
+	<a class="breadcrumb-item" href="./category.jsp"><%= secondName %></a>
 	<%} %>  
 	<span	class="breadcrumb-item active"><%= uri %></span>
 </nav>

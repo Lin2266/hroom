@@ -59,7 +59,7 @@ $(function(){
 		// order['member'] = member
 		order['parmentMethod'] = parseInt(parmentMethod)
 		order['shipping'] = shipping
-		order['amount'] = parseFloat(amount)
+		order['amount'] = amount
 		order['info'] = info.val()
 
 
@@ -146,14 +146,13 @@ $(function(){
 function order(){
 	carts = JSON.parse(localStorage.getItem("cart"))
 	let shippingSpan;
+	let shipping = $("#shipping").val()
 	if($("#shipping").val() == "免運費"){
 		shippingSpan = ` <span>免運費</span>`
 	}else{
-		shipping = parseFloat( $("#shipping").val());
 		shippingSpan = `<span>$ ${shipping}</span>`
 	}
 
-	let sum = 0;
 	let orderList = `
 			 <h2>您的訂單</h2>
               <ul class="list">
@@ -163,9 +162,10 @@ function order(){
                   </a>
                 </li>
                 `
-	carts.forEach(function (cart){
-		sum +=  parseFloat(cart.cost) * cart.quantity;
-		orderList +=`
+	if(carts){
+		carts.forEach(function (cart){
+			total += cart.cost * cart.quantity;
+			orderList +=`
                 <li>
                   <a>${cart.name}
                     <span class="middle">x ${cart.quantity}</span>
@@ -173,9 +173,10 @@ function order(){
                   </a>
                 </li>
                 `
-	})
-	total = parseFloat(sum).toFixed(2);
-	amount = sum + shipping
+		})
+	}
+
+	amount = total + shipping
 
 	orderList +=`
               </ul>
@@ -192,7 +193,7 @@ function order(){
                 </li>
                 <li>
                   <a>總額
-                    <span>$ ${amount.toFixed(2)}</span>
+                    <span>$ ${amount}</span>
                   </a>
                 </li>
               </ul>

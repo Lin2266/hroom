@@ -48,11 +48,7 @@ public class OrderDao implements DaoInterface<Integer, Order>{
     public int insert(Order order) throws ModuleException {
         Connection con = null;
         PreparedStatement stmt = null;
-//        PreparedStatement stmt2 = null;
-//        PreparedStatement stmt3 = null;
-//        PreparedStatement stmt4 = null;
         ResultSet rs = null;
-//        ResultSet rs2 = null;
         int key=0;
         int stock=0;
 
@@ -178,7 +174,7 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             while (rs.next()){
                 order.setId(rs.getInt("id"));
                 order.setOrderTime(rs.getDate("ordertime"));
-                order.setAmount(rs.getDouble("amount"));
+                order.setAmount(rs.getInt("amount"));
                 order.setParmentMethod(rs.getInt("payment_method"));
                 order.setInfo(rs.getString("info"));
                 order.setShipping(rs.getInt("shipping"));
@@ -195,7 +191,7 @@ public class OrderDao implements DaoInterface<Integer, Order>{
                 ProductBean products = new ProductBean();
                 products.setId(rs.getInt("product_id"));
                 products.setName(rs.getString("name"));
-                products.setCost(rs.getDouble("cost"));
+                products.setCost(rs.getInt("cost"));
                 orderItems.setProducts(products);
                 orderItemsList.add(orderItems);
 

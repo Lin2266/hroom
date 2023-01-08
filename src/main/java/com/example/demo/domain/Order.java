@@ -9,7 +9,7 @@ import java.util.List;
 public class Order {
 	private int id;
 	private Date orderTime;
-	private double amount;
+	private int amount;
 	private String receiver;
 	private String receiverPhone;
 	private String receiverEmail;
@@ -40,7 +40,7 @@ public class Order {
 	public double getAmount() {
 		return amount;
 	}
-	public void setAmount(double amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 	public String getReceiver() {
