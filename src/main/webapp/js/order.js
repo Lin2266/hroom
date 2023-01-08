@@ -128,9 +128,12 @@ $(function(){
 
 function order(){
 	carts = JSON.parse(localStorage.getItem("cart"))
-
-	if($("#shipping").val() != "免運費"){
+	let shippingSpan;
+	if($("#shipping").val() == "免運費"){
+		shippingSpan = ` <span>免運費</span>`
+	}else{
 		shipping = parseFloat( $("#shipping").val());
+		shippingSpan = `<span>$ ${shipping}</span>`
 	}
 
 	let sum = 0;
@@ -167,7 +170,7 @@ function order(){
                 </li>
                 <li>
                   <a>運費
-                    <span>$ ${shipping}</span>
+                    ${shippingSpan}
                   </a>
                 </li>
                 <li>
@@ -185,12 +188,10 @@ function checkOut(carts,order){
 
 	for(let i =0; i<carts.length; i++){
 		for(let j =0;j<Object.keys(carts[i]).length;j++){
-			// if(Object.keys(carts[i])[j] != "productId" && Object.keys(carts[i])[j] != "quantity"){
 				delete carts[i].accountId
 				delete carts[i].name
 				delete carts[i].cost
 				delete carts[i].imgUrl
-			// }
 		}
 
 	}
@@ -198,8 +199,6 @@ function checkOut(carts,order){
 	console.log(carts)
 	cart.set("orderItems",carts)
 	cart.set("order",order)
-	// console.log(JSON.stringify(Array.from(cart.entries())))
-	// console.log(JSON.stringify(Object.fromEntries(cart)));
 
 	$.ajax({
 		url:"OrderServlet",
@@ -208,9 +207,7 @@ function checkOut(carts,order){
 		data:JSON.stringify(Object.fromEntries(cart)),
 		success:function (res){
 			alert(res[0].message)
-			console.log(res[0].message)
-			console.log(res[0].orderId)
-			// localStorage.clear()
+			localStorage.clear()
 			location.href=`order_items.jsp?orderId=${res[0].orderId}`
 		},
 		error:function (error){
