@@ -22,10 +22,14 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             "SELECT * FROM hroom.order a join hroom.member b on a.member_id = b.id\n" +
             "join hroom.order_items c on a.id = c.order_id where b.id = ?";
     private final String SELECT_ORDER_BY_ORDERID =
-            "SELECT * FROM hroom.order a\n" +
-            "join hroom.member b on a.member_id = b.id\n" +
-            "join hroom.order_items c on a.id = c.order_id\n" +
-             "where a.id = ?";
+            "SELECT a.id,a.ordertime,a.amount,a.payment_method,a.info,a.shipping,a.amount,\n" +
+            "       a.receiver,a.receiverphone,a.receiveremail,a.city,a.county,a.address,a.zipcode,\n" +
+            "       b.product_id,b.quantity,\n" +
+            "       c.name,c.cost\n" +
+            "FROM hroom.order a\n" +
+            "join hroom.order_items b on a.id = b.order_id\n" +
+            "join hroom.products c on b.product_id = c.id\n" +
+            "where a.id = ?";
     private final String SELECT_PRODUCTS_STOCK=
             "select stock from products where id = ?";
     private final String UPDATE_PRODUCTS_STOCK=
@@ -41,12 +45,12 @@ public class OrderDao implements DaoInterface<Integer, Order>{
     @Override
     public int insert(Order order) throws ModuleException {
         Connection con = null;
-        PreparedStatement stmt1 = null;
-        PreparedStatement stmt2 = null;
-        PreparedStatement stmt3 = null;
-        PreparedStatement stmt4 = null;
+        PreparedStatement stmt = null;
+//        PreparedStatement stmt2 = null;
+//        PreparedStatement stmt3 = null;
+//        PreparedStatement stmt4 = null;
         ResultSet rs = null;
-        ResultSet rs2 = null;
+//        ResultSet rs2 = null;
         int key=0;
         int stock=0;
 
@@ -67,52 +71,52 @@ public class OrderDao implements DaoInterface<Integer, Order>{
 
             con.setAutoCommit(false);
             // 新增訂單
-            stmt1 = con.prepareStatement(INSERT_ORDER, Statement.RETURN_GENERATED_KEYS);
-            stmt1.setDouble(1,order.getAmount());
-            stmt1.setString(2,order.getReceiver());
-            stmt1.setString(3,order.getReceiverPhone());
-            stmt1.setString(4,order.getReceiverEmail());
-            stmt1.setString(5,order.getCity());
-            stmt1.setString(6,order.getCounty());
-            stmt1.setString(7,order.getZipcode());
-            stmt1.setString(8,order.getAddress());
-            stmt1.setString(9,order.getInfo());
-            stmt1.setInt(10,order.getParmentMethod());
-            stmt1.setInt(11,order.getPaystate());
-            stmt1.setInt(12,order.getMemberId());
-            stmt1.setInt(13,order.getShipping());
-            stmt1.executeUpdate();
+            stmt = con.prepareStatement(INSERT_ORDER, Statement.RETURN_GENERATED_KEYS);
+            stmt.setDouble(1,order.getAmount());
+            stmt.setString(2,order.getReceiver());
+            stmt.setString(3,order.getReceiverPhone());
+            stmt.setString(4,order.getReceiverEmail());
+            stmt.setString(5,order.getCity());
+            stmt.setString(6,order.getCounty());
+            stmt.setString(7,order.getZipcode());
+            stmt.setString(8,order.getAddress());
+            stmt.setString(9,order.getInfo());
+            stmt.setInt(10,order.getParmentMethod());
+            stmt.setInt(11,order.getPaystate());
+            stmt.setInt(12,order.getMemberId());
+            stmt.setInt(13,order.getShipping());
+            stmt.executeUpdate();
 
             //取得自動給號的order id值
-            rs = stmt1.getGeneratedKeys();
+            rs = stmt.getGeneratedKeys();
             if (rs.next()) {
                 key = rs.getInt(1);
                 order.setId(key);
                 System.out.println("自動給號:" + key);
             }
 
-            stmt2 = con.prepareStatement(INSERT_ORDERITEMS);
-            stmt3 = con.prepareStatement(SELECT_PRODUCTS_STOCK);
-            stmt4 = con.prepareStatement(UPDATE_PRODUCTS_STOCK);
+            stmt = con.prepareStatement(INSERT_ORDERITEMS);
             for(OrderItems orderItems: order.getOrderItem()){
                 // 新增訂單明細
-                stmt2.setInt(1,orderItems.getQuantity());
-                stmt2.setInt(2,order.getId());
-                stmt2.setInt(3,orderItems.getProductId());
-                stmt2.executeUpdate();
+                stmt.setInt(1,orderItems.getQuantity());
+                stmt.setInt(2,order.getId());
+                stmt.setInt(3,orderItems.getProductId());
+                stmt.executeUpdate();
                 // 查詢產品庫存
-                stmt3.setInt(1,orderItems.getProductId());
-                rs2 = stmt3.executeQuery();
-                while (rs2.next()){
-                    stock = rs2.getInt("stock");
+                stmt = con.prepareStatement(SELECT_PRODUCTS_STOCK);
+                stmt.setInt(1,orderItems.getProductId());
+                rs = stmt.executeQuery();
+                while (rs.next()){
+                    stock = rs.getInt("stock");
                     System.out.println("庫存量:" + stock);
                     System.out.println("產品購買量:" +  orderItems.getQuantity());
                     System.out.println("剩餘庫存量:" + (stock - orderItems.getQuantity()));
                 }
                 // 現在庫存 - 訂單購買量 = 剩餘庫存
-                stmt4.setInt(1,stock - orderItems.getQuantity());
-                stmt4.setInt(2,orderItems.getProductId());
-                stmt4.executeUpdate();
+                stmt = con.prepareStatement(UPDATE_PRODUCTS_STOCK);
+                stmt.setInt(1,stock - orderItems.getQuantity());
+                stmt.setInt(2,orderItems.getProductId());
+                stmt.executeUpdate();
             }
 
             con.commit();
@@ -127,37 +131,37 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             throw new ModuleException("新增訂單失敗: " + e.getMessage());
 
         }finally {
-            if (stmt1 != null) {
+            if (stmt != null) {
                 try {
-                    stmt1.close();
+                    stmt.close();
                 } catch (SQLException e) {
                     throw new ModuleException("OrderDao insert order stmt1關閉失敗: " + e.getMessage());
                 }
             }
 
-            if (stmt2 != null) {
-                try {
-                    stmt2.close();
-                } catch (SQLException e) {
-                    throw new ModuleException("OrderDao insert orderItems stmt2關閉失敗: " + e.getMessage());
-                }
-            }
-
-            if (stmt3 != null) {
-                try {
-                    stmt3.close();
-                } catch (SQLException e) {
-                    throw new ModuleException("OrderDao select products stmt3關閉失敗: " + e.getMessage());
-                }
-            }
-
-            if (stmt4 != null) {
-                try {
-                    stmt4.close();
-                } catch (SQLException e) {
-                    throw new ModuleException("OrderDao update products stmt4關閉失敗: " + e.getMessage());
-                }
-            }
+//            if (stmt2 != null) {
+//                try {
+//                    stmt2.close();
+//                } catch (SQLException e) {
+//                    throw new ModuleException("OrderDao insert orderItems stmt2關閉失敗: " + e.getMessage());
+//                }
+//            }
+//
+//            if (stmt3 != null) {
+//                try {
+//                    stmt3.close();
+//                } catch (SQLException e) {
+//                    throw new ModuleException("OrderDao select products stmt3關閉失敗: " + e.getMessage());
+//                }
+//            }
+//
+//            if (stmt4 != null) {
+//                try {
+//                    stmt4.close();
+//                } catch (SQLException e) {
+//                    throw new ModuleException("OrderDao update products stmt4關閉失敗: " + e.getMessage());
+//                }
+//            }
 
             if (rs != null) {
                 try {
@@ -166,14 +170,14 @@ public class OrderDao implements DaoInterface<Integer, Order>{
                     throw new ModuleException("OrderDao order 自動流水號 rs關閉失敗: " + e.getMessage());
                 }
             }
-
-            if (rs2 != null) {
-                try {
-                    rs2.close();
-                } catch (SQLException e) {
-                    throw new ModuleException("OrderDao select products rs2關閉失敗: " + e.getMessage());
-                }
-            }
+//
+//            if (rs2 != null) {
+//                try {
+//                    rs2.close();
+//                } catch (SQLException e) {
+//                    throw new ModuleException("OrderDao select products rs2關閉失敗: " + e.getMessage());
+//                }
+//            }
 
             if (con != null) {
                 try {

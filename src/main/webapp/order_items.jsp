@@ -25,6 +25,12 @@
               <li>
                 <p>備註:</p><span>111</span>
               </li>
+              <li>
+                <p>&nbsp;</p><span>&nbsp;</span>
+              </li>
+              <li>
+                <p>&nbsp;</p><span>&nbsp;</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -34,6 +40,12 @@
             <ul>
               <li>
                 <p>購買人:</p><span>jerry</span>
+              </li>
+              <li>
+                <p>電話:</p><span>0912345678</span>
+              </li>
+              <li>
+                <p>信箱:</p><span>jerry@gmail.com</span>
               </li>
               <li>
                 <p>縣市:</p><span>新北市</span>
@@ -56,6 +68,12 @@
             <ul>
               <li>
                 <p>收件人:</p><span>Marry</span>
+              </li>
+              <li>
+                <p>電話:</p><span>0911111111</span>
+              </li>
+              <li>
+                <p>信箱:</p><span>Marry@gmail.com</span>
               </li>
               <li>
                 <p>縣市:</p><span>新北市</span>

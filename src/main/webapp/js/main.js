@@ -197,7 +197,7 @@ function showCart(){
         $(".cart_inner table tbody").append(cartList)
         if(total == 0){
             $(".shipping").html("<span></span>")
-        }else if(total > 2000){
+        }else if(total > 3000){
             $(".shipping").html("<span>免運費</span>")
         }else{
             $(".shipping").html("$ <span>150.00</span>")

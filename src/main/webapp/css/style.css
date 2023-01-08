@@ -5573,6 +5573,7 @@ ul {
 .confirmation_part .single_confirmation_details {
   background-color: #ecfdff;
   padding: 35px 40px;
+  margin-bottom: 30px;
 }
 
 @media (max-width: 991px) {
@@ -5622,7 +5623,7 @@ ul {
 
 /* line 47, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_confirmation_part.scss */
 .confirmation_part .order_details_iner {
-  margin-top: 50px;
+  /*margin-top: 50px;*/
   background-color: #ecfdff;
   padding: 30px 30px 15px;
   text-transform: capitalize;
