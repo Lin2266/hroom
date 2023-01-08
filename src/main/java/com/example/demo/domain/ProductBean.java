@@ -11,7 +11,7 @@ public class ProductBean {
 	private String name;
 	private String color;
 	private String description;
-	private double cost;
+	private int cost;
 	private String width;
 	private String height;
 	private String depth;
@@ -19,6 +19,8 @@ public class ProductBean {
 	private int delivery;
 	private int stock;
 	private Date datetime;
+	private String popular;
+	private String promotion;
 
 	public int getId() {
 		return id;
@@ -68,11 +70,11 @@ public class ProductBean {
 		this.description = description;
 	}
 
-	public double getCost() {
+	public int getCost() {
 		return cost;
 	}
 
-	public void setCost(double cost) {
+	public void setCost(int cost) {
 		this.cost = cost;
 	}
 
@@ -130,5 +132,22 @@ public class ProductBean {
 
 	public void setDatetime(Date datetime) {
 		this.datetime = datetime;
+			
+	}
+	
+	public String getPopular() {
+		return popular;
+	}
+	
+	public void setPopular(String popular) {
+		this.popular = popular;
+	}
+	
+	public String getPromotion() {
+		return promotion;
+	}
+	
+	public void setPromotion(String promotion) {
+		this.promotion = promotion;
 	}
 }
