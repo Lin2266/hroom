@@ -62,16 +62,23 @@ hr.style-four {
             <p>
               ${Item.description}
             </p>
-            </c:forEach>
+<%--             </c:forEach> --%>
+           <c:if test="${Item.stock != 0}">
             <div class="card_area d-flex justify-content-between align-items-center">
               <div class="product_count">
                 <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                <input class="input-number" type="text" value="1" min="0" max="10">
+                <input class="input-number" type="text" value="1" min="1" max="${Item.stock}">
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div>
               <a href="#" class="btn_3 add_cart">加入購物車</a>
               <a class="like_us"> <i class="ti-heart"></i> </a>
             </div>
+            </c:if>
+            <c:if test="${Item.stock == 0}">
+              <p>很抱歉，目前商品尚無庫存</p>
+              <a href="defaultCategory.html" class="btn_3">繼續購物</a>
+              </c:if>
+            </c:forEach>
           </div>
         </div>
       </div>
@@ -241,9 +248,9 @@ hr.style-four {
   <!--::footer_part start::-->
   <jsp:include page="/WEB-INF/subviews/footer.jsp" />
   <!--::footer_part end::-->
-  <script>
+   <script> 
 	  $("#home-tab").click();
-</script>
+ </script> 
 </body>
 
 </html>
