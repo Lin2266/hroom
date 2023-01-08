@@ -3,6 +3,7 @@ package com.example.demo.servlet;
 import com.example.demo.domain.Account;
 import com.example.demo.domain.OrderItems;
 import com.example.demo.domain.OrderReq;
+import com.example.demo.domain.OrderRes;
 import com.example.demo.exception.DataNotFoundException;
 import com.example.demo.exception.ErrorInputException;
 import com.example.demo.exception.ModuleException;
@@ -17,6 +18,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet( "/OrderServlet")
@@ -24,16 +26,38 @@ public class OrderServlet extends HttpServlet {
     ObjectMapper mapper = new ObjectMapper();
     ErrorInputException eie = null;
     OrderService orderService = new OrderService();
+    OrderRes orderRes = new OrderRes();
+
     String json = "";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json; charset=utf-8");
+        PrintWriter out = response.getWriter();
+        List<Object> orderList = new ArrayList<>();
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("user");
+        int orderId = Integer.parseInt(request.getParameter("orderId"));
+
+        try {
+            if(null == account){
+                throw new DataNotFoundException("請登入會員在進行結帳");
+            }
+
+            if(0 == orderId){
+                throw new DataNotFoundException("order id是空值");
+            }
+            out.print(new ObjectMapper().writeValueAsString(orderList));
+        } catch (DataNotFoundException e) {
+            out.println(e.getMessage());
+        }
 
     }
 
-    @Override
+        @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json; charset=utf-8");
         PrintWriter out = response.getWriter();
+        List<Object> orderList = new ArrayList<>();
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("user");
 
@@ -98,9 +122,12 @@ public class OrderServlet extends HttpServlet {
             System.out.println("訂單" + order.getOrder().toString());
             System.out.println("訂單明細" + order.getOrderItems().toString());
 
-            orderService.checkOut(order.getOrder());
+            int orderId = orderService.checkOut(order.getOrder());
+            orderRes.setOrderId(orderId);
+            orderRes.setMessage("新增訂單成功");
+            orderList.add(orderRes);
 
-            out.print(new ObjectMapper().writeValueAsString("新增訂單成功"));
+            out.print(new ObjectMapper().writeValueAsString(orderList));
         }catch (JsonProcessingException e){
             out.print("json格式解析錯誤:" + e.getMessage());
         } catch (ModuleException e) {

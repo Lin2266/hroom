@@ -75,7 +75,7 @@ $(function(){
         updateCart(productId,quantity)
     })
 
-    // 提示結帳時登入會員
+    // 商品結帳時提示登入會員
     $("#checkOut").on("click",function (){
         let checkOutUrl = $("#checkOut").prop("href")
         let checkOutIndex = checkOutUrl.lastIndexOf("/")
@@ -88,6 +88,13 @@ $(function(){
             $("#checkOut").prop("href",`${checkOutUrl}?shipping=${shipping}`)
         }
     })
+
+
+    // 訂單明細
+    let orderId = $("#orderId").val()
+    if(orderId){
+        ShowOrderItems(orderId)
+    }
 
 })
 
@@ -134,13 +141,11 @@ function  addCart(productId,cost,name,imgUrl,quantity){
             carts.unshift(cart); // [{}, {}]
         }
 
-
     }else{ // 若不存在
         carts = [cart];
     }
-
     localStorage.setItem("cart", JSON.stringify(carts));
-
+    alert("已增加到購物車")
 }
 
 
@@ -220,4 +225,24 @@ function deleteCart(productId){
     carts =  carts.filter((item) => item.productId != productId);
     localStorage.setItem("cart", JSON.stringify(carts));
     location.reload()
+}
+
+function ShowOrderItems(orderId){
+    url = "OrderServlet"
+    if(orderId != null){
+        url += `?orderId=${orderId}`
+    }
+
+    $.ajax({
+        url: url,
+        type:"GET",
+        dataType: "json",
+        success:function (res){
+            alert(res)
+        },
+        error:function (error){
+            alert(error.responseText)
+        }
+
+    })
 }

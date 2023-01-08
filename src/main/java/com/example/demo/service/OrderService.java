@@ -12,9 +12,8 @@ import java.util.List;
 
 public class OrderService {
     OrderDao orderDao = new OrderDao();
-    public void checkOut(Order order) throws ModuleException {
-        orderDao.insert(order);
-
+    public int checkOut(Order order) throws ModuleException {
+        return orderDao.insert(order);
     }
 
     public Order get(int orderId) throws ModuleException{

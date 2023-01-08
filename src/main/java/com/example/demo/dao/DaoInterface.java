@@ -7,8 +7,8 @@ import java.sql.Connection;
 import java.util.List;
 
 public interface DaoInterface<K,T> {
-    void insert(T order) throws ModuleException;
-    public T get(K id) throws  ModuleException;
+    int insert(T order) throws ModuleException;
+    public T get(K orderId) throws  ModuleException;
     public abstract List<T> getAll() throws  ModuleException;
 
 }

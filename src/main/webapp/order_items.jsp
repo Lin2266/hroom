@@ -11,54 +11,63 @@
             <h4>訂單訊息</h4>
             <ul>
               <li>
-                <p>訂單編號</p><span>: 60235</span>
+                <p>訂單編號:</p><span>60235</span>
               </li>
               <li>
-                <p>日期</p><span>: Oct 03, 2017</span>
+                <p>日期:</p><span>Oct 03, 2017</span>
               </li>
               <li>
-                <p>總額</p><span>: USD 2210</span>
+                <p>總額:</p><span>USD 2210</span>
               </li>
               <li>
-                <p>付款方式</p><span>: 信用卡</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 col-lx-4">
-          <div class="single_confirmation_details">
-            <h4>購買人地址</h4>
-            <ul>
-              <li>
-                <p>縣市</p><span>: 新北市</span>
+                <p>付款方式:</p><span>信用卡</span>
               </li>
               <li>
-                <p>鄉鎮市區</p><span>: 汐止區</span>
-              </li>
-              <li>
-                <p>巷弄</p><span>: 新台五路一段1號</span>
-              </li>
-              <li>
-                <p>郵遞區號</p><span>: 36952</span>
+                <p>備註:</p><span>111</span>
               </li>
             </ul>
           </div>
         </div>
         <div class="col-lg-6 col-lx-4">
           <div class="single_confirmation_details">
-            <h4>收件人地址</h4>
+            <h4>購買人訊息:</h4>
             <ul>
               <li>
-                <p>縣市</p><span>: 新北市</span>
+                <p>購買人:</p><span>jerry</span>
               </li>
               <li>
-                <p>鄉鎮市區</p><span>: 汐止區</span>
+                <p>縣市:</p><span>新北市</span>
               </li>
               <li>
-                <p>巷弄</p><span>: 新台五路一段1號</span>
+                <p>鄉鎮市區:</p><span>汐止區</span>
               </li>
               <li>
-                <p>郵遞區號</p><span>: 36952</span>
+                <p>巷弄:</p><span>新台五路一段1號</span>
+              </li>
+              <li>
+                <p>郵遞區號:</p><span>36952</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 col-lx-4">
+          <div class="single_confirmation_details">
+            <h4>收件人訊息</h4>
+            <ul>
+              <li>
+                <p>收件人:</p><span>Marry</span>
+              </li>
+              <li>
+                <p>縣市:</p><span>新北市</span>
+              </li>
+              <li>
+                <p>鄉鎮市區:</p><span>汐止區</span>
+              </li>
+              <li>
+                <p>巷弄:</p><span>新台五路一段1號</span>
+              </li>
+              <li>
+                <p>郵遞區號:</p><span>36952</span>
               </li>
             </ul>
           </div>
@@ -112,6 +121,7 @@
         </div>
       </div>
     </div>
+    <input id="orderId" name="orderId" value="${param.orderId}" hidden>
   </section>
   <!--================ confirmation part end =================-->
 

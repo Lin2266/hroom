@@ -123,6 +123,7 @@ $(function(){
 		checkOut(carts,order)
 	})
 
+
 })
 
 function order(){
@@ -206,9 +207,11 @@ function checkOut(carts,order){
 		dataType: "json",
 		data:JSON.stringify(Object.fromEntries(cart)),
 		success:function (res){
-			alert(res)
-			localStorage.clear()
-			location.href="order_items.jsp"
+			alert(res[0].message)
+			console.log(res[0].message)
+			console.log(res[0].orderId)
+			// localStorage.clear()
+			location.href=`order_items.jsp?orderId=${res[0].orderId}`
 		},
 		error:function (error){
 			alert(error.responseText)
@@ -216,3 +219,4 @@ function checkOut(carts,order){
 
 	})
 }
+
