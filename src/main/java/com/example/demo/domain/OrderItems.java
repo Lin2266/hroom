@@ -7,8 +7,7 @@ public class OrderItems {
 	private int id;
 	private int quantity;
 	private int orderId;
-	private int productId;
-	
+	private ProductBean products;
 	
 	public int getId() {
 		return id;
@@ -28,11 +27,11 @@ public class OrderItems {
 	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
-	public int getProductId() {
-		return productId;
+	public ProductBean getProducts() {
+		return products;
 	}
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setProducts(ProductBean products) {
+		this.products = products;
 	}
 
 
@@ -42,7 +41,7 @@ public class OrderItems {
 				"id=" + id +
 				", quantity=" + quantity +
 				", orderId=" + orderId +
-				", productId=" + productId +
+				", products=" + products +
 				'}';
 	}
 }

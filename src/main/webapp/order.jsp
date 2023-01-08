@@ -34,7 +34,7 @@
                   <input type="text" class="form-control" id="address" name="address" placeholder="地址" value="${sessionScope.user.member.address}" readonly/>
                 </div>
                 <div class="col-md-12 form-group p_star">
-                   <label for="f-option3">付費方式</label>
+                   <label>付費方式</label>
                    <div class="pay col-md-12 form-group p_star">
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="0" checked>
@@ -96,8 +96,9 @@
       </div>
     </div>
   </section>
+
   <!--================End Checkout Area =================-->
   <!--::footer_part start::-->
   <jsp:include page="/WEB-INF/subviews/footer.jsp"/>
   <script src="js/order.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.js"></script>

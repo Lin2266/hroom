@@ -17,9 +17,8 @@ public class OrderService {
     }
 
     public Order get(int orderId) throws ModuleException{
-        Order order = new Order();
 
-        return  order;
+        return  orderDao.get(orderId);
     }
 
     public List<Order> getOrderHistory(int memberId) throws ModuleException{

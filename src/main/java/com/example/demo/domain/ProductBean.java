@@ -1,7 +1,9 @@
 package com.example.demo.domain;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Date;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductBean {
 	private int id;
 	private String kind;

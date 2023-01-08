@@ -20,7 +20,7 @@ public class Order {
 	private String info;
 	private int parmentMethod;
 	private int paystate;
-	private int memberId;
+	private Member member;
 	private int shipping;
 	private List<OrderItems> orderItem;
 	
@@ -103,11 +103,11 @@ public class Order {
 	public void setPaystate(int paystate) {
 		this.paystate = paystate;
 	}
-	public int getMemberId() {
-		return memberId;
+	public Member getMember() {
+		return member;
 	}
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
+	public void setMember(Member member) {
+		this.member = member;
 	}
 	public int getShipping() {
 		return shipping;
@@ -140,7 +140,7 @@ public class Order {
 				", info='" + info + '\'' +
 				", parmentMethod=" + parmentMethod +
 				", paystate=" + paystate +
-				", memberId=" + memberId +
+				", member=" + member +
 				", shipping=" + shipping +
 				", orderItem=" + orderItem +
 				'}';

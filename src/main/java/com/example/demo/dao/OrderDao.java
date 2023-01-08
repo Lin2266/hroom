@@ -2,12 +2,14 @@ package com.example.demo.dao;
 
 import com.example.demo.domain.Order;
 import com.example.demo.domain.OrderItems;
+import com.example.demo.domain.ProductBean;
 import com.example.demo.exception.ErrorInputException;
 import com.example.demo.exception.ModuleException;
 import com.example.demo.utils.JdbcUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDao implements DaoInterface<Integer, Order>{
@@ -83,7 +85,7 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             stmt.setString(9,order.getInfo());
             stmt.setInt(10,order.getParmentMethod());
             stmt.setInt(11,order.getPaystate());
-            stmt.setInt(12,order.getMemberId());
+            stmt.setInt(12,order.getMember().getId());
             stmt.setInt(13,order.getShipping());
             stmt.executeUpdate();
 
@@ -95,16 +97,17 @@ public class OrderDao implements DaoInterface<Integer, Order>{
                 System.out.println("自動給號:" + key);
             }
 
-            stmt = con.prepareStatement(INSERT_ORDERITEMS);
+
             for(OrderItems orderItems: order.getOrderItem()){
                 // 新增訂單明細
+                stmt = con.prepareStatement(INSERT_ORDERITEMS);
                 stmt.setInt(1,orderItems.getQuantity());
                 stmt.setInt(2,order.getId());
-                stmt.setInt(3,orderItems.getProductId());
+                stmt.setInt(3,orderItems.getProducts().getId());
                 stmt.executeUpdate();
                 // 查詢產品庫存
                 stmt = con.prepareStatement(SELECT_PRODUCTS_STOCK);
-                stmt.setInt(1,orderItems.getProductId());
+                stmt.setInt(1,orderItems.getProducts().getId());
                 rs = stmt.executeQuery();
                 while (rs.next()){
                     stock = rs.getInt("stock");
@@ -115,7 +118,7 @@ public class OrderDao implements DaoInterface<Integer, Order>{
                 // 現在庫存 - 訂單購買量 = 剩餘庫存
                 stmt = con.prepareStatement(UPDATE_PRODUCTS_STOCK);
                 stmt.setInt(1,stock - orderItems.getQuantity());
-                stmt.setInt(2,orderItems.getProductId());
+                stmt.setInt(2,orderItems.getProducts().getId());
                 stmt.executeUpdate();
             }
 
@@ -131,59 +134,27 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             throw new ModuleException("新增訂單失敗: " + e.getMessage());
 
         }finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    throw new ModuleException("OrderDao insert order stmt1關閉失敗: " + e.getMessage());
-                }
-            }
-
-//            if (stmt2 != null) {
-//                try {
-//                    stmt2.close();
-//                } catch (SQLException e) {
-//                    throw new ModuleException("OrderDao insert orderItems stmt2關閉失敗: " + e.getMessage());
-//                }
-//            }
-//
-//            if (stmt3 != null) {
-//                try {
-//                    stmt3.close();
-//                } catch (SQLException e) {
-//                    throw new ModuleException("OrderDao select products stmt3關閉失敗: " + e.getMessage());
-//                }
-//            }
-//
-//            if (stmt4 != null) {
-//                try {
-//                    stmt4.close();
-//                } catch (SQLException e) {
-//                    throw new ModuleException("OrderDao update products stmt4關閉失敗: " + e.getMessage());
-//                }
-//            }
-
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (SQLException e) {
-                    throw new ModuleException("OrderDao order 自動流水號 rs關閉失敗: " + e.getMessage());
+                    throw new ModuleException("OrderDao insert order rs關閉失敗: " + e.getMessage());
                 }
             }
-//
-//            if (rs2 != null) {
-//                try {
-//                    rs2.close();
-//                } catch (SQLException e) {
-//                    throw new ModuleException("OrderDao select products rs2關閉失敗: " + e.getMessage());
-//                }
-//            }
+
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    throw new ModuleException("OrderDao insert 關閉失敗: " + e.getMessage());
+                }
+            }
 
             if (con != null) {
                 try {
                     con.close();
                 } catch (SQLException e) {
-                    throw new ModuleException("OrderDao insert con關閉失敗: " + e.getMessage());
+                    throw new ModuleException("OrderDao insert order con關閉失敗: " + e.getMessage());
                 }
             }
         }
@@ -198,19 +169,68 @@ public class OrderDao implements DaoInterface<Integer, Order>{
         ResultSet rs = null;
         Order order = new Order();
 
+        List<OrderItems> orderItemsList = new ArrayList<>();
         try {
             con = JdbcUtils.getConnection();
             stmt = con.prepareStatement(SELECT_ORDER_BY_ORDERID);
             stmt.setInt(1,orderId);
-            stmt.executeQuery();
+            rs = stmt.executeQuery();
             while (rs.next()){
                 order.setId(rs.getInt("id"));
+                order.setOrderTime(rs.getDate("ordertime"));
+                order.setAmount(rs.getDouble("amount"));
+                order.setParmentMethod(rs.getInt("payment_method"));
+                order.setInfo(rs.getString("info"));
+                order.setShipping(rs.getInt("shipping"));
+                order.setReceiver(rs.getString("receiver"));
+                order.setReceiverPhone(rs.getString("receiverphone"));
+                order.setReceiverEmail(rs.getString("receiveremail"));
+                order.setCity(rs.getString("city"));
+                order.setCounty(rs.getString("county"));
+                order.setAddress(rs.getString("address"));
+                order.setZipcode(rs.getString("zipcode"));
+
+                OrderItems orderItems = new OrderItems();
+                orderItems.setQuantity(rs.getInt("quantity"));
+                ProductBean products = new ProductBean();
+                products.setId(rs.getInt("product_id"));
+                products.setName(rs.getString("name"));
+                products.setCost(rs.getDouble("cost"));
+                orderItems.setProducts(products);
+                orderItemsList.add(orderItems);
+
+                order.setOrderItem(orderItemsList);
 
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            throw new ModuleException("查詢訂單詳細失敗:" + e.getMessage());
+        }finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new ModuleException("OrderDao get order rs關閉失敗: " + e.getMessage());
+                }
+            }
+
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    throw new ModuleException("OrderDao get 關閉失敗: " + e.getMessage());
+                }
+            }
+
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    throw new ModuleException("OrderDao get order con關閉失敗: " + e.getMessage());
+                }
+            }
         }
-        return null;
+        return order;
     }
 
     @Override

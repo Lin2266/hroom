@@ -1,9 +1,6 @@
 package com.example.demo.servlet;
 
-import com.example.demo.domain.Account;
-import com.example.demo.domain.OrderItems;
-import com.example.demo.domain.OrderReq;
-import com.example.demo.domain.OrderRes;
+import com.example.demo.domain.*;
 import com.example.demo.exception.DataNotFoundException;
 import com.example.demo.exception.ErrorInputException;
 import com.example.demo.exception.ModuleException;
@@ -33,7 +30,8 @@ public class OrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json; charset=utf-8");
         PrintWriter out = response.getWriter();
-        List<Object> orderList = new ArrayList<>();
+        List<Order> orderList = new ArrayList<>();
+        Order order = new Order();
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("user");
         int orderId = Integer.parseInt(request.getParameter("orderId"));
@@ -46,8 +44,11 @@ public class OrderServlet extends HttpServlet {
             if(0 == orderId){
                 throw new DataNotFoundException("order id是空值");
             }
-            out.print(new ObjectMapper().writeValueAsString(orderList));
-        } catch (DataNotFoundException e) {
+
+            order = orderService.get(orderId);
+
+            out.print(new ObjectMapper().writeValueAsString(order));
+        } catch (ModuleException e) {
             out.println(e.getMessage());
         }
 
@@ -74,55 +75,54 @@ public class OrderServlet extends HttpServlet {
             }
             System.out.println(json);
 
-            OrderReq order = mapper.readValue(json, OrderReq.class);
+            Order order = mapper.readValue(json, Order.class);
 
-            if(0 == order.getOrder().getMemberId()){
-                order.getOrder().setMemberId(account.getMember().getId());
-                System.out.println("購買人:" + order.getOrder().getMemberId());
-            }
+            order.setMember(account.getMember());
+            System.out.println("購買人:" + order.getMember().getId());
+
             // 收貨人同購買人
-            if(null == order.getOrder().getReceiver()){
-                order.getOrder().setReceiver(account.getMember().getName());
-                System.out.println("收貨人:" + order.getOrder().getReceiver());
+            if(null == order.getReceiver()){
+                order.setReceiver(account.getMember().getName());
+                System.out.println("收貨人:" + order.getReceiver());
             }
-            if(null == order.getOrder().getReceiverPhone()){
-                order.getOrder().setReceiverPhone(account.getMember().getPhone());
-                System.out.println("電話:" + order.getOrder().getReceiverPhone());
+            if(null == order.getReceiverPhone()){
+                order.setReceiverPhone(account.getMember().getPhone());
+                System.out.println("電話:" + order.getReceiverPhone());
             }
-            if(null == order.getOrder().getReceiverEmail()){
-                order.getOrder().setReceiverEmail(account.getMember().getEmail());
-                System.out.println("信箱:" + order.getOrder().getReceiverEmail());
+            if(null == order.getReceiverEmail()){
+                order.setReceiverEmail(account.getMember().getEmail());
+                System.out.println("信箱:" + order.getReceiverEmail());
             }
-            if(null == order.getOrder().getCity()){
-                order.getOrder().setCity(account.getMember().getCity());
-                System.out.println("縣市:" + order.getOrder().getCity());
+            if(null == order.getCity()){
+                order.setCity(account.getMember().getCity());
+                System.out.println("縣市:" + order.getCity());
             }
-            if(null == order.getOrder().getCounty()){
-                order.getOrder().setCounty(account.getMember().getCounty());
-                System.out.println("鄉鎮市區:" + order.getOrder().getCounty());
+            if(null == order.getCounty()){
+                order.setCounty(account.getMember().getCounty());
+                System.out.println("鄉鎮市區:" + order.getCounty());
             }
-            if(null == order.getOrder().getZipcode()){
-                order.getOrder().setZipcode(account.getMember().getZipcode());
-                System.out.println("郵遞區號:" + order.getOrder().getZipcode());
+            if(null == order.getZipcode()){
+                order.setZipcode(account.getMember().getZipcode());
+                System.out.println("郵遞區號:" + order.getZipcode());
             }
-            if(null == order.getOrder().getAddress()){
-                order.getOrder().setAddress(account.getMember().getAddress());
-                System.out.println("地址:" + order.getOrder().getAddress());
+            if(null == order.getAddress()){
+                order.setAddress(account.getMember().getAddress());
+                System.out.println("地址:" + order.getAddress());
             }
 
             // 付費方式為信用卡時，付費狀態為已付費1
-            if(order.getOrder().getParmentMethod() == 0){
-                order.getOrder().setPaystate(1);
+            if(order.getParmentMethod() == 0){
+                order.setPaystate(1);
             }
 
-            order.getOrder().setOrderItem(order.getOrderItems());
-            for(OrderItems orderItems: order.getOrder().getOrderItem()){
-                System.out.println("產品id: " + orderItems.getProductId() + "," + "數量: " + orderItems.getQuantity());
+//            order.getOrder().setOrderItem(order.getOrderItems());
+            for(OrderItems orderItems: order.getOrderItem()){
+                System.out.println("產品id: " + orderItems.getProducts().getId() + "," + "數量: " + orderItems.getQuantity());
             }
-            System.out.println("訂單" + order.getOrder().toString());
-            System.out.println("訂單明細" + order.getOrderItems().toString());
+            System.out.println("訂單" + order.toString());
+            System.out.println("訂單明細" + order.getOrderItem().toString());
 
-            int orderId = orderService.checkOut(order.getOrder());
+            int orderId = orderService.checkOut(order);
             orderRes.setOrderId(orderId);
             orderRes.setMessage("新增訂單成功");
             orderList.add(orderRes);

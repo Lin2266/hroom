@@ -56,9 +56,10 @@ $(function(){
 		if(parmentMethod == 0){
 			console.log("綠界")
 		}
-		order['parmentMethod'] = parmentMethod
+		// order['member'] = member
+		order['parmentMethod'] = parseInt(parmentMethod)
 		order['shipping'] = shipping
-		order['amount'] = amount
+		order['amount'] = parseFloat(amount)
 		order['info'] = info.val()
 
 
@@ -120,7 +121,23 @@ $(function(){
 
 		}
 
-		checkOut(carts,order)
+		const orderMap = new Map();
+		order['orderItem'] = []
+
+		for(let i =0; i<carts.length; i++){
+			let orderItems = {
+				products:{
+					id:carts[i].productId,
+				},
+				quantity:carts[i].quantity,
+			}
+
+			order['orderItem'].push(orderItems)
+
+		}
+		console.log(order['orderItem'])
+
+		checkOut(order)
 	})
 
 
@@ -183,28 +200,13 @@ function order(){
 	$(".order_box").html(orderList)
 }
 
-function checkOut(carts,order){
-	const cart = new Map();
-
-	for(let i =0; i<carts.length; i++){
-		for(let j =0;j<Object.keys(carts[i]).length;j++){
-				delete carts[i].accountId
-				delete carts[i].name
-				delete carts[i].cost
-				delete carts[i].imgUrl
-		}
-
-	}
-
-	console.log(carts)
-	cart.set("orderItems",carts)
-	cart.set("order",order)
+function checkOut(order){
 
 	$.ajax({
 		url:"OrderServlet",
 		type:"POST",
 		dataType: "json",
-		data:JSON.stringify(Object.fromEntries(cart)),
+		data:JSON.stringify(order),
 		success:function (res){
 			alert(res[0].message)
 			localStorage.clear()
