@@ -69,7 +69,7 @@ public class SingleProductServlet extends HttpServlet {
 
 		try {
 			Connection conn = JdbcUtils.getConnection();
-			System.out.println(queryAllData(conn, sqlcmd));
+			//System.out.println(queryAllData(conn, sqlcmd));
 			request.setAttribute("SingleProduct", queryAllData(conn, sqlcmd));
 			request.getRequestDispatcher("/single-product.jsp").forward(request, response);
 

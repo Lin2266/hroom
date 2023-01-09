@@ -31,14 +31,14 @@
       uri = "商品資訊";
       second = "y";
       secondName = "商品分類";
-      secondUri = "category.jsp";
+      secondUri = "defaultCategory.html";
   }    
   %>  
   
 <nav class="breadcrumb">
 	<a class="breadcrumb-item" href="${pageContext.request.contextPath}/default.html">首頁</a> 
 	<%if (second == "y") {%>
-	<a class="breadcrumb-item" href="${pageContext.request.contextPath}/defaultCategory.html"><%= secondName %></a>
+	<a class="breadcrumb-item" href="${pageContext.request.contextPath}/<%= secondUri %>"><%= secondName %></a>
 	<%} %>  
 	<span	class="breadcrumb-item active"><%= uri %></span>
 </nav>
