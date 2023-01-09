@@ -60,27 +60,31 @@
               <div class="open-close-address">
                 <div class="row addressee">
                   <div class="col-md-6 form-group p_star">
-                    <input type="text" class="form-control" id="receiver" name="receiver" placeholder="姓名"/>
+                    <input type="text" class="form-control" id="receiver" name="receiver" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = '姓名'" placeholder="姓名"/>
                   </div>
                   <div class="col-md-6 form-group p_star">
-                    <input type="text" class="form-control" id="receiverPhone" name="receiverPhone" placeholder="電話"/>
+                    <input type="text" class="form-control" id="receiverPhone" name="receiverPhone" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = '電話'" placeholder="電話"/>
                   </div>
                   <div class="col-md-12 form-group p_star">
-                    <input type="text" class="form-control" id="receiverEmail" name="receiverEmail" placeholder="信箱"/>
+                    <input type="text" class="form-control" id="receiverEmail" name="receiverEmail" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = '信箱'" placeholder="信箱"/>
                   </div>
                   <div class="col-md-12 form-group">
                   	<div id="twzipcode2"></div>
                   </div>
                   <div class="col-md-12 form-group p_star">
-                    <input type="text" class="form-control" id="receiverAddress" name="receiverAddress" placeholder="地址"/>
+                    <input type="text" class="form-control" id="receiverAddress" name="receiverAddress" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = '地址'" placeholder="地址"/>
                   </div>
                 </div>
               </div>
 
               <div class="row message">
                 <div class="col-md-12 form-group">
-                  <textarea class="form-control" name="info" id="info" rows="3"
-                    placeholder="備註"></textarea>
+                  <textarea class="form-control" name="info" id="info" rows="3" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = '備註'" placeholder="備註"></textarea>
                 </div>
                 <button id="OrderSub" class="btn_3">送出</button>
               </div>

@@ -4,21 +4,7 @@
 <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/subviews/breadcrumb.jsp"></jsp:include>	
   <!--================ confirmation part start =================-->
-<%--<script>--%>
-<%--    <c:set var="member" scope="session" value="${sessionScope.user.member}"/>--%>
 
-<%--    var member = {--%>
-<%--      id: ${member.id},--%>
-<%--      name: "${member.name}",--%>
-<%--      phone: "${member.phone}",--%>
-<%--      email: "${member.email}",--%>
-<%--      city: "${member.city}",--%>
-<%--      county: "${member.county}",--%>
-<%--      zipcode: "${member.zipcode}",--%>
-<%--      address: "${member.address}",--%>
-<%--    };--%>
-
-<%--</script>--%>
 <section class="confirmation_part padding_top">
     <div class="container">
       <div class="row">

@@ -178,7 +178,7 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             rs = stmt.executeQuery();
             while (rs.next()){
                 order.setId(rs.getInt("id"));
-                order.setOrderTimeS(rs.getDate("ordertime"));
+                order.setOrderTimeS(rs.getString("ordertime"));
                 order.setAmount(rs.getInt("amount"));
                 order.setParmentMethod(rs.getInt("payment_method"));
                 order.setInfo(rs.getString("info"));
@@ -250,7 +250,7 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             while (rs.next()){
                 Order order = new Order();
                 order.setId(rs.getInt("id"));
-                order.setOrderTimeS(rs.getDate("ordertime"));
+                order.setOrderTimeS(rs.getString("ordertime"));
                 order.setParmentMethod(rs.getInt("payment_method"));
                 order.setAmount(rs.getInt("amount"));
                 order.setProcessing_status(rs.getString("processing_status"));

@@ -68,7 +68,7 @@ function ShowOrderItems(orderId){
                         <p>鄉鎮市區:</p><span>${member.county}</span>
                       </li>
                       <li>
-                        <p>巷弄:</p><span>${member.address}</span>
+                        <p>地址:</p><span>${member.address}</span>
                       </li>
                       <li>
                         <p>郵遞區號:</p><span>${member.zipcode}</span>
@@ -98,7 +98,7 @@ function ShowOrderItems(orderId){
                         <p>鄉鎮市區:</p><span>${orderData.county}</span>
                       </li>
                       <li>
-                        <p>巷弄:</p><span>${orderData.address}</span>
+                        <p>地址:</p><span>${orderData.address}</span>
                       </li>
                       <li>
                         <p>郵遞區號:</p><span>${orderData.zipcode}</span>

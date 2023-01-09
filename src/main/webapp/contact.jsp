@@ -35,7 +35,7 @@
           <div class="col-12">
             <div class="form-group">
               <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''"
-                     onblur="this.placeholder = 'Enter Subject'" placeholder='主旨'>
+                     onblur="this.placeholder = '主旨'" placeholder='主旨'>
             </div>
           </div>
         </div>

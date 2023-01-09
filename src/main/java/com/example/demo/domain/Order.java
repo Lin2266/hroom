@@ -45,14 +45,8 @@ public class Order {
 		return orderTimeS;
 	}
 
-	public void setOrderTimeS(Date orderTime) {
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-		if(orderTime != null) {
-			this.orderTimeS = sf.format(orderTime);
-		}else {
-			this.orderTimeS = "";
-		}
-
+	public void setOrderTimeS(String orderTime) {
+			this.orderTimeS = orderTime;
 	}
 
 	public double getAmount() {
