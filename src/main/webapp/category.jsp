@@ -194,7 +194,7 @@
 									<%-- <h6>${ListItem.brand}|${ListItem.color}</h6> --%>
 									<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> 
                                     <input type="hidden" name="productId" class="productId" value="${ListItem.id}">
-                                    <input type="hidden" name="productId" class="productId" value="${ListItem.stock}">
+                                    <input type="hidden" name="productCost" class="productCost" value="${ListItem.stock}">
 								<form action="SingleProductServlet?method=SingleProduct" method="POST">
 								<input class="productBtn" type="submit" value="商品詳細資訊">
 								<input type="hidden" name="SentproductId" value="${ListItem.id}">
