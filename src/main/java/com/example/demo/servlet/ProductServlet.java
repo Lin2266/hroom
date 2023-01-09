@@ -27,6 +27,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @WebServlet("/ProductServlet")
 public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	 private static final String CONTENT_TYPE = "text/html; charset=UTF-8";
+	 private static final String CHARSET_CODE = "UTF-8";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -44,6 +46,8 @@ public class ProductServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding(CHARSET_CODE);
+	    response.setContentType(CONTENT_TYPE);
 		dispatch(request, response);
 	}
 	
@@ -218,6 +222,19 @@ public class ProductServlet extends HttpServlet {
 	public void ColorBlack(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String sqlcmd = "select * from products where color = '黑色';";
+		try {
+			Connection conn = JdbcUtils.getConnection();
+			request.setAttribute("rtnList", queryAllData(conn, sqlcmd));
+			request.getRequestDispatcher("category.jsp").forward(request, response);
+		} catch (ModuleException|SQLException e) {
+			e.printStackTrace();
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+	}
+	
+	public void ProductSearch(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String sqlcmd = "select * from products where name like '%"+request.getParameter("searchBtn")+"%';";
 		try {
 			Connection conn = JdbcUtils.getConnection();
 			request.setAttribute("rtnList", queryAllData(conn, sqlcmd));

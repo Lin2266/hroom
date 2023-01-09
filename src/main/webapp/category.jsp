@@ -45,12 +45,6 @@
 						</div>
 						<div class="widgets_inner">
 							<ul class="list">
-<!-- 								<li><a href="#" class="queryAll">所有商品</a> <span -->
-<!-- 									id="pcount2"></span></li> -->
-<!-- 								<li><a href="#" class="queryProject">精選方案</a> <span></span></li> -->
-<!-- 								<li><a href="#" class="queryPopular">熱銷商品</a> <span></span></li> -->
-<!-- 								<li><a href="#" class="queryDesk">沙發/桌子/椅子</a> <span></span></li> -->
-<!-- 								<li><a href="#" class="queryBed">床組/寢具</a> <span></span></li> -->
 								<li><form action="ProductServlet?method=AllProductsRender" method="POST">
 										<input class="listBtn" type="submit" value="所有商品">
 									</form></li>
@@ -115,27 +109,27 @@
 						</div>
 					</aside>
 
-					<aside class="left_widgets p_filter_widgets price_rangs_aside">
-						<div class="l_w_title">
-							<h3>價格預算</h3>
-						</div>
-						<div class="widgets_inner">
-							<div class="range_item">
-								<!-- <div id="slider-range"></div> -->
-								<input type="text" class="js-range-slider" value="" />
-								<div class="d-flex">
-									<div class="price_text">
-										<p>價格 :</p>
-									</div>
-									<div class="price_value d-flex justify-content-center">
-										<input type="text" class="js-input-from" id="amount" readonly />
-										<span>~</span> <input type="text" class="js-input-to"
-											id="amount" readonly />
-									</div>
-								</div>
-							</div>
-						</div>
-					</aside>
+<!-- 					<aside class="left_widgets p_filter_widgets price_rangs_aside"> -->
+<!-- 						<div class="l_w_title"> -->
+<!-- 							<h3>價格預算</h3> -->
+<!-- 						</div> -->
+<!-- 						<div class="widgets_inner"> -->
+<!-- 							<div class="range_item"> -->
+<!-- 								<div id="slider-range"></div> -->
+<!-- 								<input type="text" class="js-range-slider" value="" /> -->
+<!-- 								<div class="d-flex"> -->
+<!-- 									<div class="price_text"> -->
+<!-- 										<p>價格 :</p> -->
+<!-- 									</div> -->
+<!-- 									<div class="price_value d-flex justify-content-center"> -->
+<!-- 										<input type="text" class="js-input-from" id="amount" readonly /> -->
+<!-- 										<span>~</span> <input type="text" class="js-input-to" -->
+<!-- 											id="amount" readonly /> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</aside> -->
 				</div>
 			</div>
 			<div class="col-lg-9">
@@ -148,32 +142,35 @@
 									總共找到<span> ${rtnList.size()} </span>件商品
 								</p>
 							</div>
+<!-- 							<div class="single_product_menu d-flex"> -->
+<!-- 								<h5>short by :</h5> -->
+<!-- 								<select> -->
+<!-- 									<option data-display="Select">name</option> -->
+<!-- 									<option value="1">price</option> -->
+<!-- 									<option value="2">product</option> -->
+<!-- 								</select> -->
+<!-- 							</div> -->
 							<div class="single_product_menu d-flex">
-								<h5>short by :</h5>
-								<select>
-									<option data-display="Select">name</option>
-									<option value="1">price</option>
-									<option value="2">product</option>
-								</select>
-							</div>
-							<div class="single_product_menu d-flex">
-								<h5>show :</h5>
-								<div class="top_pageniation">
-									<ul>
-										<li>1</li>
-										<li>2</li>
-										<li>3</li>
-									</ul>
-								</div>
+								<h3 style="color:#ff3368">涵潤商城</h3>
+<!-- 								<div class="top_pageniation"> -->
+<!-- 									<ul> -->
+<!-- 										<li>1</li> -->
+<!-- 										<li>2</li> -->
+<!-- 										<li>3</li> -->
+<!-- 									</ul> -->
+<!-- 								</div> -->
 							</div>
 							<div class="single_product_menu d-flex">
 								<div class="input-group">
-									<input type="text" class="form-control" placeholder="search"
-										aria-describedby="inputGroupPrepend">
-									<div class="input-group-prepend">
-										<span class="input-group-text" id="inputGroupPrepend"><i
-											class="ti-search"></i></span>
+								<form action="ProductServlet?method=ProductSearch" method="POST">
+								<div class="input-group-prepend">
+									<input type="text" class="form-control" placeholder="名稱搜尋"
+										aria-describedby="inputGroupPrepend" name="searchBtn">
+<!-- 										<span class="input-group-text" id="inputGroupPrepend"> -->
+										<button type="submit" class="input-group-text" id="inputGroupPrepend"><i class="ti-search"></i></button>
+<!-- 										</span> -->
 									</div>
+								</form>	
 								</div>
 							</div>
 						</div>
@@ -203,67 +200,33 @@
 							</div>
 						</div>
 					</c:forEach>
-					<div class="col-lg-12">
-						<div class="pageination">
-							<nav aria-label="Page navigation example">
-								<ul class="pagination justify-content-center">
-									<li class="page-item"><a class="page-link" href="#"
-										aria-label="Previous"> <i class="ti-angle-double-left"></i>
-									</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">4</a></li>
-									<li class="page-item"><a class="page-link" href="#">5</a></li>
-									<li class="page-item"><a class="page-link" href="#">6</a></li>
-									<li class="page-item"><a class="page-link" href="#"
-										aria-label="Next"> <i class="ti-angle-double-right"></i>
-									</a></li>
-								</ul>
-							</nav>
-						</div>
-					</div>
+<!--================分頁功能 =================-->				
+<!-- 					<div class="col-lg-12"> -->
+<!-- 						<div class="pageination"> -->
+<!-- 							<nav aria-label="Page navigation example"> -->
+<!-- 								<ul class="pagination justify-content-center"> -->
+<!-- 									<li class="page-item"><a class="page-link" href="#" -->
+<!-- 										aria-label="Previous"> <i class="ti-angle-double-left"></i> -->
+<!-- 									</a></li> -->
+<!-- 									<li class="page-item"><a class="page-link" href="#">1</a></li> -->
+<!-- 									<li class="page-item"><a class="page-link" href="#">2</a></li> -->
+<!-- 									<li class="page-item"><a class="page-link" href="#">3</a></li> -->
+<!-- 									<li class="page-item"><a class="page-link" href="#">4</a></li> -->
+<!-- 									<li class="page-item"><a class="page-link" href="#">5</a></li> -->
+<!-- 									<li class="page-item"><a class="page-link" href="#">6</a></li> -->
+<!-- 									<li class="page-item"><a class="page-link" href="#" -->
+<!-- 										aria-label="Next"> <i class="ti-angle-double-right"></i> -->
+<!-- 									</a></li> -->
+<!-- 								</ul> -->
+<!-- 							</nav> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 <!--================End Category Product Area =================-->
-
-<!-- product_list part start-->
-
-<!-- <section class="product_list best_seller"> -->
-<!-- 	<div class="container"> -->
-<!-- 		<div class="row justify-content-center"> -->
-<!-- 			<div class="col-lg-12"> -->
-<!-- 				<div class="section_tittle text-center"> -->
-<!-- 					<h2> -->
-<!-- 						熱銷商品 <span>商城</span> -->
-<!-- 					</h2> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 		<div id="PopularContent"></div>  -->
-<!-- 		<div class="row align-items-center justify-content-between"> -->
-<!-- 			<div class="col-lg-12"> -->
-<!-- 				<div class="best_product_slider owl-carousel"> -->
-<%-- 					<c:forEach items="${HotProducts}" var="ListItem"> --%>
-<!-- 						<div class="single_product_item"> -->
-<%-- 							<img src="img/product/HRoomProduct/product_${ListItem.id}.png" --%>
-<!-- 								alt=""> -->
-<!-- 							<div class="single_product_text"> -->
-<%-- 								<h4>${ListItem.name}</h4> --%>
-<%-- 								<h3>$ <span>${ListItem.cost}</span></h3> --%>
-<!-- 								<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-<%-- 								<input type="hidden" class="productId" value="${ListItem.id}"> --%>
-<!-- 							</div> -->
-<!-- 						</div> -->
-<%-- 					</c:forEach> --%>
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-<!-- </section> -->
 
 <!-- product_list part end-->
 <!-- <script src="js/category.js"></script> -->

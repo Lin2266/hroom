@@ -162,7 +162,7 @@
 				<div class="best_product_slider owl-carousel">
 					<c:forEach items="${rtnList}" var="ListItem" varStatus = "status" >
 						<div class="single_product_item">
-						<span style="color:red;">Top ${status.count}</span>
+						<span style="color:#ff3368;">Top ${status.count}</span>
 							<img src="img/product/HRoomProduct/product_${ListItem.id}.png"
 								alt="">
 							<div class="single_product_text">
@@ -184,47 +184,6 @@
 		
 	</div>
 </section>
-<!-- product_list part end-->
-<!-- product_list start-->
-<!-- <section class="product_list section_padding"> -->
-<!-- 	<div class="container"> -->
-<!-- 		<div class="row justify-content-center"> -->
-<!-- 			<div class="col-lg-12"> -->
-<!-- 				<div class="section_tittle text-center"> -->
-<!-- 					<h2> -->
-<!-- 						精選商品 <span>商城</span> -->
-<!-- 					</h2> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-lg-12"> -->
-<!-- 				<div class="product_list_slider owl-carousel"> -->
-<!-- 					<div class="single_product_list_slider"> -->
-<!-- 						<div class="row align-items-center justify-content-between"> -->
-<!-- 							Show products loop -->
-<%-- 							<c:forEach items="${rtnList}" var="ListItem"> --%>
-<!-- 								<div class="col-lg-3 col-sm-6"> -->
-<!-- 									<div class="single_product_item"> -->
-<%-- 										<img src="img/product/HRoomProduct/product_${ListItem.id}.png" --%>
-<!-- 											alt=""> -->
-<!-- 										<div class="single_product_text"> -->
-<%-- 											<h4>${ListItem.name}</h4> --%>
-<%-- 											<h3>$ <span>${ListItem.cost}</span></h3> --%>
-<!-- 											<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> -->
-<%-- 							            	<input type="hidden" class="productId" value="${ListItem.id}"> --%>
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<%-- 							</c:forEach> --%>
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-<!-- </section> -->
-<!-- product_list part start-->
 
 <!-- awesome_shop start-->
 <section class="our_offer section_padding">
