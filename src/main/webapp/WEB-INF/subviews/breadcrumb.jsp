@@ -38,7 +38,7 @@
 <nav class="breadcrumb">
 	<a class="breadcrumb-item" href="${pageContext.request.contextPath}/default.html">首頁</a> 
 	<%if (second == "y") {%>
-	<a class="breadcrumb-item" href="${pageContext.request.contextPath}/<%= secondUri %>"><%= secondName %></a>
+	<a class="breadcrumb-item" href="${pageContext.request.contextPath}/defaultCategory.html"><%= secondName %></a>
 	<%} %>  
 	<span	class="breadcrumb-item active"><%= uri %></span>
 </nav>
