@@ -268,7 +268,7 @@ function ShowOrderItems(orderId){
                         <p>訂單編號:</p><span>${orderData.id}</span>
                       </li>
                       <li>
-                        <p>日期:</p><span>${orderData.orderTime}</span>
+                        <p>日期:</p><span>${orderData.orderTimeS}</span>
                       </li>
                       <li>
                         <p>總額:</p><span>${orderData.amount}</span>

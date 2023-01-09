@@ -173,7 +173,7 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             rs = stmt.executeQuery();
             while (rs.next()){
                 order.setId(rs.getInt("id"));
-                order.setOrderTime(rs.getDate("ordertime"));
+                order.setOrderTimeS(rs.getDate("ordertime"));
                 order.setAmount(rs.getInt("amount"));
                 order.setParmentMethod(rs.getInt("payment_method"));
                 order.setInfo(rs.getString("info"));

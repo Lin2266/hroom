@@ -3,12 +3,14 @@ package com.example.demo.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Order {
 	private int id;
 	private Date orderTime;
+	private String orderTimeS;
 	private int amount;
 	private String receiver;
 	private String receiverPhone;
@@ -34,9 +36,24 @@ public class Order {
 	public Date getOrderTime() {
 		return orderTime;
 	}
-	public void setOrderTime(Date orderTime) {
+	public void setOrderTime(String orderTimeS) {
 		this.orderTime = orderTime;
 	}
+
+	public String getOrderTimeS() {
+		return orderTimeS;
+	}
+
+	public void setOrderTimeS(Date orderTime) {
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+		if(orderTime != null) {
+			this.orderTimeS = sf.format(orderTime);
+		}else {
+			this.orderTimeS = "";
+		}
+
+	}
+
 	public double getAmount() {
 		return amount;
 	}

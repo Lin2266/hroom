@@ -26,6 +26,8 @@ public class OrderServlet extends HttpServlet {
     OrderRes orderRes = new OrderRes();
 
     String json = "";
+
+    // 訂單查詢、訂單明細
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json; charset=utf-8");
@@ -54,6 +56,7 @@ public class OrderServlet extends HttpServlet {
 
     }
 
+    // 新增訂單
         @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json; charset=utf-8");
