@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-account:  <c:out value="${user.account}" /><br>
-password:  <c:out value="${user.password}" /><br>
-member_id:  <c:out value="${user.member.id}" /><br>
-
+Member: ${sessionScope.user.member.id}<br>
+Email: ${sessionScope.user.member.email}<br>
+Account: ${sessionScope.user.account}<br>
+Password: ${sessionScope.user.password}
 
 </body>
 </html>

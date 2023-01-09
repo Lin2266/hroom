@@ -22,6 +22,7 @@ public class RegisterServlet extends HttpServlet {
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+  	System.out.println("1");
 
     // Get the form data
     String account = request.getParameter("account");
@@ -51,6 +52,7 @@ public class RegisterServlet extends HttpServlet {
 
     Connection conn = null;
     try {
+    	System.out.println("2");
       conn = JdbcUtils.getConnection();
       // Set the auto-commit to false
       conn.setAutoCommit(false);

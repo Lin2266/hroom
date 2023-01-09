@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 		            session.setAttribute("user", user);
 		            // Get the member data for the account
 		            MemberDao memberDao = new MemberDao();
-		            Connection conn = null;
+					Connection conn = JdbcUtils.getConnection();
 		            
 		            Member member = memberDao.getMemberData(conn,user.getMemberId());
 		            // Save the member data in the session
