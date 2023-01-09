@@ -9,6 +9,6 @@ import java.util.List;
 public interface DaoInterface<K,T> {
     int insert(T order) throws ModuleException;
     public T get(K orderId) throws  ModuleException;
-    public abstract List<T> getAll() throws  ModuleException;
+    public abstract List<T> getAllByMember(Integer memberId) throws  ModuleException;
 
 }

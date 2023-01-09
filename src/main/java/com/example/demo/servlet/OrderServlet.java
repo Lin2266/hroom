@@ -32,24 +32,28 @@ public class OrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json; charset=utf-8");
         PrintWriter out = response.getWriter();
-        List<Order> orderList = new ArrayList<>();
-        Order order = new Order();
+        List<Order> orderList = null;
+        Order order = null;
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("user");
-        int orderId = Integer.parseInt(request.getParameter("orderId"));
+        String orderIds = request.getParameter("orderId");
 
         try {
             if(null == account){
-                throw new DataNotFoundException("請登入會員在進行結帳");
+                throw new DataNotFoundException("請登入會員");
             }
 
-            if(0 == orderId){
-                throw new DataNotFoundException("order id是空值");
+            if(null != orderIds){
+                int orderId = Integer.parseInt(orderIds);
+                order = orderService.get(orderId);
+                out.print(new ObjectMapper().writeValueAsString(order));
+            }else{
+                int memberId = account.getMember().getId();
+                orderList = orderService.getOrderHistory(memberId);
+                out.print(new ObjectMapper().writeValueAsString(orderList));
             }
 
-            order = orderService.get(orderId);
 
-            out.print(new ObjectMapper().writeValueAsString(order));
         } catch (ModuleException e) {
             out.println(e.getMessage());
         }

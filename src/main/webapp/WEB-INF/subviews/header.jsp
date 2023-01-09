@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 
@@ -66,7 +67,10 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
 										<a class="dropdown-item" href="cart.jsp">購物車</a>
-                                        <a class="dropdown-item" href="check_order.jsp">訂單查詢</a>
+                                        <c:if test="${sessionScope.user.member != null}">
+                                            <a class="dropdown-item" href="check_order.jsp">訂單查詢</a>
+                                        </c:if>
+
 <%--                                        <a class="dropdown-item" href="tracking.jsp">追蹤訂單</a>--%>
                                         <a class="dropdown-item" href="">修改會員資料</a>
                                     </div>

@@ -7467,7 +7467,7 @@ h6 {
   z-index: 1;
   text-align: left;
   margin-bottom: 0px !important;
-  margin-top: 84px;
+  margin-top: 106px;
 }
 
 .breadcrumb a:hover {
@@ -7855,6 +7855,14 @@ select.county {
   .footer_part .justify-content-around {
     justify-content: flex-start !important;
   }
+}
+
+.check_order{
+  margin-top: 30px;
+}
+
+.view_order_items{
+  color: chocolate;
 }
 
 /*# sourceMappingURL=style.css.map */

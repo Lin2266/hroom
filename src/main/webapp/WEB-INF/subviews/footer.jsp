@@ -120,6 +120,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- custom js -->
     <script src="js/custom.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+
+<script>
+    memberData(
+        "${user.member.id}","${user.member.name}","${user.member.phone}",
+        "${user.member.email}","${user.member.city}","${user.member.county}",
+        "${user.member.zipcode}","${user.member.address}",
+    )
+</script>
 
 </body>
 

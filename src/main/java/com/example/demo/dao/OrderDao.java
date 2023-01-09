@@ -16,13 +16,16 @@ public class OrderDao implements DaoInterface<Integer, Order>{
     private final String INSERT_ORDER =
             "insert into hroom.order\n" +
             "(ordertime,amount,receiver,receiverphone,receiveremail,city,county,zipcode,address\n" +
-            ",info,payment_method,paystate,member_id,shipping)\n" +
-            "values (now(),?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            ",info,payment_method,paystate,member_id,shipping,processing_status)\n" +
+            "values (now(),?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private final String INSERT_ORDERITEMS =
             "insert into hroom.order_items( quantity, order_id, product_id) values (?,?,?)";
     private final String SELECT_ORDER_BY_MBMBERID =
-            "SELECT * FROM hroom.order a join hroom.member b on a.member_id = b.id\n" +
-            "join hroom.order_items c on a.id = c.order_id where b.id = ?";
+            "SELECT a.id,a.ordertime,a.payment_method,a.amount,a.processing_status\n" +
+            "FROM hroom.order a JOIN hroom.member b ON a.member_id = b.id\n" +
+            "JOIN hroom.order_items c ON a.id=c.order_id\n" +
+            "WHERE b.id = ?\n" +
+            "GROUP BY a.id";
     private final String SELECT_ORDER_BY_ORDERID =
             "SELECT a.id,a.ordertime,a.amount,a.payment_method,a.info,a.shipping,a.amount,\n" +
             "       a.receiver,a.receiverphone,a.receiveremail,a.city,a.county,a.address,a.zipcode,\n" +
@@ -83,6 +86,8 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             stmt.setInt(11,order.getPaystate());
             stmt.setInt(12,order.getMember().getId());
             stmt.setInt(13,order.getShipping());
+            order.setProcessing_status("訂單確認中");
+            stmt.setString(14,order.getProcessing_status());
             stmt.executeUpdate();
 
             //取得自動給號的order id值
@@ -230,7 +235,56 @@ public class OrderDao implements DaoInterface<Integer, Order>{
     }
 
     @Override
-    public List<Order> getAll() throws ModuleException {
-        return null;
+    public List<Order> getAllByMember(Integer memberId) throws ModuleException {
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Order> orderList = new ArrayList<>();
+
+        con = JdbcUtils.getConnection();
+        try {
+            stmt = con.prepareStatement(SELECT_ORDER_BY_MBMBERID);
+            stmt.setInt(1,memberId);
+            rs = stmt.executeQuery();
+            while (rs.next()){
+                Order order = new Order();
+                order.setId(rs.getInt("id"));
+                order.setOrderTimeS(rs.getDate("ordertime"));
+                order.setParmentMethod(rs.getInt("payment_method"));
+                order.setAmount(rs.getInt("amount"));
+                order.setProcessing_status(rs.getString("processing_status"));
+                orderList.add(order);
+            }
+        } catch (SQLException e) {
+            throw new ModuleException(e.getMessage());
+        }finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new ModuleException("OrderDao get order rs關閉失敗: " + e.getMessage());
+                }
+            }
+
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    throw new ModuleException("OrderDao get 關閉失敗: " + e.getMessage());
+                }
+            }
+
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    throw new ModuleException("OrderDao get order con關閉失敗: " + e.getMessage());
+                }
+            }
+
+        }
+        
+        return orderList;
     }
 }

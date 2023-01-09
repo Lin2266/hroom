@@ -78,4 +78,5 @@
   <!--================End Cart Area =================-->
 
   <!--::footer_part start::-->
-	<jsp:include page="/WEB-INF/subviews/footer.jsp"/>
+  <jsp:include page="/WEB-INF/subviews/footer.jsp"/>
+

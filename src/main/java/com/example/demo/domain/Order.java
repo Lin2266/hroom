@@ -24,6 +24,7 @@ public class Order {
 	private int paystate;
 	private Member member;
 	private int shipping;
+	private String processing_status;
 	private List<OrderItems> orderItem;
 	
 	
@@ -131,6 +132,14 @@ public class Order {
 	}
 	public void setShipping(int shipping) {
 		this.shipping = shipping;
+	}
+
+	public String getProcessing_status() {
+		return processing_status;
+	}
+
+	public void setProcessing_status(String processing_status) {
+		this.processing_status = processing_status;
 	}
 
 	public List<OrderItems> getOrderItem() {

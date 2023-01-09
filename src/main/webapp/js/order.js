@@ -1,7 +1,3 @@
-var carts;
-var shipping = 0
-var total =0;
-var amount=0;
 
 $(function(){
 
@@ -140,13 +136,32 @@ $(function(){
 		checkOut(order)
 	})
 
-
 })
+
+function checkOut(order){
+
+	$.ajax({
+		url:"OrderServlet",
+		type:"POST",
+		dataType: "json",
+		data:JSON.stringify(order),
+		success:function (res){
+			alert(res[0].message)
+			localStorage.clear()
+			location.href=`order_items.jsp?orderId=${res[0].orderId}`
+		},
+		error:function (error){
+			alert(error.responseText)
+		}
+
+	})
+}
 
 function order(){
 	carts = JSON.parse(localStorage.getItem("cart"))
 	let shippingSpan;
-	let shipping = $("#shipping").val()
+	shipping = $("#shipping").val()
+	shipping = parseInt(shipping)
 	if($("#shipping").val() == "免運費"){
 		shippingSpan = ` <span>免運費</span>`
 		shipping = 0
@@ -201,23 +216,3 @@ function order(){
 		`
 	$(".order_box").html(orderList)
 }
-
-function checkOut(order){
-
-	$.ajax({
-		url:"OrderServlet",
-		type:"POST",
-		dataType: "json",
-		data:JSON.stringify(order),
-		success:function (res){
-			alert(res[0].message)
-			localStorage.clear()
-			location.href=`order_items.jsp?orderId=${res[0].orderId}`
-		},
-		error:function (error){
-			alert(error.responseText)
-		}
-
-	})
-}
-
