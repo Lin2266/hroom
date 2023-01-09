@@ -11,7 +11,17 @@ $(function(){
         }
         // let productId = $(this).next().find(".productId").val()
         if(productId == ""){
-            alert("產品id是空的，請確認產品id")
+            alert("商品id是空的，請確認商品id")
+            return;
+        }
+
+        let productCost = $(this).next().next().val()
+        if(productCost == ""){
+            alert("商品productCost是空的，請確認商品productCost")
+            return;
+        }
+        if(productCost-1 <= 0){
+            alert("商品庫存量不足")
             return;
         }
 
@@ -22,7 +32,7 @@ $(function(){
         }
 
         if(cost == "  "){
-            alert("產品cost是空的，請確認產品cost")
+            alert("商品cost是空的，請確認商品cost")
             return;
         }
 
@@ -32,7 +42,7 @@ $(function(){
         }
 
         if(name == ""){
-            alert("產品name是空的，請確認產品name")
+            alert("商品name是空的，請確認商品name")
             return;
         }
 
@@ -42,7 +52,7 @@ $(function(){
         }
 
         if(imgUrl == undefined){
-            alert("產品imgUrl是空的，請確認產品imgUrl")
+            alert("商品imgUrl是空的，請確認商品imgUrl")
             return;
         }
 
@@ -62,7 +72,7 @@ $(function(){
 
     })
 
-    // 增加購物車產品數量
+    // 增加購物車商品數量
     let productId = 0;
     let quantity = 0;
     $(".quantity").on("input",function (){
@@ -77,7 +87,7 @@ $(function(){
 
     // 商品結帳時提示登入會員
     $("#checkOut").on("click",function (){
-        if(carts){
+
             let checkOutUrl = $("#checkOut").prop("href")
             let checkOutIndex = checkOutUrl.lastIndexOf("/")
             let checkOutPage = checkOutUrl.slice(checkOutIndex+1);
@@ -88,7 +98,6 @@ $(function(){
                 let  shipping = $(".shipping span").text()
                 $("#checkOut").prop("href",`${checkOutUrl}?shipping=${shipping}`)
             }
-        }
 
     })
 
@@ -111,14 +120,14 @@ function  addCart(productId,cost,name,imgUrl,quantity){
         quantity = 1
         type = true
     }else{
-        quantity = parseInt(quantity)
+        quantity
     }
 
     let  cart = {
-        productId:productId,
+        productId:parseInt(productId),
         name:name,
-        cost:cost,
-        quantity:quantity,
+        cost:parseInt(cost),
+        quantity:parseInt(quantity),
         imgUrl:imgUrl,
     }
 
@@ -134,7 +143,7 @@ function  addCart(productId,cost,name,imgUrl,quantity){
                     item.quantity = quantity
                 }
 
-                console.log("新增購物車產品重複時累加:" + item.quantity)
+                console.log("新增購物車商品重複時累加:" + item.quantity)
                 key = true
             }
         })

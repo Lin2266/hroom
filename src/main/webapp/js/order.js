@@ -149,6 +149,7 @@ function order(){
 	let shipping = $("#shipping").val()
 	if($("#shipping").val() == "免運費"){
 		shippingSpan = ` <span>免運費</span>`
+		shipping = 0
 	}else{
 		shippingSpan = `<span>$ ${shipping}</span>`
 	}
@@ -157,7 +158,7 @@ function order(){
 			 <h2>您的訂單</h2>
               <ul class="list">
                 <li>
-                  <a>產品
+                  <a>商品
                     <span>價格</span>
                   </a>
                 </li>
