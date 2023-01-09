@@ -36,7 +36,7 @@
   %>  
   
 <nav class="breadcrumb">
-	<a class="breadcrumb-item" href="${pageContext.request.contextPath}/index.jsp">首頁</a>
+	<a class="breadcrumb-item" href="${pageContext.request.contextPath}/default.html">首頁</a> 
 	<%if (second == "y") {%>
 	<a class="breadcrumb-item" href="${pageContext.request.contextPath}/<%= secondUri %>"><%= secondName %></a>
 	<%} %>  
