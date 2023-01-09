@@ -11,8 +11,7 @@
 account:  <c:out value="${user.account}" /><br>
 password:  <c:out value="${user.password}" /><br>
 member_id:  <c:out value="${user.member.id}" /><br>
-member_name:  <c:out value="${user.member.name}" /><br>
-member_name:  <c:out value="${user.member.email}" /><br>
+
 
 </body>
 </html>

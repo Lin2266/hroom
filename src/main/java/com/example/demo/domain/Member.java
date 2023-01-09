@@ -9,6 +9,9 @@ public class Member {
 	private String county;
 	private String zipcode;
 	private String address;
+	
+    public Member() {}
+
 	public int getId() {
 		return id;
 	}
