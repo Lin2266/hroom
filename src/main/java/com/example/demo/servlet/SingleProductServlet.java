@@ -117,6 +117,32 @@ public class SingleProductServlet extends HttpServlet {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 	}
+	
+	public void SingleProduct1(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String sqlcmd = "select * from products where id = 21;";
+		try {
+			Connection conn = JdbcUtils.getConnection();
+			request.setAttribute("SingleProduct", queryAllData(conn, sqlcmd));
+			request.getRequestDispatcher("single-product.jsp").forward(request, response);
+		} catch (ModuleException | SQLException e) {
+			e.printStackTrace();
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+	}
+	
+	public void SingleProduct2(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String sqlcmd = "select * from products where id = 22;";
+		try {
+			Connection conn = JdbcUtils.getConnection();
+			request.setAttribute("SingleProduct", queryAllData(conn, sqlcmd));
+			request.getRequestDispatcher("single-product.jsp").forward(request, response);
+		} catch (ModuleException | SQLException e) {
+			e.printStackTrace();
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+	}
 
 	public static List<HashMap<String, String>> queryAllData(Connection con, String sqlCmd)
 			throws SQLException, JsonProcessingException {

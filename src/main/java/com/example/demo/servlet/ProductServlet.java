@@ -126,7 +126,7 @@ public class ProductServlet extends HttpServlet {
 	
 	public void BrandHroom(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sqlcmd = "select * from products where brand = 'hroom';";
+		String sqlcmd = "select * from products where brand = '涵潤' and id not in (1,2,3);";
 		try {
 			Connection conn = JdbcUtils.getConnection();
 			request.setAttribute("rtnList", queryAllData(conn, sqlcmd));
