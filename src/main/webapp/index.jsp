@@ -17,14 +17,13 @@
 	margin-top: 10px;
 }
 
-#bg-video {
-	min-width: 100%;
-	min-height: 70vh;
-	max-width: 100%;
-	max-height: 70vh;
-	object-fit: cover;
-	padding-top: 20px;
-}
+ #bg-video { 
+ 	min-width: 100%; 
+ 	min-height: 100%; 
+ 	max-width: 100%; 
+ 	max-height: 100%; 
+ 	object-fit: cover;  
+ } 
 </style>
 <section class="banner_part">
 	<div class="container">
@@ -32,10 +31,10 @@
 			<div class="col-lg-12">
 				<div class="banner_slider owl-carousel">
 					<!-- part1 start -->
-					<div class="single_banner_slider">
+					<div class="single_banner_slider">					
 						<video autoplay muted loop id="bg-video" style="padding-left: 2px; padding-right: 2px;">
 							<source src="img/HamRu.mp4" type="video/mp4" />
-						</video>
+						</video>						
 					</div>
 					<!-- part2 start -->
 					<div class="single_banner_slider">
