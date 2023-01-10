@@ -7,6 +7,7 @@ import com.example.demo.exception.ModuleException;
 import com.example.demo.service.OrderService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,7 +22,6 @@ import java.util.List;
 @WebServlet( "/OrderServlet")
 public class OrderServlet extends HttpServlet {
     ObjectMapper mapper = new ObjectMapper();
-    ErrorInputException eie = null;
     OrderService orderService = new OrderService();
     OrderRes orderRes = new OrderRes();
 
@@ -37,22 +37,30 @@ public class OrderServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("user");
         String orderIds = request.getParameter("orderId");
+        String type = request.getParameter("type");
 
         try {
             if(null == account){
-                throw new DataNotFoundException("請登入會員");
+                throw new ErrorInputException("請登入會員");
             }
 
-            if(null != orderIds){
+            if(StringUtils.isBlank(type)){
+                throw new ErrorInputException("查詢型態type是空值");
+            }
+                // type=get ,有orderld的查詢訂單明細
+            if("get".equals(type)){
+                if(StringUtils.isBlank(orderIds)){
+                    throw new ErrorInputException("orderId是空值");
+                }
                 int orderId = Integer.parseInt(orderIds);
                 order = orderService.get(orderId);
                 out.print(new ObjectMapper().writeValueAsString(order));
-            }else{
+                // type=getAll 有memberId的查詢會員所有訂單
+            }else if("getAll".equals(type)){
                 int memberId = account.getMember().getId();
                 orderList = orderService.getOrderHistory(memberId);
                 out.print(new ObjectMapper().writeValueAsString(orderList));
             }
-
 
         } catch (ModuleException e) {
             out.println(e.getMessage());
@@ -71,51 +79,44 @@ public class OrderServlet extends HttpServlet {
 
         try {
             if(null == account){
-                throw new DataNotFoundException("請登入會員在進行結帳");
+                throw new ErrorInputException("請登入會員");
             }
 
             BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
             if(null != br){
                 json = br.readLine();
             }else{
-                throw new DataNotFoundException("商品結帳json資料不存在");
+                throw new ErrorInputException("商品結帳資料是空的");
             }
             System.out.println(json);
 
             Order order = mapper.readValue(json, Order.class);
 
             order.setMember(account.getMember());
-            System.out.println("購買人:" + order.getMember().getId());
 
-            // 收貨人同購買人
-            if(null == order.getReceiver()){
+            // 收貨人同購買人，收貨人資料必須是空的
+            if(null == order.getReceiver() && null == order.getReceiverPhone() && null == order.getReceiverEmail()
+                    && null == order.getCity() && null == order.getCounty() && null == order.getZipcode()
+                    && null == order.getAddress()
+            ){
                 order.setReceiver(account.getMember().getName());
-                System.out.println("收貨人:" + order.getReceiver());
-            }
-            if(null == order.getReceiverPhone()){
                 order.setReceiverPhone(account.getMember().getPhone());
-                System.out.println("電話:" + order.getReceiverPhone());
-            }
-            if(null == order.getReceiverEmail()){
                 order.setReceiverEmail(account.getMember().getEmail());
-                System.out.println("信箱:" + order.getReceiverEmail());
-            }
-            if(null == order.getCity()){
                 order.setCity(account.getMember().getCity());
-                System.out.println("縣市:" + order.getCity());
-            }
-            if(null == order.getCounty()){
                 order.setCounty(account.getMember().getCounty());
-                System.out.println("鄉鎮市區:" + order.getCounty());
-            }
-            if(null == order.getZipcode()){
                 order.setZipcode(account.getMember().getZipcode());
-                System.out.println("郵遞區號:" + order.getZipcode());
-            }
-            if(null == order.getAddress()){
                 order.setAddress(account.getMember().getAddress());
-                System.out.println("地址:" + order.getAddress());
+            }else if(null != order.getReceiver() && null != order.getReceiverPhone() && null != order.getReceiverEmail()
+                    && null != order.getCity() && null != order.getCounty() && null != order.getZipcode()
+                    && null != order.getAddress()){
+                    System.out.println("收貨人資料齊全");
+            }else {
+                throw new ErrorInputException("收貨人資料不齊全: \n姓名" + order.getReceiver() + ",\n電話" + order.getReceiverPhone()
+                        + ",\n信箱" + order.getReceiverEmail() + ",\n縣市" + order.getCity() + ",\n鄉鎮市區" + order.getCounty()
+                        + ",\n郵遞區號" + order.getZipcode() + ",\n地址" + order.getAddress()
+                );
             }
+
 
             // 付費方式為信用卡時，付費狀態為已付費1
             if(order.getParmentMethod() == 0){
@@ -124,10 +125,12 @@ public class OrderServlet extends HttpServlet {
 
 //            order.getOrder().setOrderItem(order.getOrderItems());
             for(OrderItems orderItems: order.getOrderItem()){
+                if(null == orderItems.getProducts()){
+                    throw new ErrorInputException("products資料是空的");
+                }
                 System.out.println("產品id: " + orderItems.getProducts().getId() + "," + "數量: " + orderItems.getQuantity());
             }
-            System.out.println("訂單" + order.toString());
-            System.out.println("訂單明細" + order.getOrderItem().toString());
+
 
             int orderId = orderService.checkOut(order);
             orderRes.setOrderId(orderId);
@@ -136,10 +139,11 @@ public class OrderServlet extends HttpServlet {
 
             out.print(new ObjectMapper().writeValueAsString(orderList));
         }catch (JsonProcessingException e){
+            e.printStackTrace();
             out.print("json格式解析錯誤:" + e.getMessage());
         } catch (ModuleException e) {
+            e.printStackTrace();
             out.print(e.getMessage());
-            System.out.println(e.getMessage());
         }
 
 

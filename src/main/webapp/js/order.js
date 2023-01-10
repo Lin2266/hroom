@@ -47,6 +47,7 @@ $(function(){
 		let order = {}
 		// 0信用卡 1貨到付款
 		let parmentMethod = $("input[name='paymentMethod']:checked").val();
+
 		let info = $("#info")
 		// 信用卡要用綠界
 		if(parmentMethod == 0){
@@ -66,7 +67,7 @@ $(function(){
 			let receiverEmail = $("#receiverEmail");
 			let city = $("#twzipcode2 .city :selected");
 			let county = $("#twzipcode2 .county :selected") ;
-			let zipCode = $("#twzipcode2 .zipCode") ;
+			let zipcode = $("#twzipcode2 .zipCode") ;
 			let address = $("#receiverAddress");
 
 			if(receiver.val() == ""){
@@ -102,11 +103,11 @@ $(function(){
 			}
 			order['county'] = county.val()
 
-			if(zipCode.val() == ""){
+			if(zipcode.val() == ""){
 				alert("郵遞區號不得為空")
 				return false;
 			}
-			order['zipCode'] = zipCode.val()
+			order['zipcode'] = zipcode.val()
 
 			if(address.val() == ""){
 				alert("收貨人地址不得為空")
