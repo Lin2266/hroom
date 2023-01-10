@@ -33,7 +33,7 @@
 				<div class="banner_slider owl-carousel">
 					<!-- part1 start -->
 					<div class="single_banner_slider">
-						<video autoplay muted loop id="bg-video">
+						<video autoplay muted loop id="bg-video" style="padding-left: 2px; padding-right: 2px;">
 							<source src="img/HamRu.mp4" type="video/mp4" />
 						</video>
 					</div>
@@ -56,7 +56,7 @@
 								</div>
 							</div>
 							<div class="banner_img d-none d-lg-block">
-								<img src="img/banner_img.png" alt="">
+								<img src="img/banner_img.png" alt="" style="padding-right: 2px;">
 							</div>
 						</div>
 					</div>
@@ -72,12 +72,12 @@
 										<br>
 										<br>
 										<br>
-										<br> <a class="btn_2" id="btn_20" style="color: white">客製化設計</a>
+										<br> <a class="btn_2" id="btn_20" style="color: white;">客製化設計</a>
 									</div>
 								</div>
 							</div>
 							<div class="banner_img d-none d-lg-block">
-								<img src="img/product/blog/post-img2.jpg">
+								<img src="img/product/blog/post-img2.jpg" style="padding-right: 180px;">
 							</div>
 						</div>
 					</div>
@@ -247,36 +247,17 @@
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-12">
-				<div class="single_client_logo">
-					<img src="img/client_logo/client_logo_1.png" alt="">
-				</div>
-				<div class="single_client_logo">
-					<img src="img/client_logo/client_logo_2.png" alt="">
-				</div>
-				<div class="single_client_logo">
-					<img src="img/client_logo/client_logo_3.png" alt="">
-				</div>
-				<div class="single_client_logo">
-					<img src="img/client_logo/client_logo_4.png" alt="">
-				</div>
-				<div class="single_client_logo">
-					<img src="img/client_logo/client_logo_5.png" alt="">
-				</div>
-				<div class="single_client_logo">
-					<img src="img/client_logo/client_logo_3.png" alt="">
-				</div>
-				<div class="single_client_logo">
-					<img src="img/client_logo/client_logo_1.png" alt="">
-				</div>
-				<div class="single_client_logo">
-					<img src="img/client_logo/client_logo_2.png" alt="">
-				</div>
-				<div class="single_client_logo">
-					<img src="img/client_logo/client_logo_3.png" alt="">
-				</div>
-				<div class="single_client_logo">
-					<img src="img/client_logo/client_logo_4.png" alt="">
-				</div>
+			 <h3>本網頁僅練習使用，參考網站與圖檔分享來自於: </h3>
+			 <a href="https://ciaocasa.com.tw/projects/link3lgkv8fj">巧寓舍計 : https://ciaocasa.com.tw/projects/link3lgkv8fj</a><br>
+			 <a href="https://www.wood-house.com.tw/">原木工坊 : https://www.wood-house.com.tw/</a><br>
+			 <a href="https://www.junpindesign.com/">郡品室內設計 : https://www.junpindesign.com/</a><br>
+			 <a href="https://www.ikea.com.tw/zh">IKea : https://www.ikea.com.tw/zh</a><br>
+			 <a href="https://www.nitori-net.tw/">宜得利 : https://www.nitori-net.tw/</a><br>
+			 <a href="https://www.lifewarehouse.net/">生活倉庫 : https://www.lifewarehouse.net/</a><br>
+			 <a href="https://www.pexels.com/zh-tw/">Pexels素材: https://www.pexels.com/zh-tw/</a><br>
+			 <a href="https://www.88tph.com/">88素材 : https://www.88tph.com/</a><br>
+			 <a href="https://zh.pngtree.com/">PNG素材 : https://zh.pngtree.com/</a><br>
+			 <a href="https://616pic.com/">616素材 : https://616pic.com/</a><br>
 			</div>
 		</div>
 	</div>
