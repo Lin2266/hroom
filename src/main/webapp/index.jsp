@@ -6,18 +6,26 @@
 <jsp:include page="/WEB-INF/subviews/header.jsp"></jsp:include>
 <style>
 .productBtn {
-  background-color: white;
-  border: none;
-/*   color: #ff3368; */
-  color: #797979; 
-  text-transform: uppercase;
-  font-size: 18px;
-  font-weight: 500;
-   display: block;
-   margin-top: 10px; 
+	background-color: white;
+	border: none;
+	/*   color: #ff3368; */
+	color: #797979;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-weight: 500;
+	display: block;
+	margin-top: 10px;
+}
+
+#bg-video {
+	min-width: 100%;
+	min-height: 70vh;
+	max-width: 100%;
+	max-height: 70vh;
+	object-fit: cover;
+	padding-top: 20px;
 }
 </style>
-<!-- banner part start-->
 <section class="banner_part">
 	<div class="container">
 		<div class="row align-items-center">
@@ -25,36 +33,31 @@
 				<div class="banner_slider owl-carousel">
 					<!-- part1 start -->
 					<div class="single_banner_slider">
+						<video autoplay muted loop id="bg-video">
+							<source src="img/HamRu.mp4" type="video/mp4" />
+						</video>
+					</div>
+					<!-- part2 start -->
+					<div class="single_banner_slider">
 						<div class="row">
 							<div class="col-lg-5 col-md-8">
 								<div class="banner_text">
 									<div class="banner_text_iner">
-										<h1 style="font-family: '微軟正黑體',sans-serif; font-size: 3.0rem; font-weight: bold; color: #2F4F4F;">12月新品上市</h1>
+										<h1
+											style="font-family: '微軟正黑體', sans-serif; font-size: 2.5rem; background: -webkit-linear-gradient(16deg, #ff005a 0%, #ff5d2d 64%, #ffba00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;;">12月新品上市</h1>
 										<h3>
 											三人座沙發
 											<p>亞麻布／藍色／座椅長度114cm／座椅高度41cm</p>
 										</h3>
-										<a href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProduct1" class="btn_2">立即購買</a>
+										<a
+											href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProduct1"
+											class="btn_2">立即購買</a>
 									</div>
 								</div>
 							</div>
 							<div class="banner_img d-none d-lg-block">
 								<img src="img/banner_img.png" alt="">
 							</div>
-						</div>
-					</div>
-					<div class="single_banner_slider">
-						<!-- part2 start -->
-						<div class="row">
-							<div class="col-lg-5 col-md-8">
-								<div class="banner_text">
-									<div class="banner_text_iner">
-			
-			
-									</div>
-								</div>
-							</div>
-							<div class="banner_img d-none d-lg-block"></div>
 						</div>
 					</div>
 					<!-- part3 start -->
@@ -63,37 +66,21 @@
 							<div class="col-lg-5 col-md-8">
 								<div class="banner_text">
 									<div class="banner_text_iner">
-										<h1>12月最新商品</h1>
-										<h3>
-											三人座沙發
-											<p>亞麻布／藍色／座椅長度114cm／座椅高度41cm</p>
-										</h3>
-										<a href="#" class="btn_2">立即購買</a>
+										<h1
+											style="font-family: '微軟正黑體', sans-serif; font-size: 2.5rem; background: -webkit-linear-gradient(16deg, #ff005a 0%, #ff5d2d 64%, #ffba00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">客製化設計</h1>
+										<h4>涵潤設計師到府評估，與您共同討論設計需求</h4>
+										<br>
+										<br>
+										<br>
+										<br> <a class="btn_2" id="btn_20" style="color: white">客製化設計</a>
 									</div>
 								</div>
 							</div>
 							<div class="banner_img d-none d-lg-block">
-								<img src="img/banner_img.png" alt="">
+								<img src="img/product/blog/post-img2.jpg">
 							</div>
 						</div>
 					</div>
-					<!-- <div class="single_banner_slider">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-8">
-                                    <div class="banner_text">
-                                        <div class="banner_text_iner">
-                                            <h1>Cloth $ Wood Sofa</h1>
-                                            <p>Incididunt ut labore et dolore magna aliqua quis ipsum
-                                                suspendisse ultrices gravida. Risus commodo viverra</p>
-                                            <a href="#" class="btn_2">buy now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner_img d-none d-lg-block">
-                                    <img src="img/banner_img.png" alt="">
-                                </div>
-                            </div>
-                        </div> -->
 				</div>
 				<div class="slider-counter"></div>
 			</div>
@@ -117,27 +104,30 @@
 				<div class="single_feature_post_text">
 					<p>主推專案-小家庭</p>
 					<h3>溫馨豪華</h3>
-					<a href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject2" class="feature_btn">EXPLORE NOW <i
-						class="fas fa-play"></i></a> <img src="img/feature/product2.png"
-						alt="" height="80%">
+					<a
+						href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject2"
+						class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a> <img
+						src="img/feature/product2.png" alt="" height="80%">
 				</div>
 			</div>
 			<div class="col-lg-5 col-sm-6">
 				<div class="single_feature_post_text">
 					<p>小資必備</p>
 					<h3>簡約時尚風</h3>
-					<a href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject1" class="feature_btn">EXPLORE NOW <i
-						class="fas fa-play"></i></a> <img src="img/feature/product1.png"
-						alt="" height="70%">
+					<a
+						href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject1"
+						class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a> <img
+						src="img/feature/product1.png" alt="" height="70%">
 				</div>
 			</div>
 			<div class="col-lg-6 col-sm-6">
 				<div class="single_feature_post_text">
 					<p>奢華享受</p>
 					<h3>華麗城堡</h3>
-					<a href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject3" class="feature_btn">EXPLORE NOW <i
-						class="fas fa-play"></i></a> <img src="img/feature/product3.png"
-						alt="" height="80%">
+					<a
+						href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject3"
+						class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a> <img
+						src="img/feature/product3.png" alt="" height="80%">
 				</div>
 			</div>
 		</div>
@@ -160,20 +150,25 @@
 		<div class="row align-items-center justify-content-between">
 			<div class="col-lg-12">
 				<div class="best_product_slider owl-carousel">
-					<c:forEach items="${rtnList}" var="ListItem" varStatus = "status" >
+					<c:forEach items="${rtnList}" var="ListItem" varStatus="status">
 						<div class="single_product_item">
-						<span style="color:#ff3368;">Top ${status.count}</span>
-							<img src="img/product/HRoomProduct/product_${ListItem.id}.png"
-								alt="">
+							<span style="color: #ff3368;">Top ${status.count}</span> <img
+								src="img/product/HRoomProduct/product_${ListItem.id}.png" alt="">
 							<div class="single_product_text">
 								<h4>${ListItem.name}</h4>
-								<h3>$ <span>${ListItem.cost}</span></h3>
-								<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a>
-								<input type="hidden" name="productId" class="productId" value="${ListItem.id}">
-								<input type="hidden" name="productCost" class="productCost" value="${ListItem.stock}">
-								<form action="SingleProductServlet?method=SingleProduct" method="POST">
-								<input class="productBtn" type="submit" value="商品詳細資訊">
-								<input type="hidden" name="SentproductId" value="${ListItem.id}">
+								<h3>
+									$ <span>${ListItem.cost}</span>
+								</h3>
+								<a class="add_cart">+ 加入購物車<i class="ti-heart"></i></a> <input
+									type="hidden" name="productId" class="productId"
+									value="${ListItem.id}"> <input type="hidden"
+									name="productCost" class="productCost"
+									value="${ListItem.stock}">
+								<form action="SingleProductServlet?method=SingleProduct"
+									method="POST">
+									<input class="productBtn" type="submit" value="商品詳細資訊">
+									<input type="hidden" name="SentproductId"
+										value="${ListItem.id}">
 								</form>
 							</div>
 						</div>
@@ -181,7 +176,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 </section>
 
@@ -196,8 +191,11 @@
 			</div>
 			<div class="col-lg-6 col-md-6">
 				<div class="offer_text">
-					<h2 style="font-family: '微軟正黑體',sans-serif; font-size: 3.0rem; font-weight: bold; color: #2F4F4F;">本月促銷商品</h2>
-					<h5><span style="color:red">下殺&darr;</span>6折優惠</h5>
+					<h2
+						style="font-family: '微軟正黑體', sans-serif; font-size: 3.0rem; font-weight: bold; color: #2F4F4F;">本月促銷商品</h2>
+					<h5>
+						<span style="color: red">下殺&darr;</span>6折優惠
+					</h5>
 					<div class="date_countdown">
 						<div id="timer">
 							<div id="days" class="date"></div>
@@ -208,7 +206,9 @@
 					</div>
 					<div class="input-group">
 						<div class="input-group-append">
-							<a href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProduct2" class="input-group-text btn_2" id="basic-addon2">馬上搶購</a>
+							<a
+								href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProduct2"
+								class="input-group-text btn_2" id="basic-addon2">馬上搶購</a>
 						</div>
 					</div>
 				</div>
@@ -282,5 +282,9 @@
 	</div>
 </section>
 <!--::subscribe_area part end::-->
-
+<script>
+	document.getElementById("btn_20").addEventListener("click", function() {
+		window.scrollTo(0, 600);
+	});
+</script>
 <jsp:include page="/WEB-INF/subviews/footer.jsp" />
