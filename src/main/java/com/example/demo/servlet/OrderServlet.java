@@ -111,6 +111,7 @@ public class OrderServlet extends HttpServlet {
                     && null != order.getAddress()){
                     System.out.println("收貨人資料齊全");
             }else {
+                // 如果收貨人資料不是全空的或是全有值的就拋錯
                 throw new ErrorInputException("收貨人資料不齊全: \n姓名" + order.getReceiver() + ",\n電話" + order.getReceiverPhone()
                         + ",\n信箱" + order.getReceiverEmail() + ",\n縣市" + order.getCity() + ",\n鄉鎮市區" + order.getCounty()
                         + ",\n郵遞區號" + order.getZipcode() + ",\n地址" + order.getAddress()

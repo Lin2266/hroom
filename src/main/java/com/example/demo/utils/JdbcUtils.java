@@ -8,17 +8,17 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import com.example.demo.exception.ErrorInputException;
 import com.example.demo.exception.ModuleException;
+import org.apache.commons.lang3.StringUtils;
 
 public class JdbcUtils {
-
 /**
  * 獲取資料庫連接對象Connection物件
  * @return 
  *
  */
 	public static Connection getConnection() throws ModuleException {
-		
 		Connection connection = null;
 	    try {
 	      // 讀取jdbc.properties文件組態
@@ -28,9 +28,24 @@ public class JdbcUtils {
 	      is.close();
 
 	      String driverClass = properties.getProperty("driverClass");
+		  if(StringUtils.isBlank(driverClass)){
+			  throw new ErrorInputException("driverClass是空的，請確認jdbc.propertties資料是否正確");
+		  }
+
 	      String jdbcUrl = properties.getProperty("jdbcUrl");
+			if(StringUtils.isBlank(driverClass)){
+				throw new ErrorInputException("jdbcUrl是空的，請確認jdbc.propertties資料是否正確");
+			}
+
 	      String user = properties.getProperty("user");
+			if(StringUtils.isBlank(driverClass)){
+				throw new ErrorInputException("user是空的，請確認jdbc.propertties資料是否正確");
+			}
+
 	      String password = properties.getProperty("password");
+			if(StringUtils.isBlank(driverClass)){
+				throw new ErrorInputException("password是空的，請確認jdbc.propertties資料是否正確");
+			}
 
 	      // 載入資料庫驅動並註冊
 	      Class.forName(driverClass);

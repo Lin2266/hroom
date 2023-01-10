@@ -3,11 +3,10 @@ package com.example.demo.dao;
 import com.example.demo.domain.Order;
 import com.example.demo.domain.OrderItems;
 import com.example.demo.domain.ProductBean;
+import com.example.demo.exception.DataNotFoundException;
 import com.example.demo.exception.ErrorInputException;
 import com.example.demo.exception.ModuleException;
 import com.example.demo.utils.JdbcUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +38,6 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             "select stock from products where id = ?";
     private final String UPDATE_PRODUCTS_STOCK=
             "update products set stock = ? where id= ?";
-    private ErrorInputException  eie = null;
-
 
     /**
      * 新增訂單
@@ -54,20 +51,20 @@ public class OrderDao implements DaoInterface<Integer, Order>{
         ResultSet rs = null;
         int key=0;
         int stock=0;
+        int result =0;
 
         try {
             con = JdbcUtils.getConnection();
             if (null == con) {
-                eie.getEie(eie,"資料庫連線為 null，請取得連線後再查詢");
+                throw new ErrorInputException("資料庫連線為 null，請取得連線後再查詢");
             }
 
-            if (StringUtils.isBlank(INSERT_ORDER)) {
-                eie.getEie(eie,"查詢的order SQL不得為空，請傳入正確SQL");
+            if(null == order){
+                throw new ErrorInputException("order 資料不得為空");
             }
 
-            if (StringUtils.isBlank(INSERT_ORDERITEMS)) {
-                eie.getEie(eie,"查詢的orderItems SQL不得為空，請傳入正確SQL");
-                throw eie;
+            if(null == order.getOrderItem()){
+                throw new ErrorInputException("orderItem 資料不得為空");
             }
 
             con.setAutoCommit(false);
@@ -88,39 +85,65 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             stmt.setInt(13,order.getShipping());
             order.setProcessing_status("訂單確認中");
             stmt.setString(14,order.getProcessing_status());
-            stmt.executeUpdate();
+            result = stmt.executeUpdate();
+            System.out.println("order insert:" + result);
+
+            if(0 == result){
+                throw new DataNotFoundException("新增 order 資料失敗");
+            }
 
             //取得自動給號的order id值
             rs = stmt.getGeneratedKeys();
             if (rs.next()) {
                 key = rs.getInt(1);
                 order.setId(key);
-                System.out.println("自動給號:" + key);
+                System.out.println("取得order id:" + key);
             }
 
-
             for(OrderItems orderItems: order.getOrderItem()){
+                if(null == orderItems.getProducts()){
+                    throw new ErrorInputException("products 資料不得為空");
+                }
+
                 // 新增訂單明細
                 stmt = con.prepareStatement(INSERT_ORDERITEMS);
                 stmt.setInt(1,orderItems.getQuantity());
                 stmt.setInt(2,order.getId());
                 stmt.setInt(3,orderItems.getProducts().getId());
-                stmt.executeUpdate();
+                result = stmt.executeUpdate();
+                System.out.println("OrderItems insert:" + result);
+
+                if(0 == result){
+                    throw new DataNotFoundException("新增 OrderItems 資料失敗");
+                }
+
                 // 查詢產品庫存
                 stmt = con.prepareStatement(SELECT_PRODUCTS_STOCK);
                 stmt.setInt(1,orderItems.getProducts().getId());
                 rs = stmt.executeQuery();
+                System.out.println("products 查詢:" + rs);
+
+                if(null == rs){
+                    throw new DataNotFoundException("查詢 Products庫存量 資料失敗");
+                }
+
                 while (rs.next()){
                     stock = rs.getInt("stock");
                     System.out.println("庫存量:" + stock);
                     System.out.println("產品購買量:" +  orderItems.getQuantity());
                     System.out.println("剩餘庫存量:" + (stock - orderItems.getQuantity()));
                 }
+
                 // 現在庫存 - 訂單購買量 = 剩餘庫存
                 stmt = con.prepareStatement(UPDATE_PRODUCTS_STOCK);
                 stmt.setInt(1,stock - orderItems.getQuantity());
                 stmt.setInt(2,orderItems.getProducts().getId());
-                stmt.executeUpdate();
+                result = stmt.executeUpdate();
+                System.out.println("products 庫存修改:" + result);
+
+                if(0 == result){
+                    throw new DataNotFoundException("修改 Products庫存量 資料失敗");
+                }
             }
 
             con.commit();
@@ -131,8 +154,8 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             } catch (SQLException ex) {
                 throw new ModuleException("order Insert rollback異常: " + e.getMessage());
             }
-            e.printStackTrace();
-            throw new ModuleException("新增訂單失敗: " + e.getMessage());
+                e.printStackTrace();
+                throw new ModuleException("新增訂單失敗: " + e.getMessage());
 
         }finally {
             if (rs != null) {
@@ -169,13 +192,28 @@ public class OrderDao implements DaoInterface<Integer, Order>{
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Order order = new Order();
-
         List<OrderItems> orderItemsList = new ArrayList<>();
+        int result =0;
+
         try {
+
             con = JdbcUtils.getConnection();
+            if (null == con) {
+                throw new ErrorInputException("資料庫連線為 null，請取得連線後再查詢");
+            }
+
+            if (null == orderId) {
+                throw new ErrorInputException("orderId 不得為空");
+            }
+
             stmt = con.prepareStatement(SELECT_ORDER_BY_ORDERID);
             stmt.setInt(1,orderId);
             rs = stmt.executeQuery();
+
+            if (null == rs) {
+                throw new DataNotFoundException("查詢訂單明細失敗");
+            }
+
             while (rs.next()){
                 order.setId(rs.getInt("id"));
                 order.setOrderTimeS(rs.getString("ordertime"));
@@ -193,19 +231,20 @@ public class OrderDao implements DaoInterface<Integer, Order>{
 
                 OrderItems orderItems = new OrderItems();
                 orderItems.setQuantity(rs.getInt("quantity"));
+
                 ProductBean products = new ProductBean();
                 products.setId(rs.getInt("product_id"));
                 products.setName(rs.getString("name"));
                 products.setCost(rs.getInt("cost"));
+
                 orderItems.setProducts(products);
                 orderItemsList.add(orderItems);
-
                 order.setOrderItem(orderItemsList);
 
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new ModuleException("查詢訂單詳細失敗:" + e.getMessage());
+            throw new ModuleException(e.getMessage());
         }finally {
             if (rs != null) {
                 try {
@@ -239,14 +278,23 @@ public class OrderDao implements DaoInterface<Integer, Order>{
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-
         List<Order> orderList = new ArrayList<>();
 
-        con = JdbcUtils.getConnection();
         try {
+
+            con = JdbcUtils.getConnection();
+            if (null == con) {
+                throw new ErrorInputException("資料庫連線為 null，請取得連線後再查詢");
+            }
+
             stmt = con.prepareStatement(SELECT_ORDER_BY_MBMBERID);
             stmt.setInt(1,memberId);
             rs = stmt.executeQuery();
+
+            if (null == rs) {
+                throw new DataNotFoundException("查詢會員訂單失敗");
+            }
+
             while (rs.next()){
                 Order order = new Order();
                 order.setId(rs.getInt("id"));
@@ -256,6 +304,7 @@ public class OrderDao implements DaoInterface<Integer, Order>{
                 order.setProcessing_status(rs.getString("processing_status"));
                 orderList.add(order);
             }
+
         } catch (SQLException e) {
             throw new ModuleException(e.getMessage());
         }finally {
