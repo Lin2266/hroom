@@ -9,7 +9,7 @@ $(function (){
 function ShowOrderItems(orderId){
     url = "OrderServlet"
     if(orderId != null){
-        url += `?orderId=${orderId}`
+        url += `?type=get&orderId=${orderId}`
     }
 
     $.ajax({
