@@ -42,9 +42,9 @@ public class LoginServlet extends HttpServlet {
 
         // Get the login data
         request.setCharacterEncoding("UTF-8");
-        String account = request.getParameter("account");
+        String account = request.getParameter("username");
         String password = request.getParameter("password");
-
+   
         // Connect to the database and retrieve the stored password and IV for the account
         Connection conn = null;
         byte[] iv = null;
@@ -56,11 +56,15 @@ public class LoginServlet extends HttpServlet {
             accountBean = accountDAO.findAccount(conn, account);
             if (accountBean != null) {
                 storedPassword = accountBean.getPassword();
-                iv = accountBean.getIv();
+                System.out.println("ivInTry"+accountBean.getIv());
+                iv = Base64.getDecoder().decode(accountBean.getIv());
+
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
+        
 
         // Decrypt the stored password and compare it to the password entered by the user
         String decryptedPassword = null;
@@ -93,12 +97,11 @@ public class LoginServlet extends HttpServlet {
             // Get the member data for the account
             MemberDao memberDao = new MemberDao();
             try {
-				Connection conn = JdbcUtils.getConnection();
 				Member member = memberDao.getMemberData(conn, accountBean.getMemberId());
 				  // Save the member data in the session
 	            session.setAttribute("member", member);
 	            // Redirect the user to a protected page
-	            response.sendRedirect("loginSuccess.jsp");
+	            response.sendRedirect("/hroom/InitServlet");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
