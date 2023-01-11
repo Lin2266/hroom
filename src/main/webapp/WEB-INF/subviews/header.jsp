@@ -82,7 +82,14 @@
                             </ul>
                         </div>
                         <div class="hearer_icon d-flex">
-                            <a class="" href="login.jsp"> 註冊 | 登入</a>
+                       
+                        	<a class="" href="login.jsp" id="loginbtn"> 註冊 | 登入</a>
+                        
+                        <a class=""  id="welcomeMember" style="display: none">Hi ${sessionScope.member.name}</a>
+                        <a class="#" href="/hroom/logout" id="logoutbtn" 
+												style="display: none"> | 登出</a>
+                        
+                        
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <div class="dropdown cart">
                                 <a class="dropdown-toggle" href="${pageContext.request.contextPath}/cart.jsp" id="navbarDropdown3">
@@ -106,5 +113,27 @@
             </div>
         </div>
     </header>
+    
+ <script>
+	//登入登出
+	function checkLoginStatus() {
+    var userName = '${sessionScope.member.name}';
+    var logoutBtn = document.getElementById("logoutbtn");
+    var loginBtn = document.getElementById("loginbtn");
+    var welcomeMember = document.getElementById("welcomeMember");
+
+    if (userName == null || userName == "") {
+        logoutBtn.style.display = 'none';
+        loginBtn.style.display = 'block';
+        welcomeMember.style.display='none';
+    } else {
+        logoutBtn.style.display = 'block';
+        loginBtn.style.display = 'none';
+        welcomeMember.style.display='block';
+    }
+}
+    checkLoginStatus();
+
+    </script>
     <!-- Header part end-->
 
