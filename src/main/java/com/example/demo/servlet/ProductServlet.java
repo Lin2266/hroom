@@ -117,7 +117,7 @@ public class ProductServlet extends HttpServlet {
 	
 	public void BedProductsRender(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sqlcmd = "select * from products where popular = 'Y';";
+		String sqlcmd = "select * from products where kind = '寢具';";
 		try {
 			Connection conn = JdbcUtils.getConnection();
 			request.setAttribute("rtnList", queryAllData(conn, sqlcmd));
