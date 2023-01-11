@@ -13,7 +13,7 @@ import com.example.demo.utils.JdbcUtils;
 public class MemberDao {
 	// Other methods here
 
-	  public int createMember(Connection conn, Member member) throws SQLException {
+	public void createMember(Connection conn, Member member) throws SQLException {
 	    String sql = "INSERT INTO member (name, phone, email, city, county, zipcode, address) VALUES (?, ?, ?, ?, ?, ?, ?)";
 	    PreparedStatement pstmt = conn.prepareStatement(sql);
 	    pstmt.setString(1, member.getName());
@@ -26,13 +26,25 @@ public class MemberDao {
 	    pstmt.executeUpdate();
 
 	    // Get the generated id for the new row
-	    ResultSet rs = pstmt.getGeneratedKeys();
+	  
+	  }
+	 
+	
+	
+	public int findIdByName(Connection conn, String name) throws SQLException {
+	    String sql = "SELECT id FROM member WHERE name = ?";
+	    PreparedStatement pstmt = conn.prepareStatement(sql);
+	    pstmt.setString(1, name);
+	    ResultSet rs = pstmt.executeQuery();
 	    int id = -1;
 	    if (rs.next()) {
-	      id = rs.getInt(1);
+	        id = rs.getInt("id");
 	    }
+	    System.out.println("findIdByNameID ="+id);
+
 	    return id;
-	  }
+	}
+	
 	  
 	  
 	  public Member getMemberData(Connection conn,int memberId) throws SQLException {

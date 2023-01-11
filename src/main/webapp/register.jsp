@@ -343,8 +343,8 @@ z-index
   <jsp:include page="/WEB-INF/subviews/breadcrumb.jsp"></jsp:include>	
 <div class="login-container">
 	<div class="loginbody">
-		<form action="registerAccount" method="post"
-			enctype="multipart/form-data"  class="row contact_form">
+		<form action="registerAccount" method="post" accept-charset="UTF-8"
+			  class="row contact_form">
 
 			<div class="logincontainer" id="logincontainer">
 
