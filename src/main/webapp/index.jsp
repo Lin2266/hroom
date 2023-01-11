@@ -8,7 +8,6 @@
 .productBtn {
 	background-color: white;
 	border: none;
-	/*   color: #ff3368; */
 	color: #797979;
 	text-transform: uppercase;
 	font-size: 18px;
@@ -17,13 +16,13 @@
 	margin-top: 10px;
 }
 
- #bg-video { 
- 	min-width: 100%; 
- 	min-height: 100%; 
- 	max-width: 100%; 
- 	max-height: 100%; 
- 	object-fit: cover;  
- } 
+#bg-video {
+	min-width: 100%;
+	min-height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
 </style>
 <section class="banner_part">
 	<div class="container">
@@ -31,10 +30,11 @@
 			<div class="col-lg-12">
 				<div class="banner_slider owl-carousel">
 					<!-- part1 start -->
-					<div class="single_banner_slider">					
-						<video autoplay muted loop id="bg-video" style="padding-left: 2px; padding-right: 2px;">
+					<div class="single_banner_slider">
+						<video autoplay muted loop id="bg-video"
+							style="padding-left: 2px; padding-right: 2px;">
 							<source src="img/HamRu.mp4" type="video/mp4" />
-						</video>						
+						</video>
 					</div>
 					<!-- part2 start -->
 					<div class="single_banner_slider">
@@ -43,14 +43,17 @@
 								<div class="banner_text">
 									<div class="banner_text_iner">
 										<h1
-											style="font-family: '微軟正黑體', sans-serif; font-size: 2.5rem; background: -webkit-linear-gradient(16deg, #ff005a 0%, #ff5d2d 64%, #ffba00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;;">12月新品上市</h1>
+											style="font-family: '微軟正黑體', sans-serif; font-size: 2.5rem; background: -webkit-linear-gradient(16deg, #ff005a 0%, #ff5d2d 64%, #ffba00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">12月新品上市</h1>
 										<h3>
 											三人座沙發
 											<p>亞麻布／藍色／座椅長度114cm／座椅高度41cm</p>
 										</h3>
-										<a
-											href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProduct1"
-											class="btn_2">立即購買</a>
+										<form action="SingleProductServlet?method=SingleProduct1" method="POST">
+				                     	<Input type="submit" class="btn_2" value="立即購買" style="border:none;">
+				                    	</form >
+<!-- 										<a -->
+<!-- 											href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProduct1" -->
+<!-- 											class="btn_2">立即購買</a> -->
 									</div>
 								</div>
 							</div>
@@ -68,15 +71,15 @@
 										<h1
 											style="font-family: '微軟正黑體', sans-serif; font-size: 2.5rem; background: -webkit-linear-gradient(16deg, #ff005a 0%, #ff5d2d 64%, #ffba00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">客製化設計</h1>
 										<h4>涵潤設計師到府評估，與您共同討論設計需求</h4>
-										<br>
-										<br>
-										<br>
-										<br> <a class="btn_2" id="btn_20" style="color: white;">客製化設計</a>
+										<br> <br> <br> <br> 
+										<a class="btn_2"
+											id="btn_20" style="color: white;">客製化設計</a>
 									</div>
 								</div>
 							</div>
 							<div class="banner_img d-none d-lg-block">
-								<img src="img/product/blog/post-img2.jpg" style="padding-right: 180px;">
+								<img src="img/product/blog/post-img2.jpg"
+									style="padding-right: 180px;">
 							</div>
 						</div>
 					</div>
@@ -103,30 +106,39 @@
 				<div class="single_feature_post_text">
 					<p>主推專案-小家庭</p>
 					<h3>溫馨豪華</h3>
-					<a
-						href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject2"
-						class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a> <img
-						src="img/feature/product2.png" alt="" height="80%">
+					<form action="SingleProductServlet?method=SingleProject2"
+						method="POST">
+						<Input type="submit" class="feature_btn" value="EXPLORE NOW"
+							Style="background-color: transparent; border: none;">
+					</form>
+					<img src="img/feature/product2.png" alt="" height="80%">
 				</div>
 			</div>
 			<div class="col-lg-5 col-sm-6">
 				<div class="single_feature_post_text">
 					<p>小資必備</p>
 					<h3>簡約時尚風</h3>
-					<a
-						href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject1"
-						class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a> <img
-						src="img/feature/product1.png" alt="" height="70%">
+					<form action="SingleProductServlet?method=SingleProject1"
+						method="POST">
+						<Input type="submit" class="feature_btn" value="EXPLORE NOW"
+							Style="background-color: transparent; border: none;">
+					</form>
+					<img src="img/feature/product1.png" alt="" height="70%">
 				</div>
 			</div>
 			<div class="col-lg-6 col-sm-6">
 				<div class="single_feature_post_text">
 					<p>奢華享受</p>
 					<h3>華麗城堡</h3>
-					<a
-						href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject3"
-						class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a> <img
-						src="img/feature/product3.png" alt="" height="80%">
+					<form action="SingleProductServlet?method=SingleProject3"
+						method="POST">
+						<Input type="submit" class="feature_btn" value="EXPLORE NOW"
+							Style="background-color: transparent; border: none;">
+					</form>
+					<!-- 					<a -->
+					<!-- 						href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProject3" -->
+					<!-- 						class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a> -->
+					<img src="img/feature/product3.png" alt="" height="80%">
 				</div>
 			</div>
 		</div>
@@ -205,9 +217,12 @@
 					</div>
 					<div class="input-group">
 						<div class="input-group-append">
-							<a
-								href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProduct2"
-								class="input-group-text btn_2" id="basic-addon2">馬上搶購</a>
+					<form action="SingleProductServlet?method=SingleProduct2" method="POST">
+					<Input type="submit" class="input-group-text btn_2" id="basic-addon2" value="馬上搶購">
+					</form >
+<!-- 							<a -->
+<!-- 								href="http://localhost:8080/hroom/SingleProductServlet?method=SingleProduct2" -->
+<!-- 								class="input-group-text btn_2" id="basic-addon2">馬上搶購</a> -->
 						</div>
 					</div>
 				</div>
@@ -246,17 +261,25 @@
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-12">
-			 <h3>本網頁僅練習使用，參考網站與圖檔分享來自於: </h3>
-			 <a href="https://ciaocasa.com.tw/projects/link3lgkv8fj">巧寓舍計 : https://ciaocasa.com.tw/projects/link3lgkv8fj</a><br>
-			 <a href="https://www.wood-house.com.tw/">原木工坊 : https://www.wood-house.com.tw/</a><br>
-			 <a href="https://www.junpindesign.com/">郡品室內設計 : https://www.junpindesign.com/</a><br>
-			 <a href="https://www.ikea.com.tw/zh">IKea : https://www.ikea.com.tw/zh</a><br>
-			 <a href="https://www.nitori-net.tw/">宜得利 : https://www.nitori-net.tw/</a><br>
-			 <a href="https://www.lifewarehouse.net/">生活倉庫 : https://www.lifewarehouse.net/</a><br>
-			 <a href="https://www.pexels.com/zh-tw/">Pexels素材: https://www.pexels.com/zh-tw/</a><br>
-			 <a href="https://www.88tph.com/">88素材 : https://www.88tph.com/</a><br>
-			 <a href="https://zh.pngtree.com/">PNG素材 : https://zh.pngtree.com/</a><br>
-			 <a href="https://616pic.com/">616素材 : https://616pic.com/</a><br>
+				<h3>本網頁僅練習使用，參考網站與圖檔分享來自於:</h3>
+				<a href="https://ciaocasa.com.tw/projects/link3lgkv8fj">巧寓舍計 :
+					https://ciaocasa.com.tw/projects/link3lgkv8fj</a><br> <a
+					href="https://www.wood-house.com.tw/">原木工坊 :
+					https://www.wood-house.com.tw/</a><br> <a
+					href="https://www.junpindesign.com/">郡品室內設計 :
+					https://www.junpindesign.com/</a><br> <a
+					href="https://www.ikea.com.tw/zh">IKea :
+					https://www.ikea.com.tw/zh</a><br> <a
+					href="https://www.nitori-net.tw/">宜得利 :
+					https://www.nitori-net.tw/</a><br> <a
+					href="https://www.lifewarehouse.net/">生活倉庫 :
+					https://www.lifewarehouse.net/</a><br> <a
+					href="https://www.pexels.com/zh-tw/">Pexels素材:
+					https://www.pexels.com/zh-tw/</a><br> <a
+					href="https://www.88tph.com/">88素材 : https://www.88tph.com/</a><br>
+				<a href="https://zh.pngtree.com/">PNG素材 :
+					https://zh.pngtree.com/</a><br> <a href="https://616pic.com/">616素材
+					: https://616pic.com/</a><br>
 			</div>
 		</div>
 	</div>
