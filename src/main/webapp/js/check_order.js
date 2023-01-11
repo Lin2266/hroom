@@ -1,4 +1,8 @@
 $(function (){
+    if(member == null){
+        alert("請登入會員")
+        location.href="login.jsp";
+    }
     showCheckOrder()
 })
 
@@ -11,7 +15,6 @@ function showCheckOrder(){
         success:function (res){
             let orderHistory = "";
             res.forEach(function (order,no){
-                console.log(no,order)
                 orderHistory += `
                 <tr>
                     <th scope="row">${no + 1}</th>

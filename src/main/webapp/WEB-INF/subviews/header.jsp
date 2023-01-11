@@ -67,7 +67,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
 										<a class="dropdown-item" href="cart.jsp">購物車</a>
-                                        <c:if test="${sessionScope.user.member != null}">
+                                        <c:if test="${sessionScope.member != null}">
                                             <a class="dropdown-item" href="check_order.jsp">訂單查詢</a>
                                         </c:if>
 

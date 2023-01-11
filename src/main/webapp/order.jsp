@@ -16,22 +16,22 @@
 <%--            <form class="row contact_form">--%>
               <div class="row payer">
                 <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="name" name="name" placeholder="姓名"  value="${sessionScope.user.member.name}" readonly/>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="姓名"  value="${sessionScope.member.name}" readonly/>
                 </div>
                 <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="phone" name="phone" placeholder="電話" value="${sessionScope.user.member.phone}" readonly/>
+                  <input type="text" class="form-control" id="phone" name="phone" placeholder="電話" value="${sessionScope.member.phone}" readonly/>
                 </div>
                 <div class="col-md-12 form-group p_star">
-                  <input type="text" class="form-control" id="email" name="email" placeholder="信箱" value="${sessionScope.user.member.email}" readonly/>
+                  <input type="text" class="form-control" id="email" name="email" placeholder="信箱" value="${sessionScope.member.email}" readonly/>
                 </div>
                 <div class="col-md-12 form-group">
                   <div id="twzipcode">
-                    <input id="city" value="${sessionScope.user.member.city}" hidden>
-                    <input id="county" value="${sessionScope.user.member.county}" hidden>
+                    <input id="city" value="${sessionScope.member.city}" hidden>
+                    <input id="county" value="${sessionScope.member.county}" hidden>
                   </div>
                 </div>
                 <div class="col-md-12 form-group p_star">
-                  <input type="text" class="form-control" id="address" name="address" placeholder="地址" value="${sessionScope.user.member.address}" readonly/>
+                  <input type="text" class="form-control" id="address" name="address" placeholder="地址" value="${sessionScope.member.address}" readonly/>
                 </div>
                 <div class="col-md-12 form-group p_star">
                    <label>付費方式</label>
@@ -61,7 +61,7 @@
                 <div class="row addressee">
                   <div class="col-md-6 form-group p_star">
                     <input type="text" class="form-control" id="receiver" name="receiver" onfocus="this.placeholder = ''"
-                           onblur="this.placeholder = '姓名'" placeholder="姓名"/>
+                           onblur="this.placeholder = '姓名'" placeholder="姓名" value="${param.receiver eq null ?param.receiver :""}"/>
                   </div>
                   <div class="col-md-6 form-group p_star">
                     <input type="text" class="form-control" id="receiverPhone" name="receiverPhone" onfocus="this.placeholder = ''"

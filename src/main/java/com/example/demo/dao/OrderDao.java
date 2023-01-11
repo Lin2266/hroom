@@ -121,11 +121,6 @@ public class OrderDao implements DaoInterface<Integer, Order>{
                 stmt = con.prepareStatement(SELECT_PRODUCTS_STOCK);
                 stmt.setInt(1,orderItems.getProducts().getId());
                 rs = stmt.executeQuery();
-                System.out.println("products 查詢:" + rs);
-
-                if(null == rs){
-                    throw new DataNotFoundException("查詢 Products庫存量 資料失敗");
-                }
 
                 while (rs.next()){
                     stock = rs.getInt("stock");
@@ -193,7 +188,6 @@ public class OrderDao implements DaoInterface<Integer, Order>{
         ResultSet rs = null;
         Order order = new Order();
         List<OrderItems> orderItemsList = new ArrayList<>();
-        int result =0;
 
         try {
 
@@ -209,10 +203,6 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             stmt = con.prepareStatement(SELECT_ORDER_BY_ORDERID);
             stmt.setInt(1,orderId);
             rs = stmt.executeQuery();
-
-            if (null == rs) {
-                throw new DataNotFoundException("查詢訂單明細失敗");
-            }
 
             while (rs.next()){
                 order.setId(rs.getInt("id"));
@@ -244,7 +234,7 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new ModuleException(e.getMessage());
+            throw new ModuleException("查詢明細失敗: " + e.getMessage());
         }finally {
             if (rs != null) {
                 try {
@@ -291,10 +281,6 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             stmt.setInt(1,memberId);
             rs = stmt.executeQuery();
 
-            if (null == rs) {
-                throw new DataNotFoundException("查詢會員訂單失敗");
-            }
-
             while (rs.next()){
                 Order order = new Order();
                 order.setId(rs.getInt("id"));
@@ -306,7 +292,7 @@ public class OrderDao implements DaoInterface<Integer, Order>{
             }
 
         } catch (SQLException e) {
-            throw new ModuleException(e.getMessage());
+            throw new ModuleException("查詢會員訂單失敗: " + e.getMessage());
         }finally {
             if (rs != null) {
                 try {

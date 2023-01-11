@@ -124,9 +124,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 <script>
     memberData(
-        "${user.member.id}","${user.member.name}","${user.member.phone}",
-        "${user.member.email}","${user.member.city}","${user.member.county}",
-        "${user.member.zipcode}","${user.member.address}",
+        "${sessionScope.member.id}","${sessionScope.member.name}","${sessionScope.member.phone}",
+        "${sessionScope.member.email}","${sessionScope.member.city}","${sessionScope.member.county}",
+        "${sessionScope.member.zipcode}","${sessionScope.member.address}",
     )
 </script>
 

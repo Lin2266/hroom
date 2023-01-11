@@ -35,12 +35,12 @@ public class OrderServlet extends HttpServlet {
         List<Order> orderList = null;
         Order order = null;
         HttpSession session = request.getSession();
-        Account account = (Account) session.getAttribute("user");
+        Member member = (Member) session.getAttribute("member");
         String orderIds = request.getParameter("orderId");
         String type = request.getParameter("type");
 
         try {
-            if(null == account){
+            if(null == member){
                 throw new ErrorInputException("請登入會員");
             }
 
@@ -57,7 +57,7 @@ public class OrderServlet extends HttpServlet {
                 out.print(new ObjectMapper().writeValueAsString(order));
                 // type=getAll 有memberId的查詢會員所有訂單
             }else if("getAll".equals(type)){
-                int memberId = account.getMember().getId();
+                int memberId = member.getId();
                 orderList = orderService.getOrderHistory(memberId);
                 out.print(new ObjectMapper().writeValueAsString(orderList));
             }
@@ -75,10 +75,10 @@ public class OrderServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         List<Object> orderList = new ArrayList<>();
         HttpSession session = request.getSession();
-        Account account = (Account) session.getAttribute("user");
+        Member member = (Member) session.getAttribute("member");
 
         try {
-            if(null == account){
+            if(null == member){
                 throw new ErrorInputException("請登入會員");
             }
 
@@ -92,20 +92,20 @@ public class OrderServlet extends HttpServlet {
 
             Order order = mapper.readValue(json, Order.class);
 
-            order.setMember(account.getMember());
+            order.setMember(member);
 
             // 收貨人同購買人，收貨人資料必須是空的
             if(null == order.getReceiver() && null == order.getReceiverPhone() && null == order.getReceiverEmail()
                     && null == order.getCity() && null == order.getCounty() && null == order.getZipcode()
                     && null == order.getAddress()
             ){
-                order.setReceiver(account.getMember().getName());
-                order.setReceiverPhone(account.getMember().getPhone());
-                order.setReceiverEmail(account.getMember().getEmail());
-                order.setCity(account.getMember().getCity());
-                order.setCounty(account.getMember().getCounty());
-                order.setZipcode(account.getMember().getZipcode());
-                order.setAddress(account.getMember().getAddress());
+                order.setReceiver(member.getName());
+                order.setReceiverPhone(member.getPhone());
+                order.setReceiverEmail(member.getEmail());
+                order.setCity(member.getCity());
+                order.setCounty(member.getCounty());
+                order.setZipcode(member.getZipcode());
+                order.setAddress(member.getAddress());
             }else if(null != order.getReceiver() && null != order.getReceiverPhone() && null != order.getReceiverEmail()
                     && null != order.getCity() && null != order.getCounty() && null != order.getZipcode()
                     && null != order.getAddress()){
