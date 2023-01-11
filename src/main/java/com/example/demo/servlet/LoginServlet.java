@@ -1,18 +1,28 @@
 package com.example.demo.servlet;
 import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Base64;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import javax.servlet.http.HttpSession;
 
+import com.example.demo.dao.AccountDao;
 import com.example.demo.dao.MemberDao;
 import com.example.demo.domain.Account;
 import com.example.demo.domain.Member;
@@ -30,39 +40,74 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Get the login credentials from the request
-        String username = request.getParameter("username");
+        // Get the login data
+        request.setCharacterEncoding("UTF-8");
+        String account = request.getParameter("account");
         String password = request.getParameter("password");
 
-        // Validate the login credentials
-        Account user;
-		try {
-			user = validateUser(username, password);
-			  if (user != null) {
-		            // Login successful, create a session for the user
-		            HttpSession session = request.getSession();
-		            session.setAttribute("user", user);
-		            // Get the member data for the account
-		            MemberDao memberDao = new MemberDao();
-					Connection conn = JdbcUtils.getConnection();
-		            
-		            Member member = memberDao.getMemberData(conn,user.getMemberId());
-		            // Save the member data in the session
-		            session.setAttribute("member", member);
-		            // Redirect the user to a protected page
-		            response.sendRedirect("loginSuccess.jsp");
-		        } else {
-		            // Login failed, display an error message
-		            request.setAttribute("errorMessage", "Invalid username or password");
-		            request.getRequestDispatcher("/login.jsp").forward(request, response);
-		        }
-		} catch (ModuleException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        // Connect to the database and retrieve the stored password and IV for the account
+        Connection conn = null;
+        byte[] iv = null;
+        String storedPassword = null;
+        Account accountBean =null;
+        try {
+            conn = JdbcUtils.getConnection();
+            AccountDao accountDAO = new AccountDao();
+            accountBean = accountDAO.findAccount(conn, account);
+            if (accountBean != null) {
+                storedPassword = accountBean.getPassword();
+                iv = accountBean.getIv();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        // Decrypt the stored password and compare it to the password entered by the user
+        String decryptedPassword = null;
+        try {
+            String key = "kittymickysnoopy"; // symmetric key
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            SecretKeySpec keySpec = new SecretKeySpec(key.getBytes(), "AES");
+            IvParameterSpec ivSpec = new IvParameterSpec(iv);
+            cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
+            byte[] decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(storedPassword));
+            decryptedPassword = new String(decryptedBytes);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (NoSuchPaddingException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        } catch (InvalidAlgorithmParameterException e) {
+            e.printStackTrace();
+        } catch (IllegalBlockSizeException e) {
+            e.printStackTrace();
+        } catch (BadPaddingException e) {
+            e.printStackTrace();
+        }
+        
+        if (decryptedPassword != null && decryptedPassword.equals(password)) {
+            // Login successful, create a session for the user
+            HttpSession session = request.getSession();
+            session.setAttribute("user", accountBean);
+            // Get the member data for the account
+            MemberDao memberDao = new MemberDao();
+            try {
+				Connection conn = JdbcUtils.getConnection();
+				Member member = memberDao.getMemberData(conn, accountBean.getMemberId());
+				  // Save the member data in the session
+	            session.setAttribute("member", member);
+	            // Redirect the user to a protected page
+	            response.sendRedirect("loginSuccess.jsp");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+    } else {
+            // Login failed, display an error message
+            request.setAttribute("errorMessage", "Invalid username or password");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+    }
+
       
     
   }
