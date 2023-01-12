@@ -1,3 +1,4 @@
+var productStockCount;
 $(function (){
     // 顯示購物車清單
     showCart()
@@ -5,61 +6,87 @@ $(function (){
     // 增加購物車
     $(".add_cart").on("click",function (){
 
+        // 首頁及商行分類的產品id
         let productId = $(this).next().val()
+        // 當首頁及商行分類抓不到id時，代表是產品介紹的購物車點擊的
         if(productId == ""){
             productId = $(".s_product_text .productId").val()
         }
-        // let productId = $(this).next().find(".productId").val()
+
         if(productId == ""){
             alert("商品id是空的，請確認商品id")
             return;
         }
 
-        let productCost = $(this).next().next().val()
-        if(productCost == ""){
-            alert("商品productCost是空的，請確認商品productCost")
-            return;
-        }
-        if(productCost-1 <= 0){
-            alert("商品庫存量不足")
+        // 取得庫存
+        let productStock = $(this).next().next().val()
+        if(productStock == ""){
+            alert("商品productStock是空的，請確認商品productStock")
             return;
         }
 
-        let cost = $(this).prev().children().text()
-        console.log(cost)
-        if(cost == "  "){
-            cost = $(".s_product_text h2 span").text()
+        carts = JSON.parse(localStorage.getItem("cart"))
+        if(carts != null){
+            $.each(carts,function (ind,item){
+                if(item.productId == productId){
+                    console.log(item.productStock)
+                    // 當庫存== 0時，提示庫存量不足，不能加入購物車
+                    if((productStock-item.quantity) == 0){
+                        alert("商品庫存量不足")
+                        productStockCount = "庫存不足"
+                        return;
+                    }
+                }
+            })
+        }else{
+            if(productStock == 0){
+                alert("商品庫存量不足")
+                productStockCount = "庫存不足"
+                return;
+            }
         }
 
-        if(cost == "  "){
-            alert("商品cost是空的，請確認商品cost")
-            return;
+        // 庫存量不足時禁止加入購物車
+        if(productStockCount != "庫存不足"){
+            let cost = $(this).prev().children().text()
+            console.log(cost)
+            if(cost == "  "){
+                cost = $(".s_product_text h2 span").text()
+            }
+
+            if(cost == "  "){
+                alert("商品cost是空的，請確認商品cost")
+                return;
+            }
+
+            let name = $(this).prev().prev().text()
+            if(name == ""){
+                name = $(".s_product_text h3").text()
+            }
+
+            if(name == ""){
+                alert("商品name是空的，請確認商品name")
+                return;
+            }
+
+            let imgUrl = $(this).parents(".single_product_item").children("img").prop("src")
+            if(imgUrl == undefined){
+                imgUrl = $(".product_slider_img img").prop("src")
+            }
+
+            if(imgUrl == undefined){
+                alert("商品imgUrl是空的，請確認商品imgUrl")
+                return;
+            }
+
+            let quantity = $(".s_product_text .input-number").val()
+            console.log(quantity)
+            // let accountId = "";
+            addCart(productId,cost,name,imgUrl,quantity,productStock)
         }
 
-        let name = $(this).prev().prev().text()
-        if(name == ""){
-            name = $(".s_product_text h3").text()
-        }
 
-        if(name == ""){
-            alert("商品name是空的，請確認商品name")
-            return;
-        }
 
-        let imgUrl = $(this).parents(".single_product_item").children("img").prop("src")
-        if(imgUrl == undefined){
-            imgUrl = $(".product_slider_img img").prop("src")
-        }
-
-        if(imgUrl == undefined){
-            alert("商品imgUrl是空的，請確認商品imgUrl")
-            return;
-        }
-
-        let quantity = $(".s_product_text .input-number").val()
-        console.log(quantity)
-        // let accountId = "";
-        addCart(productId,cost,name,imgUrl,quantity)
     })
 
     //  購物車刪除鈕提示
@@ -102,7 +129,7 @@ $(function (){
     })
 })
 
-function  addCart(productId,cost,name,imgUrl,quantity){
+function  addCart(productId,cost,name,imgUrl,quantity,productStock){
     // 去掉$符號
     // cost = cost.substring(1)
     let type = false
@@ -119,6 +146,7 @@ function  addCart(productId,cost,name,imgUrl,quantity){
         cost:parseInt(cost),
         quantity:parseInt(quantity),
         imgUrl:imgUrl,
+        productStock:productStock
     }
 
     let carts = JSON.parse(localStorage.getItem("cart"))
