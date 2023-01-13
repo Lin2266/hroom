@@ -102,33 +102,13 @@ hr.style-four {
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
           <p>
-            &emsp;&emsp;Beryl Cook is one of Britain’s most talented and amusing artists
-            .Beryl’s pictures feature women of all shapes and sizes enjoying
-            themselves .Born between the two world wars, Beryl Cook eventually
-            left Kendrick School in Reading at the age of 15, where she went
-            to secretarial school and then into an insurance office. After
-            moving to London and then Hampton, she eventually married her next
-            door neighbour from Reading, John Cook. He was an officer in the
-            Merchant Navy and after he left the sea in 1956, they bought a pub
-            for a year before John took a job in Southern Rhodesia with a
-            motor company. Beryl bought their young son a box of watercolours,
-            and when showing him how to use it, she decided that she herself
-            quite enjoyed painting. John subsequently bought her a child’s
-            painting set for her birthday and it was with this that she
-            produced her first significant work, a half-length portrait of a
-            dark-skinned lady with a vacant expression and large drooping
-            breasts. It was aptly named ‘Hangover’ by Beryl’s husband and
-          </p>
+            &emsp;&emsp;一張好的彈簧床是由優質材料製成的支撐又舒適的床墊，同時具備一組堅固的框架和一組強大的線圈系統，
+            提供良好的支撐和運動隔離。床墊層透氣度為世界級，鋪上一層冷卻層，以幫助調節體溫。 此商品不含床罩組，建議瀏覽本商場商品一同加購。
+          </p><br>
           <p>
-            &emsp;&emsp;It is often frustrating to attempt to plan meals that are designed
-            for one. Despite this fact, we are seeing more and more recipe
-            books and Internet websites that are dedicated to the act of
-            cooking for one. Divorce and the death of spouses or grown
-            children leaving for college are all reasons that someone
-            accustomed to cooking for more than one would suddenly need to
-            learn how to adjust all the cooking practices utilized before into
-            a streamlined plan of cooking that is more efficient for one
-            person creating less
+            &emsp;&emsp;城堡風格是十分豪華的，享受奢華和富裕的榮耀。 材料使用天鵝絨和絲綢等豐富的面料凸顯獨特品味。 華麗的家具，如雕刻的椅子和桌子，一進門即感受到富麗堂皇的氛圍。 牆壁上應懸掛大型掛毯和繪畫，以增添歷史感和宏偉感。 
+            設計枝形吊燈和其他照明設備營造溫馨宜人的氣息。 地板鋪上高級的地毯和地毯，以增加舒適和溫暖的感覺。溫馨家庭設計以舒適和溫暖為主。 從暖色調的中性調色板開始，例如米色、灰褐色和奶油色。 使用木材、石材和羊毛等天然材料添加紋理。 
+            搭配舒適的家具，例如豪華沙發、扶手椅和腳凳。 懸掛家庭照片和旅遊照片以個性化空間。 添加一些裝飾物，例如彩色地毯、抱枕和一些植物，為房間增添生機。 結合頭頂照明、任務照明和重點照明，在照明上分層，營造溫馨誘人的氛圍。
           </p>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
